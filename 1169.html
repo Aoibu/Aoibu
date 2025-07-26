@@ -1,22 +1,280 @@
-<!-- النافذة المنبثقة -->
-<div id="popupModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7);">
-  <div style="background-color: #1a1a1a; margin: 10% auto; padding: 20px; border: 1px solid #333; width: 90%; max-width: 400px; border-radius: 6px;">
-    
-    <!-- زر إغلاق -->
-    <span onclick="document.getElementById('popupModal').style.display='none'" 
-      style="color: #aaa; float: left; font-size: 24px; cursor: pointer;">×</span>
+‏<!DOCTYPE html>
+‏<html lang="ar" dir="rtl">
+‏<head>
+‏  <meta charset="UTF-8" />
+‏  <title>الحلقة 1169 - Aoibu</title>
+‏  <style>
+‏    body {
+‏      background-color: #111;
+‏      color: #fff;
+‏      font-family: 'Tahoma', sans-serif;
+‏      margin: 0;
+    }
 
-    <!-- عنوان -->
-    <h3 style="color: #00bcd4; text-align: center;">اشترك ليصلك إشعار عند صدور الحلقة</h3>
-    
-    <!-- نموذج الاشتراك -->
-    <form action="https://getform.io/f/bllzrplb" method="POST">
-      <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" required
-        style="width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; border-radius: 4px; border: none; background: #222; color: #fff;">
-      <button type="submit"
-        style="width: 100%; padding: 10px; background-color: #00bcd4; color: #111; border: none; font-size: 16px; border-radius: 4px; cursor: pointer;">
-        اشترك الآن
-      </button>
-    </form>
-  </div>
-</div>
+‏    .banner {
+‏      background-color: #1a1a1a;
+‏      padding: 15px 20px;
+‏      text-align: center;
+‏      font-size: 18px;
+‏      font-weight: bold;
+‏      border-bottom: 1px solid #333;
+    }
+
+‏    .social-icons {
+‏      margin-top: 8px;
+    }
+
+‏    .social-icons a {
+‏      margin: 0 10px;
+‏      color: #00bcd4;
+‏      text-decoration: none;
+‏      font-size: 18px;
+    }
+
+‏    .container {
+‏      display: flex;
+‏      flex-direction: column; /* عرض عمودي */
+‏      padding: 20px;
+    }
+
+‏    .info-section {
+‏      background: #1a1a1a;
+‏      padding: 20px;
+‏      margin-bottom: 20px;
+‏      border: 1px solid #333;
+‏      border-radius: 5px;
+    }
+
+‏    .poster {
+‏      width: 100%;
+‏      max-width: 300px;
+‏      display: block;
+‏      margin: 0 auto 15px auto;
+    }
+
+‏    .title {
+‏      font-size: 20px;
+‏      font-weight: bold;
+‏      margin-bottom: 5px;
+‏      text-align: center;
+    }
+
+‏    .subtitle {
+‏      color: #aaa;
+‏      font-size: 14px;
+‏      margin-bottom: 15px;
+‏      text-align: center;
+    }
+
+‏    .download-table {
+‏      width: 100%;
+‏      margin-top: 10px;
+‏      border-collapse: collapse;
+    }
+
+‏    .download-table th, .download-table td {
+‏      border: 1px solid #333;
+‏      padding: 8px;
+‏      text-align: center;
+‏      font-size: 14px;
+    }
+
+‏    .download-table th {
+‏      background: #222;
+    }
+
+‏    .content {
+‏      background: #121212;
+‏      padding: 20px;
+‏      border-radius: 5px;
+    }
+
+‏    .video-player iframe {
+‏      width: 100%;
+‏      height: 400px;
+‏      border: none;
+    }
+
+‏    .server-buttons {
+‏      margin-top: 15px;
+‏      text-align: center;
+    }
+
+‏    .server-buttons button {
+‏      background-color: #222;
+‏      color: #00bcd4;
+‏      border: 1px solid #333;
+‏      padding: 8px 16px;
+‏      margin: 5px;
+‏      cursor: pointer;
+‏      font-size: 14px;
+‏      border-radius: 4px;
+    }
+
+‏    .server-buttons button:hover {
+‏      background-color: #00bcd4;
+‏      color: #111;
+    }
+
+‏    .subtitles-section {
+‏      margin-top: 25px;
+‏      background: #1a1a1a;
+‏      padding: 15px;
+‏      border: 1px solid #333;
+‏      border-radius: 5px;
+    }
+
+‏    .subtitles-section h3 {
+‏      margin-top: 0;
+‏      color: #00bcd4;
+    }
+
+‏    .subtitles-section a {
+‏      display: block;
+‏      margin: 5px 0;
+‏      color: #ccc;
+‏      text-decoration: none;
+    }
+
+‏    .subtitles-section a:hover {
+‏      color: #fff;
+    }
+
+‏    a {
+‏      color: #00bcd4;
+‏      text-decoration: none;
+    }
+
+‏    a:hover {
+‏      text-decoration: underline;
+    }
+‏  </style>
+‏</head>
+
+‏<body>
+
+‏‎  <!-- زر الرجوع -->
+‏  <div style="background: #111; padding: 10px 20px; border-bottom: 1px solid #333;">
+‏    <a href="index.html" style="color: #00bcd4; font-size: 16px; text-decoration: none;">
+‏‎      ← العودة إلى قائمة الحلقات
+‏    </a>
+‏  </div>
+
+‏  <!-- Banner -->
+‏  <div class="banner">
+‏‎    فريق ترجمة أويبو - Aoibu Team
+‏    <div class="social-icons">
+‏      <a href="https://t.me/Aoibu_Arabic" target="_blank">تيليجرام</a>
+‏      <a href="https://x.com/Aoibu_Arabic" target="_blank">X</a>
+‏    </div>
+‏  </div>
+
+‏  <!-- Container -->
+‏  <div class="container">
+
+‏    <!-- Info Section -->
+‏    <div class="info-section">
+‏      <img class="poster" src="https://k.top4top.io/p_3493zsyov2.jpeg" alt="بوستر">
+‏      <div class="title">المحقق كونان</div>
+‏      <div class="subtitle">مشاهدة الحلقة 1169</div>
+
+‏      <table class="download-table">
+‏        <tr>
+‏          <th>السيرفر</th>
+‏          <th>الجودة</th>
+‏          <th>تحميل</th>
+‏        </tr>
+‏        <tr>
+‏          <td>Mega</td>
+‏          <td>1080p</td>
+‏          <td>
+‏            <a href="https://mega.nz/file/mAdx3LQJ#tofzNgwHfiIqikJm4t0fDIOQe7XfwQYhLj4-ztDkjMI" target="_blank">Download</a>
+‏          </td>
+‏        </tr>
+‏        <tr>
+‏          <td>Gofile</td>
+‏          <td>1080p</td>
+‏          <td>
+‏            <a href="https://mxdrop.to/e/ownz7xxgtq4o8v" target="_blank">Download</a>
+‏          </td>
+‏        </tr>
+‏      </table>
+‏    </div>
+
+‏‎      <!-- سيرفرات المشاهدة -->
+‏      <div class="server-buttons">
+‏        <button onclick="changeServer('https://mxdrop.to/e/ownz7xxgtq4o8v')">سيرفر 1</button>
+‏        <button onclick="changeServer('https://mivalyo.com/embed/p572rv2ve35u')">سيرفر 1</button>
+‏      </div>
+
+‏‎      <!-- ملفات الترجمة -->
+‏      <div class="subtitles-section">
+‏        <h3>ملفات الترجمة والروابط (SoftSub)</h3>
+‏        <a href="https://mega.nz/file/vU1VkaQb#PLGFfCsgVpfduruHuWZfdOhjbdpe2Pk2eKlhyfQYqco" target="_blank">🟣 تحميل الخام</a>
+‏        <a href="https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10138896" target="_blank">🔤 ملف الترجمة (Subsource)</a>
+‏      </div>
+
+<!-- لمحة عن الحلقة -->
+‏<div class="episode-summary" style="margin-top: 25px; background: #1a1a1a; padding: 15px; border: 1px solid #333; border-radius: 5px;">
+‏  <h3 style="color: #00bcd4;">لمحة عن الحلقة</h3>
+‏  <p style="color: #ccc; font-size: 15px; line-height: 1.8;">
+[لغز الفصل الآكل للبشر (الجزء الأول)]
+‏شائعة“لعنة الفصل الآكل للبشر” تنتشر في مدرسة تيتان الابتدائية. وفي يوم زيارة أولياء الأمور، بدأت أحواض الزهور تشتعل كما تقول الشائعة!‏وقبل أن يُتخذ قرار بإلغاء الزيارة بسبب هذا الحريق الغامض، هل سيتمكنون من كشف الحقيقة وراء هذه اللعنة؟
+‏  </p>
+‏</div>
+‏    </div>
+
+<!-- قسم التقييم -->
+‏<div style="background:#1a1a1a; border-top: 1px solid #333; padding: 20px; text-align: center;">
+‏  <h3 style="color:#00bcd4;">قيّم الحلقة</h3>
+‏  <div id="rating-stars" style="font-size: 30px; direction: rtl;">
+‏    <span onclick="rate(1)">★</span>
+‏    <span onclick="rate(2)">★</span>
+‏    <span onclick="rate(3)">★</span>
+‏    <span onclick="rate(4)">★</span>
+‏    <span onclick="rate(5)">★</span>
+‏  </div>
+‏  <p id="rating-result" style="margin-top: 10px; color: #ccc;">لم يتم التقييم بعد</p>
+‏</div>
+
+<!-- سكربت التقييم -->
+‏<script>
+‏  let selectedRating = 0;
+‏  function rate(stars) {
+‏    selectedRating = stars;
+‏    const starsContainer = document.getElementById("rating-stars").children;
+‏    for (let i = 0; i < starsContainer.length; i++) {
+‏      starsContainer[i].style.color = (i < stars) ? "#ffc107" : "#444";
+    }
+‏    document.getElementById("rating-result").innerText = `شكراً! تم تقييم الحلقة بـ ${stars} نجوم`;
+  }
+‏</script>
+
+‏  </div>
+
+‏<div id="cusdis_thread"
+‏  data-host="https://cusdis.com"
+‏  data-app-id="0ce15e1e-dbfb-47e8-9870-46dc68a5c598"
+‏  data-page-id="episode-1169"
+‏  data-page-url="aoibu.github.in/Aoibu/1169.html"
+‏  data-page-title="الحلقة 1169"
+‏  data-theme="dark"
+‏  data-lang="ar"
+‏></div>
+
+‏<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+‏  <!-- Footer -->
+‏  <footer style="background: #1a1a1a; border-top: 1px solid #333; padding: 15px 20px; text-align: center; font-size: 14px; color: #aaa;">
+‏‎    جميع الحقوق محفوظة © لموقع Aoibu<br>
+‏‎    تابعونا على:
+‏    <a href="https://t.me/Aoibu_Arabic" target="_blank" style="color: #00bcd4; margin: 0 8px;">تيليجرام</a> |
+‏    <a href="https://x.com/Aoibu_Arabic" target="_blank" style="color: #00bcd4; margin: 0 8px;">تويتر</a>
+‏  </footer>
+‏</body>
+‏  <script>
+‏  function changeServer(url) {
+‏    document.getElementById('videoFrame').src = url;
+  }
+‏</script>
+‏</html>
