@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>كونان 1150 - قراءة وتحميل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #111;
+      --text: #eee;
+      --btn-bg: #222;
+      --btn-text: #eee;
+      --accent: #00bcd4;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Almarai', sans-serif;
+      transition: 0.3s;
+    }
+    header {
+      background: #222;
+      padding: 15px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+    }
+    button, a.button {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+    button:hover, a.button:hover {
+      background: #444;
+    }
+    #like-btn.liked {
+      background: green;
+    }
+    iframe.viewer {
+      width: 100%;
+      height: 80vh;
+      border: none;
+    }
+    .download-table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+      background: #1a1a1a;
+    }
+    .download-table th, .download-table td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: center;
+    }
+    .download-table th {
+      background: #222;
+      color: var(--accent);
+    }
+    .support-section {
+      background: #1a1a1a;
+      color: #eee;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px 10px;
+      border: 1px solid #333;
+    }
+    .support-section h2 {
+      color: var(--accent);
+    }
+    .support-section input, .support-section textarea {
+      width: 100%;
+      padding: 10px;
+      background: #111;
+      border: 1px solid #444;
+      border-radius: 5px;
+      color: #fff;
+      margin-top: 5px;
+    }
+    .support-section button {
+      background-color: var(--accent);
+      color: #111;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📖 المحقق كونان - الفصل 1150</h1>
+  </header>
+
+  <nav>
+    <a href="index.html" class="button">🏠 العودة</a>
+    <a href="chapter-1148.html" class="button">⬅️ الفصل السابق</a>
+    <a href="chapter-1150.html" class="button">الفصل التالي ➡️</a>
+    <button onclick="toggleMode()">🌓 الوضع</button>
+    <button id="like-btn">👍 أعجبني</button>
+  </nav>
+
+  <!-- مشغل الفصل (صور) -->
+  <iframe src="https://cubari.moe/read/imgur/eSsHnsO/1/1/" allowfullscreen class="viewer"></iframe>
+
+  <!-- روابط التحميل -->
+  <table class="download-table">
+    <tr>
+      <th>السيرفر</th>
+      <th>الصيغة</th>
+      <th>تحميل</th>
+    </tr>
+    <tr>
+      <td>Gofile</td>
+      <td>PDF</td>
+      <td><a class="button" href="https://gofile.io/d/VB8wZP" target="_blank">Download</a></td>
+    </tr>
+    <tr>
+      <td>Mediafire</td>
+      <td>PDF</td>
+      <td><a class="button" href="https://www.mediafire.com/file/ml9kjfgdvxjsz4k/[Aoibu]+Dc+Capter+1150.pdf/file" target="_blank">Download</a></td>
+    </tr>
+    <tr>
+      <td>GDrive</td>
+      <td>PDF</td>
+      <td><a class="button" href="https://drive.google.com/file/d/1y-xavMyYwKfS9juc9YVzvkn5Tm6VVkaT/view?usp=drivesdk" target="_blank">Download</a></td>
+    </tr>
+  </table>
+
+  <!-- قسم الدعم -->
+<div class="support-section" style="background:#1a1a1a; padding:20px; border-radius:6px; margin:30px 10px; border:1px solid #333; text-align:center;">
+  <h3 style="color:#00bcd4; margin-bottom:10px;">🎁 دعم الفريق</h3>
+  <p style="margin-bottom:15px;">حاب تدعمنا؟ أرسل لنا كود بطاقة مثل آيتونز أو جوجل بلاي 🙏</p>
+
+  <form action="https://formspree.io/f/xanborve" method="POST" style="max-width:400px; margin:auto;">
+    <input type="text" name="email" placeholder="نوع البطاقة (مثلاً: Google Play)" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#eee; border:1px solid #444; border-radius:4px;">
+    <textarea name="message" rows="3" placeholder="أدخل الكود هنا..." style="width:100%; padding:10px; background:#111; color:#eee; border:1px solid #444; border-radius:4px;"></textarea><br><br>
+    <button type="submit" style="background:#00bcd4; color:#111; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;">إرسال</button>
+  </form>
+</div>
+
+  <footer>
+    &copy; فريق اويبو - جميع الحقوق محفوظة
+  </footer>
+
+  <script>
+    let darkMode = true;
+    function toggleMode() {
+      darkMode = !darkMode;
+      document.documentElement.style.setProperty('--bg', darkMode ? '#111' : '#fff');
+      document.documentElement.style.setProperty('--text', darkMode ? '#eee' : '#111');
+      document.documentElement.style.setProperty('--btn-bg', darkMode ? '#222' : '#ddd');
+      document.documentElement.style.setProperty('--btn-text', darkMode ? '#eee' : '#000');
+    }
+
+    document.getElementById("like-btn").addEventListener("click", function () {
+      this.classList.toggle("liked");
+      this.textContent = this.classList.contains("liked") ? "✅ تم الإعجاب" : "👍 أعجبني";
+    });
+  </script>
+
+</body>
+</html>
