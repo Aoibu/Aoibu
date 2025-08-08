@@ -1,181 +1,142 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>مكتبة المحقق كونان - Aoibu</title>
-<meta name="msvalidate.01" content="679D2AAE205E0C9E722BFE970F1B77AC" />
-  <meta name="google-site-verification" content="ZUamptKVXgm2qj1N0GHwjqu5PEtE1Jr0XM12HlFP2cc" />
-<meta name="description" content="مشاهدة وتحميل حلقات المحقق كونان مترجمة بجودة عالية، مع روابط تحميل مباشرة وسيرفرات مشاهدة بدون إعلانات - من فريق Aoibu." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
+      margin: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'El Messiri', sans-serif;
+      color: #f1f1f1;
+    }
+
+    header {
       background-color: #111;
-      color: #fff;
-      font-family: 'Tahoma', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .header {
-      background-color: #1a1a1a;
-      text-align: center;
       padding: 20px;
-      border-bottom: 1px solid #333;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: #00e0ff;
+      border-bottom: 3px solid #00bcd4;
     }
 
-    .header h1 {
-      margin: 0;
-      font-size: 26px;
-    }
-
-    .section {
-      max-width: 800px;
+    .container {
+      max-width: 900px;
       margin: auto;
       padding: 20px;
     }
 
     .section-title {
-      font-size: 22px;
-      color: #00bcd4;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 5px;
+      font-size: 24px;
+      margin: 40px 0 20px;
+      border-right: 5px solid #00bcd4;
+      padding-right: 10px;
     }
 
-    .episode-link {
-      display: block;
-      background-color: #1a1a1a;
-      margin: 10px 0;
-      padding: 12px 16px;
+    .episodes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 15px;
+    }
+
+    .episode-card {
+      background-color: #1e1e1e;
+      padding: 15px;
+      border-radius: 8px;
       border: 1px solid #333;
-      border-radius: 5px;
-      color: #00bcd4;
+      transition: transform 0.3s, background-color 0.3s;
       text-decoration: none;
-      font-size: 16px;
-      transition: background 0.3s;
+      color: #00e0ff;
+      font-weight: 600;
+      position: relative;
     }
 
-    .episode-link:hover {
+    .episode-card:hover {
       background-color: #00bcd4;
       color: #111;
+      transform: translateY(-5px);
     }
 
-    .footer {
-      margin-top: 30px;
+    .new-badge {
+      background-color: orange;
+      color: #111;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-weight: bold;
+    }
+
+    footer {
       text-align: center;
-      color: #777;
+      color: #ccc;
       font-size: 14px;
+      padding: 30px 10px;
+    }
+
+    @media (max-width: 600px) {
+      .section-title {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="banner">
-  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-    
-    <!-- اسم الفريق -->
-    <div style="font-weight: bold; font-size: 18px;">
-      فريق ترجمة أويبو - Aoibu Team
-    </div>
+<header>
+  مكتبة المحقق كونان - Aoibu
+</header>
 
-    <!-- زر اقتراح أنمي -->
-    <div>
-      <a href="suggest.html" class="suggest-button">💡 اقتراح أنمي</a>
-    </div>
+<div class="container">
+
+  <div class="section-title">📺 الحلقات</div>
+  <div class="episodes">
+    <a href="132.html" class="episode-card">132 - قضية قتل عاشق السحر - جزء الأحداث</a>
+    <a href="133.html" class="episode-card">133 - قضية قتل عاشق السحر - جزء الإستنتاج</a>
+    <a href="134.html" class="episode-card">134 - قضية قتل عاشق السحر - جزء الحل</a>
+    <a href="156.html" class="episode-card">156 - قصة حب ضابط شرطة العاصمة 2 - الجزء الأول</a>
+    <a href="157.html" class="episode-card">157 - قصة حب ضابط شرطة العاصمة 2 - الجزء الثاني</a>
+    <a href="304.html" class="episode-card">304 - مقر شرطة العاصمة المضطرب: 12 مليون رهينة</a>
+    <a href="1160.html" class="episode-card">1160 - عندما يصدر صوت الخيزران</a>
+    <a href="1163.html" class="episode-card">1163 - أغنية العد المسموعة في الظلام</a>
+    <a href="1164.html" class="episode-card">1164 - حقيقة مضى عليها 17 عامًا - الفارس الملطخ بالدماء</a>
+    <a href="1165.html" class="episode-card">1165 - حقيقة مضى عليها 17 عامًا - شيطان البصيرة الثاقبة</a>
+    <a href="1166.html" class="episode-card">1166 - حقيقة مضى عليها 17 عامًا - فيل البصيرة البعيدة</a>
+    <a href="1167.html" class="episode-card">1167 - حقيقة مضى عليها 17 عامًا - مؤامرة الملكة</a>
+    <a href="1168.html" class="episode-card">1168 - مذكرة صيد الإنقليس لغينتا</a>
+    <a href="1169.html" class="episode-card">1169 - لغز الفصل الآكل للبشر(الجزء الأول)</a>
+    <a href="1170.html" class="episode-card">1170 - لغز الفصل الآكل للبشر(الجزء الثاني)</a>
   </div>
 
-  <!-- روابط التواصل -->
-  <div class="social-icons">
-    <a href="https://t.me/Aoibu_Arabic" target="_blank">تيليجرام</a>
-    <a href="https://x.com/Aoibu_Arabic" target="_blank">X</a>
-  </div>
-</div>
-
-<!-- تنسيق الزر -->
-<style>
-  .suggest-button {
-    display: inline-block;
-    background-color: #00bcd4;
-    color: #111;
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s ease;
-    border: none;
-  }
-
-  .suggest-button:hover {
-    background-color: #0097a7;
-    color: #fff;
-  }
-</style>
-
-‎  <!-- قسم الحلقات -->
-  <div class="section">
-    <div class="section-title">📺 الحلقات</div>
-    <a href="132.html" class="episode-link">132 - قضية قتل عاشق السحر - جزء الأحداث</a>
-    <a href="133.html" class="episode-link">133 - قضية قتل عاشق السحر - جزء الإستنتاج</a>
-    <a href="134.html" class="episode-link">134 - قضية قتل عاشق السحر - جزء الحل</a>
-    <a href="156.html" class="episode-link">156 - قصة حب ضابط شرطة العاصمة 2 - الجزء الأول</a>
-    <a href="157.html" class="episode-link">157 - قصة حب ضابط شرطة العاصمة 2 - الجزء الثاني</a>
-    <a href="304.html" class="episode-link">304 - مقر شرطة العاصمة المضطرب: 12 مليون رهينة</a>
-    <a href="1160.html" class="episode-link">1160 - عندما يصدر صوت الخيزران</a>
-    <a href="1163.html" class="episode-link">1163 - أغنية العد المسموعة في الظلام</a>
-    <a href="1164.html" class="episode-link">1164 - حقيقة مضى عليها 17 عامًا - الفارس الملطخ بالدماء</a>
-    <a href="1165.html" class="episode-link">1165 - حقيقة مضى عليها 17 عامًا - شيطان البصيرة الثاقبة</a>
-    <a href="1166.html" class="episode-link">1166 - حقيقة مضى عليها 17 عامًا - فيل البصيرة البعيدة</a>
-    <a href="1167.html" class="episode-link">1167 - حقيقة مضى عليها 17 عامًا - مؤامرة الملكة</a>
-    <a href="1168.html" class="episode-link">1168 - مذكرة صيد الإنقليس لغينتا</a>
-    <a href="1169.html" class="episode-link">1169 - لغز الفصل الآكل للبشر(الجزء الأول)</a>
-    <a href="1170.html" class="episode-link">1170 - لغز الفصل الآكل للبشر(الجزء الثاني)</a>
+  <div class="section-title">🎬 الأفلام</div>
+  <div class="episodes">
+    <a href="M27.html" class="episode-card">M27 - فيلم لافتة المليون دولار</a>
   </div>
 
-‎  <!-- قسم الأفلام -->
-  <div class="section">
-    <div class="section-title">🎬 الأفلام</div>
-    <a href="M27.html" class="episode-link">M27 - فيلم لافتة المليون دولار</a>
-  </div>
-  
-‎  <!-- قسم المانجا -->
-  <div class="section">
-    <div class="section-title">📚 المانجا</div>
-    <a href="MSPI1.html" class="episode-link">فصل عشاء كيانتي الأخير</a>
+  <div class="section-title">📚 المانجا</div>
+  <div class="episodes">
+    <a href="MSPI1.html" class="episode-card">فصل عشاء كيانتي الأخير
       <span class="new-badge">حصري</span>
-    <a href="M1144.html" class="episode-link">الفصل 1144</a>
-    <a href="M1145.html" class="episode-link">الفصل 1145</a>
-    <a href="M1146.html" class="episode-link">الفصل 1146</a>
-    <a href="M1147.html" class="episode-link">الفصل 1147</a>
-    <a href="M1148.html" class="episode-link">الفصل 1148</a>
-    <a href="M1149.html" class="episode-link">الفصل 1149</a>
-    <a href="M1150.html" class="episode-link">الفصل 1150</a>
+      </a>
+    <a href="M1144.html" class="episode-card">الفصل 1144</a>
+    <a href="M1145.html" class="episode-card">الفصل 1145</a>
+    <a href="M1146.html" class="episode-card">الفصل 1146</a>
+    <a href="M1147.html" class="episode-card">الفصل 1147</a>
+    <a href="M1148.html" class="episode-card">الفصل 1148</a>
+    <a href="M1149.html" class="episode-card">الفصل 1149</a>
+    <a href="M1150.html" class="episode-card">الفصل 1150</a>
   </div>
-  
-‎  <!-- قسم الأكثر مُشاهدة -->
-  <div class="section">
-    <div class="section-title">📉 الأكثر مُشاهدة</div>
-    <a href="132.html" class="episode-link">132 - عدد المشاهدات 24</a>
-    <a href="1168.html" class="episode-link">1168 - عدد المشاهدات 18</a>
-    <a href="M27.html" class="episode-link">M27 - عدد المشاهدات 11</a>
-  </div>
-<div class="support-section" style="background: #1a1a1a; color: #eee; padding: 20px; border-radius: 8px; margin-top: 30px; border: 1px solid #333;">
-  <h2 style="color: #00bcd4;">🎁 إدعم فريق اويبو عبر بطاقات الهدايا</h2>
-  <p>إذا تحب تدعمنا، نرحب بدعمكم عبر بطاقات أيتونز أو جوجل بلاي او أي شيء أخر. أرسل لنا الكود عبر النموذج أدناه ❤️</p>
 
-  <form action="https://formspree.io/f/xanborve" method="POST">
-    <label for="email">نوع الدعم:</label><br>
-    <input type="email" name="email" id="email" placeholder="أيتونز، جوجل بلاي،إلخ…" style="width: 100%; padding: 10px; background: #111; border: 1px solid #444; border-radius: 5px; color: #fff; margin-top: 5px;"><br><br>
-
-    <label for="message">كود البطاقة:</label><br>
-    <textarea name="message" id="message" rows="4" placeholder="مثال: XXXX-XXXX-XXXX..." style="width: 100%; padding: 10px; background: #111; border: 1px solid #444; border-radius: 5px; color: #fff; margin-top: 5px;"></textarea><br><br>
-
-    <button type="submit" style="background-color: #00bcd4; color: #111; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">إرسال</button>
-  </form>
 </div>
-  
-  <div class="footer">
-    &copy; 2025 Aoibu Team | جميع الحقوق محفوظة
-  </div>
+
+<footer>
+  &copy; 2025 Aoibu Team | جميع الحقوق محفوظة
+</footer>
 
 </body>
 </html>
