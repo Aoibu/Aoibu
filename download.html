@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تنزيل التطبيق — Aoibu</title>
+  <meta name="description" content="صفحة تنزيل تطبيق Aoibu — Conan. احصل على أحدث ملف APK للأندرويد." />
+  <style>
+    :root{
+      --bg: #ffffff;
+      --card: #f7f8fb;
+      --accent: #1e88e5;
+      --accent-contrast: #fff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --radius: 12px;
+      --maxw: 920px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      padding:24px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{max-width:var(--maxw);width:100%}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 6px 28px rgba(16,24,40,0.06);
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    .left{width:120px;flex-shrink:0;text-align:center}
+    .app-icon{
+      width:96px;
+      height:96px;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(30,136,229,0.08);
+    }
+    .app-icon img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .meta{flex:1}
+    h1{margin:0 0 6px 0;font-size:20px}
+    .subtitle{color:var(--muted); font-size:13px; margin-bottom:12px}
+    .info{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .info .pill{
+      font-size:13px;
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid #eef2f6;
+    }
+    .download-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:10px;
+      background:var(--accent);
+      color:var(--accent-contrast);
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 8px 30px rgba(30,136,229,0.12);
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(30,136,229,0.12);
+      box-shadow:none;
+    }
+    .small{font-size:13px;color:var(--muted)}
+    .desc{margin-top:18px;line-height:1.6;color:#24303a}
+    .safe-note{
+      margin-top:14px;
+      padding:12px;
+      background:#f8fafc;
+      border-radius:10px;
+      border:1px solid #eef6ff;
+      color:#25435b;
+      font-size:13px;
+    }
+    footer{margin-top:18px;font-size:13px;color:var(--muted)}
+    @media (max-width:640px){
+      .card{flex-direction:column;align-items:stretch}
+      .left{width:100%;display:flex;justify-content:center}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="card">
+      <div class="left">
+        <div class="app-icon">
+          <img src="https://c.top4top.io/p_3511ixksj1.jpeg" alt="Aoibu icon">
+        </div>
+      </div>
+
+      <div class="meta">
+        <h1>Aoibu — Conan</h1>
+        <div class="subtitle">تطبيق أندرويد — تحميل ملف APK مباشر</div>
+
+        <div class="info">
+          <div class="pill">الإصدار: <strong style="color:var(--text)">1.0.0</strong></div>
+          <div class="pill">الحجم: <strong style="color:var(--text)">26 MB</strong></div>
+          <div class="pill">التوافق: Android 5.0+</div>
+        </div>
+
+          <a class="btn secondary" href="#" id="directLink">فتح صفحة التنزيل</a>
+          <div class="small" id="status">جاهز للتنزيل</div>
+        </div>
+
+        <p class="desc">
+          بعد الضغط على "تنزيل الآن" سيتم توجيهك إلى صفحة التحميل. قم بتحميل ملف الـ APK وتثبيته يدوياً، وتأكد من تفعيل التثبيت من مصادر غير معروفة.
+        </p>
+
+        <div class="safe-note">
+          ⚠️ نحنُ غير مسؤولين عن الإعلانات داخل الرابط 
+        </div>
+
+        <footer>
+          <a href="privacy-policy.html" style="color:var(--accent);text-decoration:underline">سياسة الخصوصية</a>
+          — آخر تحديث: <time datetime="2025-08-12">12 أغسطس 2025</time>
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      const apkPage = "https://spoo.me/Aoibu_App7";
+      document.getElementById('directLink').addEventListener('click', function(e){
+        e.preventDefault();
+        window.open(apkPage, '_blank', 'noopener');
+      });
+      document.getElementById('downloadBtn').addEventListener('click', function(){
+        document.getElementById('status').textContent = "جارٍ التحويل...";
+      });
+    })();
+  </script>
+</body>
+</html>
