@@ -11,11 +11,9 @@
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       font-family: 'El Messiri', sans-serif;
       color: #f1f1f1;
-
-      /* تصغير الموقع إلى 75% */
       transform: scale(0.75);
       transform-origin: top right;
-      width: 133.33%; /* 100 / 0.75 */
+      width: 133.33%;
       height: 133.33%;
     }
 
@@ -57,7 +55,9 @@
       text-decoration: none;
       color: #00e0ff;
       font-weight: 600;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .episode-card:hover {
@@ -66,54 +66,37 @@
       transform: translateY(-5px);
     }
 
-    .new-badge {
-      background-color: orange;
-      color: #111;
+    .badges {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .badges span {
       font-size: 12px;
       padding: 2px 6px;
       border-radius: 4px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
       font-weight: bold;
+    }
+
+    .new-badge {
+      background-color: orange;
+      color: #111;
     }
 
     .badge-Remaster {
       background-color: yellow;
       color: black;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-weight: bold;
     }
 
-    /* شارة الفلر بالأحمر */
     .badge-filler {
       background-color: red;
       color: white;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-weight: bold;
     }
 
-    /* شارة المانجا بالأخضر */
     .badge-manga {
       background-color: green;
       color: white;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-weight: bold;
     }
 
     footer {
@@ -144,62 +127,89 @@
     style="max-width:100%; height:auto; display:block; cursor:pointer; border:0;"
   >
 </a>
+
   <div class="section-title">📺 الحلقات</div>
+
+  <!-- الحلقات القديمة -->
+  <div class="section-title" style="font-size:20px; color:#ffeb3b;">الحلقات القديمة</div>
   <div class="episodes">
-    <a href="132.html" class="episode-card">132 - قضية قتل عاشق السحر - جزء الأحداث
-      <span class="badge-Remaster">مُعاد إنتاجُها</span>
-      </a>
-    <a href="133.html" class="episode-card">133 - قضية قتل عاشق السحر - جزء الإستنتاج
-      <span class="badge-Remaster">مُعاد إنتاجُها</span>
-      </a>
-    <a href="134.html" class="episode-card">134 - قضية قتل عاشق السحر - جزء الحل
-      <span class="badge-Remaster">مُعاد إنتاجُها</span>
-      </a>
-    <a href="153.html" class="episode-card">153 - قصة صيف سونوكو الخطير - الجزء الأول
-      <span class="badge-Remaster">مُعاد إنتاجُها</span>
-      </a>
-        <a href="154.html" class="episode-card">154 - قصة صيف سونوكو الخطير - الجزء الثاني
-      <span class="badge-Remaster">مُعاد إنتاجُها</span>
-      </a>
-    <a href="156.html" class="episode-card">156 - قصة حب ضابط شرطة العاصمة 2 - الجزء الأول
-      <span class="badge-Remaster">مُعاد إنتاجُها</span>
-      </a>
-    <a href="157.html" class="episode-card">157 - قصة حب ضابط شرطة العاصمة 2 - الجزء الثاني 
-      <span class="badge-Remaster">مُعاد إنتاجُها</span>
-      </a>
-    <a href="304.html" class="episode-card">304 - مقر شرطة العاصمة المضطرب: 12 مليون رهينة
-      <span class="badge-Remaster">مُعاد إنتاجُها</span>
-      </a>
-    <a href="1160.html" class="episode-card">1160 - عندما يصدر صوت الخيزران
-      <span class="badge-filler">فلر</span>
-      </a>
-    <a href="1161.html" class="episode-card">1161 - الفلاش باك السري
-      <span class="badge-filler">فلر</span>
-      </a>
-    <a href="1163.html" class="episode-card">1163 - أغنية العد المسموعة في الظلام
-      <span class="badge-filler">فلر</span>
-      </a>
-    <a href="1164.html" class="episode-card">1164 - حقيقة مضى عليها 17 عامًا - الفارس الملطخ بالدماء
-      <span class="badge-manga">مانجا</span>
-      </a>
-    <a href="1165.html" class="episode-card">1165 - حقيقة مضى عليها 17 عامًا - شيطان البصيرة الثاقبة
-      <span class="badge-manga">مانجا</span>
-      </a>
-    <a href="1166.html" class="episode-card">1166 - حقيقة مضى عليها 17 عامًا - فيل البصيرة البعيدة
-      <span class="badge-manga">مانجا</span>
-      </a>
-    <a href="1167.html" class="episode-card">1167 - حقيقة مضى عليها 17 عامًا - مؤامرة الملكة
-      <span class="badge-manga">مانجا</span>
-      </a>
-    <a href="1168.html" class="episode-card">1168 - مذكرة صيد الإنقليس لغينتا
-      <span class="badge-filler">فلر</span>
-      </a>
-    <a href="1169.html" class="episode-card">1169 - لغز الفصل الآكل للبشر - الجزء الأول
-      <span class="badge-manga">مانجا</span>
-      </a>
-    <a href="1170.html" class="episode-card">1170 - لغز الفصل الآكل للبشر -الجزء الثاني
-      <span class="badge-manga">مانجا</span>
-      </a>
+    <a href="132.html" class="episode-card">
+      <div class="badges"><span class="badge-Remaster">مُعاد إنتاجُها</span></div>
+      132 - قضية قتل عاشق السحر - جزء الأحداث
+    </a>
+    <a href="133.html" class="episode-card">
+      <div class="badges"><span class="badge-Remaster">مُعاد إنتاجُها</span></div>
+      133 - قضية قتل عاشق السحر - جزء الإستنتاج
+    </a>
+    <a href="134.html" class="episode-card">
+      <div class="badges"><span class="badge-Remaster">مُعاد إنتاجُها</span></div>
+      134 - قضية قتل عاشق السحر - جزء الحل
+    </a>
+    <a href="153.html" class="episode-card">
+      <div class="badges"><span class="badge-Remaster">مُعاد إنتاجُها</span></div>
+      153 - قصة صيف سونوكو الخطير - الجزء الأول
+    </a>
+    <a href="154.html" class="episode-card">
+      <div class="badges"><span class="badge-Remaster">مُعاد إنتاجُها</span></div>
+      154 - قصة صيف سونوكو الخطير - الجزء الثاني
+    </a>
+    <a href="156.html" class="episode-card">
+      <div class="badges"><span class="badge-Remaster">مُعاد إنتاجُها</span></div>
+      156 - قصة حب ضابط شرطة العاصمة 2 - الجزء الأول
+    </a>
+    <a href="157.html" class="episode-card">
+      <div class="badges"><span class="badge-Remaster">مُعاد إنتاجُها</span></div>
+      157 - قصة حب ضابط شرطة العاصمة 2 - الجزء الثاني
+    </a>
+    <a href="304.html" class="episode-card">
+      <div class="badges"><span class="badge-Remaster">مُعاد إنتاجُها</span></div>
+      304 - مقر شرطة العاصمة المضطرب: 12 مليون رهينة
+    </a>
+  </div>
+
+  <!-- الحلقات الجديدة -->
+  <div class="section-title" style="font-size:20px; color:#4caf50;">الحلقات الجديدة</div>
+  <div class="episodes">
+    <a href="1160.html" class="episode-card">
+      <div class="badges"><span class="badge-filler">فلر</span></div>
+      1160 - عندما يصدر صوت الخيزران
+    </a>
+    <a href="1161.html" class="episode-card">
+      <div class="badges"><span class="badge-filler">فلر</span></div>
+      1161 - الفلاش باك السري
+    </a>
+    <a href="1163.html" class="episode-card">
+      <div class="badges"><span class="badge-filler">فلر</span></div>
+      1163 - أغنية العد المسموعة في الظلام
+    </a>
+    <a href="1164.html" class="episode-card">
+      <div class="badges"><span class="badge-manga">مانجا</span></div>
+      1164 - حقيقة مضى عليها 17 عامًا - الفارس الملطخ بالدماء
+    </a>
+    <a href="1165.html" class="episode-card">
+      <div class="badges"><span class="badge-manga">مانجا</span></div>
+      1165 - حقيقة مضى عليها 17 عامًا - شيطان البصيرة الثاقبة
+    </a>
+    <a href="1166.html" class="episode-card">
+      <div class="badges"><span class="badge-manga">مانجا</span></div>
+      1166 - حقيقة مضى عليها 17 عامًا - فيل البصيرة البعيدة
+    </a>
+    <a href="1167.html" class="episode-card">
+      <div class="badges"><span class="badge-manga">مانجا</span></div>
+      1167 - حقيقة مضى عليها 17 عامًا - مؤامرة الملكة
+    </a>
+    <a href="1168.html" class="episode-card">
+      <div class="badges"><span class="badge-filler">فلر</span></div>
+      1168 - مذكرة صيد الإنقليس لغينتا
+    </a>
+    <a href="1169.html" class="episode-card">
+      <div class="badges"><span class="badge-manga">مانجا</span></div>
+      1169 - لغز الفصل الآكل للبشر - الجزء الأول
+    </a>
+    <a href="1170.html" class="episode-card">
+      <div class="badges"><span class="badge-manga">مانجا</span></div>
+      1170 - لغز الفصل الآكل للبشر - الجزء الثاني
+    </a>
   </div>
 
   <div class="section-title">🎬 الأفلام</div>
@@ -209,9 +219,10 @@
 
   <div class="section-title">📚 المانجا</div>
   <div class="episodes">
-    <a href="MSPI1.html" class="episode-card">فصل عشاء كيانتي الأخير
-      <span class="new-badge">حصري</span>
-      </a>
+    <a href="MSPI1.html" class="episode-card">
+      <div class="badges"><span class="new-badge">حصري</span></div>
+      فصل عشاء كيانتي الأخير
+    </a>
     <a href="M1144.html" class="episode-card">الفصل 1144</a>
     <a href="M1145.html" class="episode-card">الفصل 1145</a>
     <a href="M1146.html" class="episode-card">الفصل 1146</a>
@@ -220,12 +231,11 @@
     <a href="M1149.html" class="episode-card">الفصل 1149</a>
     <a href="M1150.html" class="episode-card">الفصل 1150</a>
   </div>
-
 </div>
 
 <footer>
   &copy; 2025 Aoibu Team | جميع الحقوق محفوظة
-           <a href="privacy-policy.html" style="color:var(--accent);text-decoration:underline">سياسة الخصوصية</a>
+  <a href="privacy-policy.html" style="color:var(--accent);text-decoration:underline">سياسة الخصوصية</a>
 </footer>
 
 </body>
