@@ -4,8 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>تصويت أفضل أفلام كونان (1–28)</title>
-
-<!-- ربط خط المَراعي من Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
@@ -66,7 +64,7 @@ const MOVIES = [
   {n:2,titleAr:'الهدف الرابع عشر', wikiEn:'Case_Closed:_The_Fourteenth_Target'},
   {n:3,titleAr:'ساحر القرن الأخير', wikiEn:'Case_Closed:_The_Last_Wizard_of_the_Century'},
   {n:4,titleAr:'أسير في عينيها', wikiEn:'Case_Closed:_Captured_in_Her_Eyes'},
-  {n:5,titleAr:'العد التنازلي نحو السماء', wikiEn:'Case_Closed:_Countdown_to_Heaven'},
+  {n:5,titleAr:'العد التنازلي للجنة', wikiEn:'Case_Closed:_Countdown_to_Heaven'},
   {n:6,titleAr:'خيال شارع بيكر', wikiEn:'Case_Closed:_The_Phantom_of_Baker_Street'},
   {n:7,titleAr:'تقاطع طرق في العاصمة القديمة', wikiEn:'Case_Closed:_Crossroad_in_the_Ancient_Capital'},
   {n:8,titleAr:'ساحر السماء الفضية', wikiEn:'Case_Closed:_Magician_of_the_Silver_Sky'},
@@ -81,14 +79,14 @@ const MOVIES = [
   {n:17,titleAr:'عين خفية في البحر البعيد', wikiEn:'Case_Closed:_Private_Eye_in_the_Distant_Sea'},
   {n:18,titleAr:'قناص من بُعد آخر', wikiEn:'Case_Closed:_Dimensional_Sniper'},
   {n:19,titleAr:'تباعات الشمس الجهنمية', wikiEn:'Case_Closed:_Sunflowers_of_Inferno'},
-  {n:20,titleAr:'الكابوس الأشد سوادًا', wikiEn:'Case_Closed:_The_Darkest_Nightmare'},
+  {n:20,titleAr:'الكابوس الأشد سوادًا', wikiEn:"Case_Closed:_The_Darkest_Nightmare"},
   {n:21,titleAr:'رسالة الحب القرمزية', wikiEn:'Case_Closed:_The_Crimson_Love_Letter'},
   {n:22,titleAr:'الجلاد زيرو', wikiEn:'Case_Closed:_Zero_the_Enforcer'},
   {n:23,titleAr:'القبضة اللازوردية', wikiEn:'Case_Closed:_The_Fist_of_Blue_Sapphire'},
   {n:24,titleAr:'الرصاصة القرمزية', wikiEn:'Case_Closed:_The_Scarlet_Bullet'},
   {n:25,titleAr:'عروس الهالووين', wikiEn:'Case_Closed:_The_Bride_of_Halloween'},
   {n:26,titleAr:'الغواصة الحديدية السوداء', wikiEn:'Case_Closed:_Black_Iron_Submarine'},
-  {n:27,titleAr:'لافتة المليون دولار', wikiEn:'Detective Conan: The Million-dollar Pentagram'},
+  {n:27,titleAr:'لافتة المليون دولار', wikiEn:'Detective_Conan:_The_Million-dollar_Pentagram'},
   {n:28,titleAr:' فلاش باك ذو العين الواحدة ', wikiEn:'Detective_Conan:_One-Eyed_Flashback'}
 ];
 
@@ -180,9 +178,22 @@ clearBtn.addEventListener('click', ()=>{
   updateUIState();
 });
 
+// تحقق من التصويت السابق عند تحميل الصفحة
+if(localStorage.getItem('hasVoted')){
+  flash('❌ لقد صوتت بالفعل! لا يمكن التصويت مرتين.', 5000);
+  submitBtn.disabled = true;
+}
+
 form.addEventListener('submit', async (e)=>{
   e.preventDefault();
   if(selected.size===0 || selected.size>3){ flash('اختر من 1 إلى 3 أفلام فقط.',2000); return;}
+
+  // تحقق من التصويت السابق
+  if(localStorage.getItem('hasVoted')){
+    flash('❌ لقد صوتت بالفعل! لا يمكن التصويت مرتين.', 5000);
+    return;
+  }
+
   updateUIState();
   submitBtn.disabled=true;
   flash('جاري إرسال تصويتك…');
@@ -200,11 +211,15 @@ form.addEventListener('submit', async (e)=>{
 
     const res = await fetch(SCRIPT_URL,{method:"POST", body:formData});
     const text = await res.text();
+
+    // بعد الإرسال الناجح، خزّن علامة التصويت
+    localStorage.setItem('hasVoted', 'true');
+
     flash('✅ تم إرسال تصويتك بنجاح!',3000);
     selected.clear();
     document.querySelectorAll('.pickline input').forEach(ch=>ch.checked=false);
     updateUIState();
-    submitBtn.disabled=false;
+    submitBtn.disabled=true; // لمنع إعادة التصويت
   }catch(err){
     flash('❌ حدث خطأ أثناء الإرسال.',3000);
     submitBtn.disabled=false;
