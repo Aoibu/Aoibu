@@ -3,118 +3,84 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>تصويت أفضل أفلام كونان (1–28)</title>
+<title>نتائج أفضل أفلام كونان (1–28)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
 <style>
-  body, header, .container, .section-title, .hint, .card, .info, .title, .subtitle, .pickline, .actions, footer {
+  body, header, .container, .section-title, .card, .info, .title, .subtitle, footer {
     font-family: 'Almarai', sans-serif !important;
   }
-  body {margin:0; background:linear-gradient(135deg,#0f2027,#203a43,#2c5364); color:#f1f1f1; transform:scale(0.75); transform-origin:top right; width:133.33%; height:133.33%;}
+  body {margin:0; background:linear-gradient(135deg,#0f2027,#203a43,#2c5364); color:#f1f1f1; transform:scale(0.85); transform-origin:top right; width:117.64%; height:117.64%;}
   header {background-color:#111; padding:20px; text-align:center; font-size:28px; font-weight:700; color:#00e0ff; border-bottom:3px solid #00bcd4;}
   .container {max-width:1100px; margin:auto; padding:20px;}
   .section-title {font-size:24px; margin:40px 0 12px; border-right:5px solid #00bcd4; padding-right:10px;}
-  .hint {background:rgba(0,0,0,0.35); border:1px solid #333; border-radius:8px; padding:12px 14px; margin-bottom:16px; font-size:15px; line-height:1.7;}
   .grid {display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px;}
-  .card {background-color:#1e1e1e; border:1px solid #333; border-radius:10px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s, box-shadow .25s, background-color .25s; position:relative;}
+  .card {background-color:#1e1e1e; border:1px solid #333; border-radius:10px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s, box-shadow .25s; position:relative;}
   .card:hover {transform:translateY(-4px); box-shadow:0 8px 18px rgba(0,0,0,.35);}
-  .poster-wrap {background:#0d1b22; aspect-ratio:2/3; display:grid; place-items:center; overflow:hidden;}
+  .poster-wrap {background:#0d1b22; aspect-ratio:2/3; display:grid; place-items:center; overflow:hidden; position:relative;}
   .poster {width:100%; height:100%; object-fit:cover;}
   .fallback {width:100%; height:100%; display:grid; place-items:center; font-size:14px; color:#aef6ff; padding:8px; text-align:center; border-bottom:1px solid #17323b;}
   .info {padding:10px 12px; display:grid; gap:8px;}
   .title {font-weight:700; color:#00e0ff; font-size:16px; line-height:1.4;}
   .subtitle {font-size:12px; color:#9ddfe8;}
-  .pickline {display:flex; align-items:center; gap:8px;}
-  .pickline input {transform:scale(1.2);}
-  .actions {display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:18px;}
-  button {background:#00bcd4; color:#111; border:0; font-weight:700; padding:10px 18px; border-radius:8px; cursor:pointer; transition:transform .2s;}
-  button:hover {transform:translateY(-2px);}
-  button:disabled {opacity:.55; cursor:not-allowed;}
-  .status {font-size:14px; color:#aef6ff; min-height:22px; margin-top:8px;}
   footer {text-align:center; color:#ccc; font-size:14px; padding:30px 10px;}
+  .rank-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0,188,212,0.9);
+    color: #111;
+    font-weight: 800;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    z-index: 10;
+  }
 </style>
 </head>
 <body>
-<header>تصويت أفضل أفلام المحقق كونان (1–28)</header>
+<header>📊 نتائج أفضل أفلام المحقق كونان (1–28)</header>
 <div class="container">
-  <div class="section-title">اختر حتى 3 أفلام فقط</div>
-
-  <form id="voteForm">
-    <input type="hidden" id="choicesField"/>
-    <div id="grid" class="grid" aria-live="polite"></div>
-
-    <div class="actions">
-      <button id="submitBtn" type="submit" disabled>إرسال تصويتي</button>
-      <button id="clearBtn" type="button" disabled>مسح الاختيارات</button>
-      <span id="pickedInfo"></span>
-    </div>
-    <div class="status" id="status"></div>
-  </form>
-
+  <div class="section-title">التصويت انتهى – هذه هي النتائج النهائية</div>
+  <div id="grid" class="grid" aria-live="polite"></div>
   <footer>Aoibu • صور عبر Wikipedia API.</footer>
 </div>
 
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFNCcSwx2c30Cv5kebDbSaiQwseXarL3uTdKH-LpTACsX2pgZDGE7p73sxb1LAO7ld7w/exec";
-
 const MOVIES = [
-  {n:1,titleAr:'العد التنازلي لناطحة السحاب', wikiEn:'Case_Closed:_The_Time_Bombed_Skyscraper'},
-  {n:2,titleAr:'الهدف الرابع عشر', wikiEn:'Case_Closed:_The_Fourteenth_Target'},
-  {n:3,titleAr:'ساحر القرن الأخير', wikiEn:'Case_Closed:_The_Last_Wizard_of_the_Century'},
-  {n:4,titleAr:'أسير في عينيها', wikiEn:'Case_Closed:_Captured_in_Her_Eyes'},
-  {n:5,titleAr:'العد التنازلي للجنة', wikiEn:'Case_Closed:_Countdown_to_Heaven'},
-  {n:6,titleAr:'خيال شارع بيكر', wikiEn:'Case_Closed:_The_Phantom_of_Baker_Street'},
-  {n:7,titleAr:'تقاطع طرق في العاصمة القديمة', wikiEn:'Case_Closed:_Crossroad_in_the_Ancient_Capital'},
-  {n:8,titleAr:'ساحر السماء الفضية', wikiEn:'Case_Closed:_Magician_of_the_Silver_Sky'},
-  {n:9,titleAr:'استراتيجية ما فوق الأعماق', wikiEn:'Case_Closed:_Strategy_Above_the_Depths'},
-  {n:10,titleAr:'لحن وداع المحققين', wikiEn:"Case_Closed:_The_Private_Eyes'_Requiem"},
-  {n:11,titleAr:'علم القراصنة في عرض المحيط', wikiEn:'Case_Closed:_Jolly_Roger_in_the_Deep_Azure'},
-  {n:12,titleAr:'لحن كامل من الرعب', wikiEn:'Case_Closed:_Full_Score_of_Fear'},
-  {n:13,titleAr:'المطارد الأسود', wikiEn:'Case_Closed:_The_Raven_Chaser'},
-  {n:14,titleAr:'السفينة الضائعة في السماء', wikiEn:'Case_Closed:_The_Lost_Ship_in_the_Sky'},
-  {n:15,titleAr:'ربع ساعة من الصمت', wikiEn:'Case_Closed:_Quarter_of_Silence'},
-  {n:16,titleAr:'المهاجم الحادي عشر', wikiEn:'Case_Closed:_The_Eleventh_Striker'},
-  {n:17,titleAr:'عين خفية في البحر البعيد', wikiEn:'Case_Closed:_Private_Eye_in_the_Distant_Sea'},
-  {n:18,titleAr:'قناص من بُعد آخر', wikiEn:'Case_Closed:_Dimensional_Sniper'},
-  {n:19,titleAr:'تباعات الشمس الجهنمية', wikiEn:'Case_Closed:_Sunflowers_of_Inferno'},
-  {n:20,titleAr:'الكابوس الأشد سوادًا', wikiEn:"Case_Closed:_The_Darkest_Nightmare"},
-  {n:21,titleAr:'رسالة الحب القرمزية', wikiEn:'Case_Closed:_The_Crimson_Love_Letter'},
-  {n:22,titleAr:'الجلاد زيرو', wikiEn:'Case_Closed:_Zero_the_Enforcer'},
-  {n:23,titleAr:'القبضة اللازوردية', wikiEn:'Case_Closed:_The_Fist_of_Blue_Sapphire'},
-  {n:24,titleAr:'الرصاصة القرمزية', wikiEn:'Case_Closed:_The_Scarlet_Bullet'},
-  {n:25,titleAr:'عروس الهالووين', wikiEn:'Case_Closed:_The_Bride_of_Halloween'},
-  {n:26,titleAr:'الغواصة الحديدية السوداء', wikiEn:'Case_Closed:_Black_Iron_Submarine'},
-  {n:27,titleAr:'لافتة المليون دولار', wikiEn:'Detective_Conan:_The_Million-dollar_Pentagram'},
-  {n:28,titleAr:' فلاش باك ذو العين الواحدة ', wikiEn:'Detective_Conan:_One-Eyed_Flashback'}
+  {n:1,titleAr:'العد التنازلي لناطحة السحاب', wikiEn:'Case_Closed:_The_Time_Bombed_Skyscraper', votes:128, rank:2},
+  {n:2,titleAr:'الهدف الرابع عشر', wikiEn:'Case_Closed:_The_Fourteenth_Target', votes:114, rank:10},
+  {n:3,titleAr:'ساحر القرن الأخير', wikiEn:'Case_Closed:_The_Last_Wizard_of_the_Century', votes:121, rank:6},
+  {n:4,titleAr:'أسير في عينيها', wikiEn:'Case_Closed:_Captured_in_Her_Eyes', votes:122, rank:5},
+  {n:5,titleAr:'العد التنازلي للجنة', wikiEn:'Case_Closed:_Countdown_to_Heaven', votes:119, rank:8},
+  {n:6,titleAr:'خيال شارع بيكر', wikiEn:'Case_Closed:_The_Phantom_of_Baker_Street', votes:139, rank:1},
+  {n:7,titleAr:'تقاطع طرق في العاصمة القديمة', wikiEn:'Case_Closed:_Crossroad_in_the_Ancient_Capital', votes:107, rank:15},
+  {n:8,titleAr:'ساحر السماء الفضية', wikiEn:'Case_Closed:_Magician_of_the_Silver_Sky', votes:111, rank:13},
+  {n:9,titleAr:'استراتيجية ما فوق الأعماق', wikiEn:'Case_Closed:_Strategy_Above_the_Depths', votes:109, rank:14},
+  {n:10,titleAr:'لحن وداع المحققين', wikiEn:"Case_Closed:_The_Private_Eyes'_Requiem", votes:113, rank:11},
+  {n:11,titleAr:'علم القراصنة في عرض المحيط', wikiEn:'Case_Closed:_Jolly_Roger_in_the_Deep_Azure', votes:96, rank:21},
+  {n:12,titleAr:'لحن كامل من الرعب', wikiEn:'Case_Closed:_Full_Score_of_Fear', votes:112, rank:12},
+  {n:13,titleAr:'المطارد الأسود', wikiEn:'Case_Closed:_The_Raven_Chaser', votes:122, rank:5},
+  {n:14,titleAr:'السفينة الضائعة في السماء', wikiEn:'Case_Closed:_The_Lost_Ship_in_the_Sky', votes:111, rank:13},
+  {n:15,titleAr:'ربع ساعة من الصمت', wikiEn:'Case_Closed:_Quarter_of_Silence', votes:103, rank:18},
+  {n:16,titleAr:'المهاجم الحادي عشر', wikiEn:'Case_Closed:_The_Eleventh_Striker', votes:109, rank:14},
+  {n:17,titleAr:'عين خفية في البحر البعيد', wikiEn:'Case_Closed:_Private_Eye_in_the_Distant_Sea', votes:86, rank:22},
+  {n:18,titleAr:'قناص من بُعد آخر', wikiEn:'Case_Closed:_Dimensional_Sniper', votes:101, rank:19},
+  {n:19,titleAr:'تباعات الشمس الجهنمية', wikiEn:'Case_Closed:_Sunflowers_of_Inferno', votes:98, rank:20},
+  {n:20,titleAr:'الكابوس الأشد سوادًا', wikiEn:"Case_Closed:_The_Darkest_Nightmare", votes:115, rank:9},
+  {n:21,titleAr:'رسالة الحب القرمزية', wikiEn:'Case_Closed:_The_Crimson_Love_Letter', votes:107, rank:15},
+  {n:22,titleAr:'الجلاد زيرو', wikiEn:'Case_Closed:_Zero_the_Enforcer', votes:106, rank:16},
+  {n:23,titleAr:'القبضة اللازوردية', wikiEn:'Case_Closed:_The_Fist_of_Blue_Sapphire', votes:119, rank:8},
+  {n:24,titleAr:'الرصاصة القرمزية', wikiEn:'Case_Closed:_The_Scarlet_Bullet', votes:104, rank:17},
+  {n:25,titleAr:'عروس الهالووين', wikiEn:'Case_Closed:_The_Bride_of_Halloween', votes:125, rank:4},
+  {n:26,titleAr:'الغواصة الحديدية السوداء', wikiEn:'Case_Closed:_Black_Iron_Submarine', votes:139, rank:1},
+  {n:27,titleAr:'لافتة المليون دولار', wikiEn:'Detective_Conan:_The_Million-dollar_Pentagram', votes:127, rank:3},
+  {n:28,titleAr:'فلاش باك ذو العين الواحدة', wikiEn:'Detective_Conan:_One-Eyed_Flashback', votes:120, rank:7}
 ];
 
 const grid = document.getElementById('grid');
-const form = document.getElementById('voteForm');
-const submitBtn = document.getElementById('submitBtn');
-const clearBtn = document.getElementById('clearBtn');
-const statusEl = document.getElementById('status');
-const pickedInfo = document.getElementById('pickedInfo');
-const choicesField = document.getElementById('choicesField');
-
-let selected = new Set();
-
-function updateUIState(){
-  submitBtn.disabled = selected.size === 0 || selected.size > 3;
-  clearBtn.disabled = selected.size === 0;
-  pickedInfo.textContent = `المختار: ${selected.size} / 3`;
-  const arr = Array.from(selected).sort((a,b)=>a-b).map(num=>{
-    const item = MOVIES.find(m=>m.n===num);
-    return `${num}. ${item?.titleAr || ''}`;
-  });
-  choicesField.value = arr.join(' | ');
-}
-
-function flash(msg, ms=2000){
-  statusEl.textContent = msg;
-  if(ms) setTimeout(()=>statusEl.textContent='', ms);
-}
 
 async function fetchPoster(wikiEn){
   const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiEn)}`;
@@ -128,7 +94,7 @@ async function fetchPoster(wikiEn){
   }
 }
 
-function cardTemplate({n,titleAr,wikiEn}){
+function cardTemplate({n,titleAr,wikiEn,votes,rank}){
   const card=document.createElement('div');
   card.className='card';
   const posterWrap=document.createElement('div');
@@ -142,28 +108,21 @@ function cardTemplate({n,titleAr,wikiEn}){
   fallback.textContent='جاري تحميل الملصق…';
   posterWrap.appendChild(fallback);
 
+  const rankDiv=document.createElement('div');
+  rankDiv.className='rank-badge';
+  rankDiv.textContent=`المركز ${rank} – ${votes} صوت`;
+
   const info=document.createElement('div');
   info.className='info';
   const title=document.createElement('div'); title.className='title'; title.textContent=`الفيلم ${n}: ${titleAr}`;
   const sub=document.createElement('div'); sub.className='subtitle'; sub.textContent=`Wikipedia: ${wikiEn.replaceAll('_',' ')}`;
 
-  const pickline=document.createElement('label'); pickline.className='pickline';
-  const checkbox=document.createElement('input'); checkbox.type='checkbox'; checkbox.value=n;
-  checkbox.addEventListener('change', ()=>{
-    if(checkbox.checked){
-      if(selected.size >=3){ checkbox.checked=false; flash('مسموح بحد أقصى 3 أفلام فقط ✅',2200); return;}
-      selected.add(n);
-    }else{ selected.delete(n);}
-    updateUIState();
-  });
-  const pickText=document.createElement('span'); pickText.textContent='اختيار هذا الفيلم';
-  pickline.appendChild(checkbox); pickline.appendChild(pickText);
-
-  info.appendChild(title); info.appendChild(sub); info.appendChild(pickline);
+  info.appendChild(title); info.appendChild(sub);
+  posterWrap.appendChild(rankDiv);
   card.appendChild(posterWrap); card.appendChild(info);
 
   fetchPoster(wikiEn).then(src=>{
-    if(src){ img.src=src; posterWrap.innerHTML=''; posterWrap.appendChild(img);}
+    if(src){ img.src=src; posterWrap.insertBefore(img, rankDiv); }
     else{ fallback.textContent='لا توجد صورة متاحة';}
   });
 
@@ -171,62 +130,6 @@ function cardTemplate({n,titleAr,wikiEn}){
 }
 
 MOVIES.forEach(m => grid.appendChild(cardTemplate(m)));
-
-clearBtn.addEventListener('click', ()=>{
-  selected.clear();
-  document.querySelectorAll('.pickline input[type="checkbox"]').forEach(ch=>ch.checked=false);
-  updateUIState();
-});
-
-// تحقق من التصويت السابق عند تحميل الصفحة
-if(localStorage.getItem('hasVoted')){
-  flash('❌ لقد صوتت بالفعل! لا يمكن التصويت مرتين.', 5000);
-  submitBtn.disabled = true;
-}
-
-form.addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  if(selected.size===0 || selected.size>3){ flash('اختر من 1 إلى 3 أفلام فقط.',2000); return;}
-
-  // تحقق من التصويت السابق
-  if(localStorage.getItem('hasVoted')){
-    flash('❌ لقد صوتت بالفعل! لا يمكن التصويت مرتين.', 5000);
-    return;
-  }
-
-  updateUIState();
-  submitBtn.disabled=true;
-  flash('جاري إرسال تصويتك…');
-
-  try{
-    const ua = navigator.userAgent;
-    const choices = choicesField.value;
-    const ipData = await fetch("https://api.ipify.org?format=json").then(r=>r.json());
-    const ip = ipData.ip;
-
-    const formData = new FormData();
-    formData.append("اختيارات_الأفلام", choices);
-    formData.append("ip", ip);
-    formData.append("ua", ua);
-
-    const res = await fetch(SCRIPT_URL,{method:"POST", body:formData});
-    const text = await res.text();
-
-    // بعد الإرسال الناجح، خزّن علامة التصويت
-    localStorage.setItem('hasVoted', 'true');
-
-    flash('✅ تم إرسال تصويتك بنجاح!',3000);
-    selected.clear();
-    document.querySelectorAll('.pickline input').forEach(ch=>ch.checked=false);
-    updateUIState();
-    submitBtn.disabled=true; // لمنع إعادة التصويت
-  }catch(err){
-    flash('❌ حدث خطأ أثناء الإرسال.',3000);
-    submitBtn.disabled=false;
-  }
-});
-
-updateUIState();
 </script>
 </body>
 </html>
