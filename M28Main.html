@@ -42,13 +42,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
  
-<link rel="stylesheet" type="text/css" href="https://s3.conan-mobile.jp/2025/assets/css/modaal.min.css">
+<link rel="stylesheet" type="text/css" href="">
  
 <script src="https://s3.conan-mobile.jp/2025/assets/js/jquery-3.4.1.min.js"></script>
 <script src="https://s3.conan-mobile.jp/2025/assets/js/jquery.easing.js"></script>
 <script src="https://fonts.googleapis.com/css2?family=Almarai&display=swap"></script>
 <script src=""></script>
-<script src="https://s3.conan-mobile.jp/2025/assets/js/modaal.min.js"></script>
+<script src=""></script>
 <!--script src="//www.youtube.com/iframe_api"></script-->
 <script>
   var userAgent = window.navigator.userAgent.toLowerCase();
@@ -236,29 +236,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://s3.conan-mobile.jp/2025/assets/js/snow.js?v=20250912184122"></script>
 <!-- ▲scripts -->
 <script src="https://s3.conan-mobile.jp/2025/assets/js/common.js?v=20250912184122"></script>
-<script src="https://s3.conan-mobile.jp/2025/assets/js/modaal.min.js"></script>
+<script src=""></script>
 <script>
-$(function() {
-    var access = $.cookie('access')
-        if(!access){
-            flag = true;
-            $.cookie('access', false);
-        }else{
-            //flag = false;
-            flag = true;  
-    }
-    $(".modal-open_dummy").modaal({
-        start_open:flag, // ページロード時に表示するか
-        overlay_close:true,//モーダル背景クリック時に閉じるか
-        before_open:function(){// モーダルが開く前に行う動作
-            $('html').css('overflow-y','hidden');/*縦スクロールバーを出さない*/
-        },
-        after_close:function(){// モーダルが閉じた後に行う動作
-            $('html').css('overflow-y','scroll');/*縦スクロールバーを出す*/
-        }
-    });
-    let scrollY;
-    $(".modal-open").modaal({
        
         start_open:flag, // ページロード時に表示するか
         //overlay_close:true,//モーダル背景クリック時に閉じるか
