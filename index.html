@@ -132,7 +132,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   مكتبة المحقق كونان - Aoibu
 </header>
 
+  <!-- 🔍 مربع البحث -->
+  <div style="text-align:center; margin:20px 0;">
+    <input type="text" id="searchInput" placeholder="ابحث عن حلقة..." 
+           style="padding:10px; width:80%; max-width:400px; border-radius:6px; border:1px solid #00bcd4; font-family:'El Messiri', sans-serif; font-size:16px;">
+  </div>
+
   <div class="section-title">📺 الحلقات</div>
+
 
   <!-- الحلقات القديمة -->
   <div class="section-title" style="font-size:20px; color:#ffeb3b;">الحلقات القديمة</div>
@@ -282,6 +289,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   &copy; 2025 Aoibu Team | جميع الحقوق محفوظة
   <a href="privacy-policy.html" style="color:var(--accent);text-decoration:underline">سياسة الخصوصية</a>
 </footer>
+ 
+<script>
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("keyup", function () {
+    let filter = this.value.toLowerCase();
+    let cards = document.querySelectorAll(".episode-card");
+
+    cards.forEach(card => {
+      let text = card.textContent.toLowerCase();
+      card.style.display = text.includes(filter) ? "" : "none";
+    });
+  });
+</script>
 
 </body>
 </html>
