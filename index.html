@@ -130,10 +130,14 @@ body {
   مكتبة المحقق كونان - Aoibu
 </header>
 
-  <!-- 🔍 مربع البحث -->
+  <!-- 🔍 مربع البحث + زر عشوائي -->
   <div style="text-align:center; margin:20px 0;">
     <input type="text" id="searchInput" placeholder="ابحث عن حلقة..." 
-           style="padding:10px; width:80%; max-width:400px; border-radius:6px; border:1px solid #00bcd4; font-family:'El Messiri', sans-serif; font-size:16px;">
+           style="padding:10px; width:70%; max-width:400px; border-radius:6px; border:1px solid #00bcd4; font-family:'El Messiri', sans-serif; font-size:16px;">
+    <button id="randomBtn" 
+            style="padding:10px 15px; margin-right:10px; border:none; border-radius:6px; background:#00bcd4; color:#111; font-weight:bold; cursor:pointer;">
+      🎲 عشوائي
+    </button>
   </div>
 
   <div class="section-title">📺 الحلقات</div>
@@ -290,6 +294,9 @@ body {
  
 <script>
   const searchInput = document.getElementById("searchInput");
+  const randomBtn = document.getElementById("randomBtn");
+
+  // 🔍 البحث
   searchInput.addEventListener("keyup", function () {
     let filter = this.value.toLowerCase();
     let cards = document.querySelectorAll(".episode-card");
@@ -298,6 +305,19 @@ body {
       let text = card.textContent.toLowerCase();
       card.style.display = text.includes(filter) ? "" : "none";
     });
+  });
+
+  // 🎲 اختيار عشوائي
+  randomBtn.addEventListener("click", function () {
+    let cards = document.querySelectorAll(".episode-card");
+    let visibleCards = Array.from(cards).filter(card => card.style.display !== "none");
+
+    if (visibleCards.length > 0) {
+      let randomCard = visibleCards[Math.floor(Math.random() * visibleCards.length)];
+      window.location.href = randomCard.getAttribute("href");
+    } else {
+      alert("⚠️ لا توجد عناصر مطابقة!");
+    }
   });
 </script>
 
