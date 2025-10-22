@@ -1,0 +1,22 @@
+name: Archive Website to Wayback Machine
+
+on:
+  schedule:
+    # 🕐 كل يوم أحد الساعة 00:00 UTC
+    - cron: '0 0 * * 0'
+  push:
+    # 🔄 عند كل تعديل (push) على الفرع الرئيسي
+    branches:
+      - main
+  workflow_dispatch:  # لتشغيلها يدويًا من صفحة Actions
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Save website snapshot to Wayback Machine
+        run: |
+          echo "📦 جاري حفظ نسخة من موقعك في أرشيف الويب..."
+          curl -I "https://web.archive.org/save/https://aoibu.github.io/Aoibu/"
+          echo "✅ تم إرسال الطلب إلى Web.Archive.org بنجاح!"
