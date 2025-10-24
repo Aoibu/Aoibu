@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aoibu.github.io/Aoibu/sitemap.xml
