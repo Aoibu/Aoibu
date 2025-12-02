@@ -47,20 +47,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #00e0ff;
       border-bottom: 3px solid #00bcd4;
     }
+./* تنسيق صندوق الإعلان */
 .ad-banner {
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    background: #fff;
-    padding: 8px 0;
-    border-bottom: 2px solid #00bcd4;
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #1e1e1e; /* نفس لون خلفية البطاقات */
+  border: 1px dashed #00bcd4; /* لون الحدود متناسق مع الثيم */
+  border-radius: 8px;
+  max-width: 900px; /* لا يتجاوز عرض المحتوى */
+  overflow: hidden;
 }
+
+/* في حال كان الإعلان صورة، اجعلها متجاوبة */
 .ad-banner img {
-    max-width: 95%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
+
     .container {
       max-width: 900px;
       margin: auto;
