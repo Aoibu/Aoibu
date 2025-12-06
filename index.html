@@ -152,6 +152,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   </style>
 </head>
+
+  <script>
+  // غيّر هذا الاسم لأي شي تحبه بدون مسافات
+  const counterKey = "Aoibu_Arabic-index";
+
+  // هذي الزيارة: تزيد العداد كل ما أحد يدخل الصفحة
+  fetch("https://api.countapi.xyz/hit/" + counterKey + "/visits")
+    .then(res => res.json())
+    .then(data => {
+      // الرقم يطلع بس بالكونسول، مو على الصفحة
+      console.log("عدد الزيارات لهذي الصفحة:", data.value);
+    })
+    .catch(err => {
+      console.error("خطأ في العداد:", err);
+    });
+  </script>
+
+  
 <body>
 
 <header>
