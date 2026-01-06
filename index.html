@@ -415,21 +415,88 @@
       /* تقليل الـ 3D على الموبايل لتحسين الأداء */
       .episode-card:hover { transform: translateY(-10px) scale(1.02); }
     }
+
+        /* --- تنسيق أزرار النافذة المنبثقة الجديدة --- */
+    .modal-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap; /* لكي تترتب الأزرار فوق بعضها في الشاشات الصغيرة جداً */
+    }
+
+    .modal-btn {
+      padding: 12px 25px;
+      border-radius: 50px;
+      border: none;
+      font-weight: bold;
+      font-family: 'El Messiri', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* زر التهنئة - أحمر متوهج */
+    .congrats-btn {
+      background: linear-gradient(135deg, var(--secondary-color), #b32d2d);
+      color: white;
+      box-shadow: 0 0 15px rgba(255, 61, 61, 0.3);
+    }
+
+    /* زر استكشف المكتبة - سيان */
+    .close-modal-btn {
+      background: linear-gradient(135deg, var(--primary-color), #008ba3);
+      color: #000;
+    }
+
+    .modal-btn:hover {
+      transform: scale(1.08);
+      color: white;
+    }
+
+    .congrats-btn:hover {
+      box-shadow: 0 0 25px var(--secondary-color);
+    }
+
+    .close-modal-btn:hover {
+      box-shadow: 0 0 25px var(--primary-color);
+    }
+
+    /* تعديل بسيط للموبايل */
+    @media (max-width: 480px) {
+      .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .modal-btn {
+        width: 100%;
+      }
+    }
+
   </style>
 
 </head>
 
 <body>
 
-  <div id="celebrationModal">
+<div id="celebrationModal">
     <canvas id="fireworksCanvas"></canvas>
     <div class="modal-content">
         <div style="font-size: 50px; margin-bottom: 10px;">🎉</div>
         <h2>عام من الإبداع!</h2>
-        <p>بمناسبة مرور عام على تأسيس فريق <strong>Aoibu</strong>، نشكركم لكونكم جزءاً من رحلتنا في عالم المحقق كونان. ترقبوا المزيد من المفاجآت!</p>
-        <button class="close-modal" onclick="closeCelebration()">استكشف المكتبة</button>
+        <p>بمناسبة مرور عام على تأسيس فريق <strong>Aoibu</strong>، نشكركم لكونكم جزءاً من رحلتنا. يسعدنا أن تشاركونا كلماتكم الطيبة!</p>
+        
+        <div class="modal-buttons">
+            <a href="congrats.html" class="modal-btn congrats-btn">أرسل تهنئة ✨</a>
+            <button class="modal-btn close-modal-btn" onclick="closeCelebration()">استكشف المكتبة</button>
+        </div>
     </div>
 </div>
+
 
 <div id="preloader">
   <div class="keyhole-loader"></div>
