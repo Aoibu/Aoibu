@@ -14,6 +14,87 @@
   <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
+
+    /* --- نافذة الاحتفال الاحترافية --- */
+#celebrationModal {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#celebrationModal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 50px rgba(0, 188, 212, 0.4);
+  transform: scale(0.7) translateY(50px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#celebrationModal.show .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.modal-content h2 {
+  color: var(--primary-color);
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.modal-content p {
+  color: var(--text-main);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.close-modal {
+  margin-top: 25px;
+  padding: 10px 30px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary-color), #008ba3);
+  color: #000;
+  font-weight: bold;
+  font-family: 'El Messiri', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--primary-color);
+  color: white;
+}
+
+/* كانفاس الألعاب النارية */
+#fireworksCanvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10001;
+}
+
+    
     :root {
       --primary-color: #00bcd4;
       --secondary-color: #ff3d3d;
@@ -339,6 +420,16 @@
 </head>
 
 <body>
+
+  <div id="celebrationModal">
+    <canvas id="fireworksCanvas"></canvas>
+    <div class="modal-content">
+        <div style="font-size: 50px; margin-bottom: 10px;">🎉</div>
+        <h2>عام من الإبداع!</h2>
+        <p>بمناسبة مرور عام على تأسيس فريق <strong>Aoibu</strong>، نشكركم لكونكم جزءاً من رحلتنا في عالم المحقق كونان. ترقبوا المزيد من المفاجآت!</p>
+        <button class="close-modal" onclick="closeCelebration()">استكشف المكتبة</button>
+    </div>
+</div>
 
 <div id="preloader">
   <div class="keyhole-loader"></div>
@@ -685,6 +776,99 @@
       alert("⚠️ لا توجد عناصر مطابقة!");
     }
   });
+
+  // --- منطق الألعاب النارية والنافذة المنبثقة ---
+
+const modal = document.getElementById('celebrationModal');
+const canvas = document.getElementById('fireworksCanvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+class Firework {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height;
+        this.sx = Math.random() * 3 - 1.5;
+        this.sy = Math.random() * -3 - 3;
+        this.size = Math.random() * 2 + 1;
+        this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        this.exploded = false;
+        this.particles = [];
+    }
+    update() {
+        if (!this.exploded) {
+            this.x += this.sx;
+            this.y += this.sy;
+            this.sy += 0.05;
+            if (this.sy >= -1) this.explode();
+        }
+        this.particles.forEach((p, i) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.opacity -= 0.01;
+            if (p.opacity <= 0) this.particles.splice(i, 1);
+        });
+    }
+    explode() {
+        this.exploded = true;
+        for (let i = 0; i < 50; i++) {
+            this.particles.push({
+                x: this.x, y: this.y,
+                vx: Math.random() * 6 - 3,
+                vy: Math.random() * 6 - 3,
+                opacity: 1
+            });
+        }
+    }
+    draw() {
+        ctx.fillStyle = this.color;
+        if (!this.exploded) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        this.particles.forEach(p => {
+            ctx.globalAlpha = p.opacity;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        ctx.globalAlpha = 1;
+    }
+}
+
+let fireworks = [];
+function animateFireworks() {
+    if (!modal.classList.contains('show')) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (Math.random() < 0.05) fireworks.push(new Firework());
+    fireworks.forEach((f, i) => {
+        f.update();
+        f.draw();
+        if (f.exploded && f.particles.length === 0) fireworks.splice(i, 1);
+    });
+    requestAnimationFrame(animateFireworks);
+}
+
+// تشغيل النافذة تلقائياً عند تحميل الصفحة
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        modal.classList.add('show');
+        animateFireworks();
+    }, 2500); // تظهر بعد 2.5 ثانية من دخول الموقع
+});
+
+function closeCelebration() {
+    modal.classList.remove('show');
+}
+
+  
 </script>
 
 </body>
