@@ -166,6 +166,13 @@
         background: linear-gradient(to top, #000, transparent);
     }
   </style>
+
+  <style>
+body {
+  user-select: none;
+}
+</style>
+
 </head>
 
 <body>
@@ -309,6 +316,18 @@
       document.getElementById('rating-msg').innerText = `تم التقييم: ${n}/5`;
   }
 </script>
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
 
+document.addEventListener('keydown', function(e) {
+  if (
+    (e.ctrlKey && ['c','a','x','u','s'].includes(e.key.toLowerCase())) ||
+    e.key === 'F12'
+  ) {
+    e.preventDefault();
+  }
+});
+</script>
+  
 </body>
 </html>
