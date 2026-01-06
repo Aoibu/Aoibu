@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MGG2SS4T');</script>
-
   <meta charset="UTF-8">
   <title>المحقق كونان - الحلقة 1187 | Aoibu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +9,9 @@
   <style>
     :root {
       --primary-color: #00bcd4;
-      --secondary-color: #ff3d3d;
       --bg-dark: #0a0b10;
-      --card-bg: #16181f;
+      --card-bg: rgba(22, 24, 31, 0.7); /* شفافية عشان تأثير الزجاج */
       --text-main: #ffffff;
-      --text-muted: #a0a0a0;
     }
 
     * { box-sizing: border-box; }
@@ -27,175 +19,151 @@
     body {
       margin: 0;
       background-color: var(--bg-dark);
+      /* خلفية متدرجة ثابتة */
       background-image: 
-        radial-gradient(circle at 15% 25%, rgba(0, 188, 212, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 85% 75%, rgba(255, 61, 61, 0.1) 0%, transparent 25%);
+        radial-gradient(circle at 10% 20%, rgba(0, 188, 212, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 61, 61, 0.15) 0%, transparent 40%);
       font-family: 'El Messiri', sans-serif;
       color: var(--text-main);
       overflow-x: hidden;
-      scroll-behavior: smooth;
     }
 
-    /* --- Preloader --- */
+    /* --- 1. شاشة التحميل (Preloader) --- */
     #preloader {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: var(--bg-dark); z-index: 9999;
+      background: #000; z-index: 9999;
       display: flex; justify-content: center; align-items: center;
-      transition: opacity 0.5s ease-out, visibility 0.5s;
+      transition: opacity 0.8s ease, visibility 0.8s;
     }
-    .keyhole-loader {
-      width: 80px; height: 80px;
-      border: 5px solid var(--primary-color); border-radius: 50%;
-      position: relative; animation: spinKeyhole 2s infinite linear;
-      box-shadow: 0 0 20px var(--primary-color);
+    .loader-content { position: relative; width: 100px; height: 100px; }
+    .keyhole {
+      width: 100%; height: 100%;
+      border: 4px solid var(--primary-color); border-radius: 50%;
+      box-shadow: 0 0 30px var(--primary-color), inset 0 0 20px var(--primary-color);
+      animation: pulseGlow 2s infinite;
     }
-    .keyhole-loader::after {
-        content: ''; position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);
-        width: 30px; height: 40px; background: var(--primary-color);
+    .keyhole::after {
+        content: ''; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+        width: 30px; height: 50px; background: var(--primary-color);
         clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-        box-shadow: 0 0 20px var(--primary-color);
+        box-shadow: 0 0 30px var(--primary-color);
     }
-    @keyframes spinKeyhole { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes pulseGlow {
+        0%, 100% { box-shadow: 0 0 20px var(--primary-color); opacity: 1; }
+        50% { box-shadow: 0 0 50px var(--primary-color); opacity: 0.7; }
+    }
     body.loaded #preloader { opacity: 0; visibility: hidden; }
 
-    /* --- Background Animations --- */
-    .bg-particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+    /* --- 2. المؤثرات الخلفية (Particles & Fog) --- */
+    #particles-container {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        overflow: hidden; z-index: -1; pointer-events: none;
+    }
     .particle {
-      position: absolute; width: 3px; height: 3px;
-      background: rgba(255, 255, 255, 0.15); border-radius: 50%;
-      animation: moveParticle 25s infinite linear;
+        position: absolute; border-radius: 50%;
+        background: white; opacity: 0;
+        will-change: transform, opacity; /* تسريع الأداء */
+        box-shadow: 0 0 10px rgba(255,255,255,0.8);
     }
-    @keyframes moveParticle {
-      0% { transform: translateY(0) translateX(0); opacity: 0; }
-      20% { opacity: 0.6; }
-      100% { transform: translateY(-120vh) translateX(100px); opacity: 0; }
+    /* حركة النجوم */
+    @keyframes floatUp {
+        0% { transform: translateY(100vh) scale(0); opacity: 0; }
+        20% { opacity: 0.8; }
+        80% { opacity: 0.8; }
+        100% { transform: translateY(-10vh) scale(1); opacity: 0; }
     }
-    .fog-layer {
-        position: fixed; bottom: 0; left: 0; width: 200%; height: 30vh;
-        background: linear-gradient(to top, rgba(0, 188, 212, 0.05), transparent);
-        filter: blur(20px); opacity: 0.3; z-index: -1;
-        animation: moveFog 60s linear infinite alternate;
-        pointer-events: none;
-    }
-    @keyframes moveFog { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* --- Header & Layout --- */
+    .fog {
+        position: fixed; bottom: 0; left: 0; width: 200%; height: 40vh;
+        background: linear-gradient(to top, rgba(0, 188, 212, 0.15), transparent);
+        filter: blur(20px); z-index: -1;
+        animation: fogMove 20s infinite alternate ease-in-out;
+        will-change: transform;
+    }
+    @keyframes fogMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* --- 3. الهيدر الزجاجي --- */
     header {
-      background: rgba(22, 24, 31, 0.9); backdrop-filter: blur(10px);
-      padding: 15px 30px; position: sticky; top: 0; z-index: 1000;
+      background: rgba(20, 20, 30, 0.6);
+      backdrop-filter: blur(15px); /* تأثير الزجاج */
+      -webkit-backdrop-filter: blur(15px);
+      padding: 15px 30px; position: sticky; top: 0; z-index: 100;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       display: flex; justify-content: space-between; align-items: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 5px 30px rgba(0,0,0,0.5);
     }
-    .home-link {
-        color: var(--primary-color); text-decoration: none; font-weight: bold;
-        display: flex; align-items: center; gap: 8px; transition: 0.3s;
-    }
-    .home-link:hover { color: white; text-shadow: 0 0 10px var(--primary-color); }
+    .home-link { color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s; text-shadow: 0 0 10px var(--primary-color); }
 
-    .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+    /* --- 4. المحتوى والبطاقات --- */
+    .container { max-width: 900px; margin: 40px auto; padding: 20px; position: relative; }
 
-    /* --- Episode Info Card --- */
-    .info-card {
-      background: var(--card-bg); padding: 30px; border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.05); text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5); margin-bottom: 40px;
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px); /* تأثير الزجاج */
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      margin-bottom: 30px;
+      /* أنيميشن الدخول */
       opacity: 0; transform: translateY(30px);
-      animation: fadeInUp 0.8s forwards 0.5s;
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    .glass-card.visible { opacity: 1; transform: translateY(0); }
 
-    .poster {
-      max-width: 280px; width: 100%; border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
-      margin-bottom: 20px; transition: transform 0.3s;
+    .poster-glow {
+        border-radius: 15px; width: 100%; max-width: 280px;
+        box-shadow: 0 0 30px rgba(0, 188, 212, 0.3); /* توهج البوستر */
+        transition: transform 0.4s;
     }
-    .poster:hover { transform: scale(1.02); }
+    .poster-glow:hover { transform: scale(1.03) rotate(1deg); }
 
-    h1 { color: var(--primary-color); margin: 10px 0; font-size: 24px; }
-    h2 { color: var(--text-muted); font-size: 16px; margin-bottom: 20px; font-weight: normal; }
-
-    /* --- Video Player --- */
-    .video-container {
-      position: relative; padding-bottom: 56.25%; /* 16:9 */
-      height: 0; overflow: hidden; border-radius: 12px;
-      border: 1px solid #333; background: #000;
-      box-shadow: 0 0 30px rgba(0, 188, 212, 0.1);
-      margin-bottom: 25px;
-    }
-    .video-container iframe {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    h1 { 
+        background: linear-gradient(90deg, #fff, var(--primary-color));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        margin: 15px 0; font-size: 26px; 
     }
 
-    /* --- Styled Buttons --- */
-    .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px; }
-    
-    .styled-btn {
-      padding: 10px 25px; border-radius: 50px; border: none;
-      background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
-      color: #fff; font-family: 'El Messiri', sans-serif; font-weight: 600;
-      cursor: pointer; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.1);
-      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    /* --- 5. مشغل الفيديو --- */
+    .video-wrap {
+      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+      border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 40px rgba(0, 188, 212, 0.15);
+      margin-bottom: 25px; background: #000;
     }
-    .styled-btn:hover, .styled-btn.active {
-      background: linear-gradient(135deg, var(--primary-color), #008ba3);
-      color: #000; box-shadow: 0 0 20px rgba(0, 188, 212, 0.4); transform: translateY(-3px);
+    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* --- 6. الأزرار المشعة --- */
+    .neon-btn {
+      padding: 10px 30px; border-radius: 50px; border: 1px solid var(--primary-color);
+      background: rgba(0, 188, 212, 0.1); color: var(--primary-color);
+      font-family: 'El Messiri'; font-weight: bold; cursor: pointer;
+      transition: 0.3s; position: relative; overflow: hidden;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .neon-btn:hover, .neon-btn.active {
+      background: var(--primary-color); color: #000;
+      box-shadow: 0 0 20px var(--primary-color); /* توهج الزر */
     }
 
-    /* --- Download Table --- */
-    .download-table {
-      width: 100%; border-collapse: collapse; margin-top: 10px;
-      background: rgba(0,0,0,0.2); border-radius: 10px; overflow: hidden;
+    /* --- Tables --- */
+    .dl-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: rgba(0,0,0,0.3); border-radius: 10px; overflow: hidden; }
+    .dl-table th { padding: 15px; color: var(--primary-color); background: rgba(0, 188, 212, 0.05); }
+    .dl-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color: #ddd; }
+    .dl-link { 
+        color: #fff; text-decoration: none; background: linear-gradient(45deg, var(--primary-color), #008ba3);
+        padding: 5px 20px; border-radius: 20px; font-size: 14px; box-shadow: 0 5px 15px rgba(0,188,212,0.3);
+        transition: 0.3s;
     }
-    .download-table th { background: rgba(0, 188, 212, 0.15); color: var(--primary-color); padding: 12px; }
-    .download-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color: #ccc; }
-    .download-table tr:last-child td { border-bottom: none; }
-    .dl-link {
-        color: var(--primary-color); text-decoration: none; font-weight: bold;
-        border: 1px solid var(--primary-color); padding: 5px 15px; border-radius: 20px;
-        transition: 0.3s; font-size: 13px;
-    }
-    .dl-link:hover { background: var(--primary-color); color: #000; }
+    .dl-link:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,188,212,0.5); }
 
-    /* --- Content Sections --- */
-    .section-box {
-      background: var(--card-bg); padding: 25px; border-radius: 12px;
-      border-left: 3px solid var(--primary-color);
-      margin-bottom: 25px; position: relative; overflow: hidden;
-      opacity: 0; transform: translateX(20px);
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .section-box.visible { opacity: 1; transform: translateX(0); }
-    
-    .section-box h3 { color: var(--primary-color); margin-top: 0; display: flex; align-items: center; gap: 10px; }
-    .section-box p { line-height: 1.8; color: #d1d1d1; }
-    
-    /* --- Rating Stars --- */
-    #rating-stars span {
-        font-size: 35px; cursor: pointer; color: #444; transition: color 0.2s, transform 0.2s;
-        display: inline-block;
-    }
-    #rating-stars span:hover { transform: scale(1.2); }
+    /* --- Stars --- */
+    .stars span { font-size: 40px; cursor: pointer; color: #333; transition: 0.3s; display: inline-block; }
+    .stars span:hover { transform: scale(1.3); color: #ffd700 !important; text-shadow: 0 0 20px #ffd700; }
 
-    /* --- Footer --- */
     footer {
-      margin-top: 60px; padding: 40px; background: #050608;
-      text-align: center; border-top: 1px solid rgba(255,255,255,0.05);
-      position: relative;
-    }
-    footer::before {
-        content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
-        background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-        animation: footerGlow 4s infinite linear;
-    }
-    @keyframes footerGlow { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-    footer a { color: var(--primary-color); text-decoration: none; margin: 0 10px; }
-
-    @media (max-width: 600px) {
-        header { padding: 15px; }
-        .container { padding: 10px; margin-top: 20px; }
-        .info-card { padding: 20px 10px; }
-        .btn-group { gap: 10px; }
+        margin-top: 60px; padding: 40px; text-align: center; color: #888;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        background: linear-gradient(to top, #000, transparent);
     }
   </style>
 </head>
@@ -203,173 +171,144 @@
 <body>
 
 <div id="preloader">
-  <div class="keyhole-loader"></div>
+  <div class="loader-content">
+    <div class="keyhole"></div>
+  </div>
 </div>
 
-<div class="bg-particles" id="particles"></div>
-<div class="fog-layer"></div>
+<div id="particles-container"></div>
+<div class="fog"></div>
 
 <header>
-  <a href="index.html" class="home-link">
-    ← العودة للرئيسية
-  </a>
-  <span style="font-weight: bold; color: #fff;">Aoibu Team</span>
+  <a href="#" class="home-link">Aoibu Team</a>
+  <span style="color:var(--primary-color); font-size: 1.2rem;">★</span>
 </header>
 
 <div class="container">
 
-  <div class="info-card">
-    <img class="poster" src="https://h.top4top.io/p_3658zbtbg0.jpg" alt="بوستر الحلقة">
+  <div class="glass-card visible">
+    <img class="poster-glow" src="https://h.top4top.io/p_3658zbtbg0.jpg" alt="Poster">
     <h1>المحقق كونان - الحلقة 1187</h1>
-    <h2>الحلقة "صفر": قضية كودو شينيتشي في حوض الأسماك</h2>
+    <p style="color: #aaa;">الحلقة "صفر": قضية كودو شينيتشي في حوض الأسماك</p>
 
-    <div class="video-container">
+    <div class="video-wrap">
       <iframe id="videoFrame" src="https://drive.google.com/file/d/1Qywo98zYEnJIkowxsq1iLVe_PQ75XBRX/preview" allowfullscreen></iframe>
     </div>
 
-    <div class="btn-group">
-      <button class="styled-btn active" onclick="changeServer('https://drive.google.com/file/d/1Qywo98zYEnJIkowxsq1iLVe_PQ75XBRX/preview', this)">
-        ▶️ Google Drive
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
+      <button class="neon-btn active" onclick="changeServer('https://drive.google.com/file/d/1Qywo98zYEnJIkowxsq1iLVe_PQ75XBRX/preview', this)">
+        Google Drive
       </button>
-      <button class="styled-btn" onclick="changeServer('https://mega.nz/embed/nRlzVJyY#ahFlrkfp22hD9aqM83Eh8n0hq-pi1PBgTsf-W57biz4', this)">
-        ▶️ Mega 1080p
+      <button class="neon-btn" onclick="changeServer('https://mega.nz/embed/nRlzVJyY#ahFlrkfp22hD9aqM83Eh8n0hq-pi1PBgTsf-W57biz4', this)">
+        Mega 1080p
       </button>
     </div>
 
     <div style="overflow-x: auto;">
-        <table class="download-table">
-        <tr>
-            <th>السيرفر</th>
-            <th>الجودة</th>
-            <th>التحميل</th>
-        </tr>
-        <tr>
-            <td>Mega</td>
-            <td>1080p</td>
-            <td><a href="https://mega.nz/file/nRlzVJyY#ahFlrkfp22hD9aqM83Eh8n0hq-pi1PBgTsf-W57biz4" target="_blank" class="dl-link">تحميل</a></td>
-        </tr>
-        <tr>
-            <td>Google Drive</td>
-            <td>Multi</td>
-            <td><a href="https://drive.google.com/file/d/1Qywo98zYEnJIkowxsq1iLVe_PQ75XBRX/view?usp=drivesdk" target="_blank" class="dl-link">تحميل</a></td>
-        </tr>
+        <table class="dl-table">
+            <tr><th>السيرفر</th><th>الجودة</th><th>التحميل</th></tr>
+            <tr><td>Mega</td><td>1080p FHD</td><td><a href="#" class="dl-link">تحميل</a></td></tr>
+            <tr><td>Drive</td><td>Multi</td><td><a href="#" class="dl-link">تحميل</a></td></tr>
         </table>
     </div>
   </div>
 
-  <div class="section-box">
-    <h3>📘 نوع الحلقة</h3>
-    <p>مقتبسة من المانجا (الفصول 882-884 والفصل صفر) - تعتبر حلقة خاصة لمدة ساعة.</p>
+  <div class="glass-card">
+    <h3 style="color: var(--primary-color); margin-top: 0; display: flex; align-items: center; gap: 10px;">
+      <span>📁</span> ملفات السوفت سب (Soft-sub)
+    </h3>
+    <p style="font-size: 14px; color: #bbb; margin-bottom: 15px;">
+        يمكنك تحميل الفيديو الخام وملف الترجمة المنفصل للمشاهدة بأعلى جودة:
+    </p>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="https://drive.google.com/file/d/1xq0X8mINTTGJxL9QyP9SNB6QKz8fN2mQ/view?usp=drivesdk" target="_blank" class="neon-btn">
+          <span>🎬</span> الخام (MP4)
+        </a>
+        <a href="https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10191114" target="_blank" class="neon-btn">
+          <span>📝</span> ملف الترجمة (ASS)
+        </a>
+    </div>
   </div>
 
-  <div class="section-box">
-    <h3>💡 قصة الحلقة</h3>
-    <p>
-      يُقال إن شينيتشي-نيتشان (الأخ شينيتشي)، وهو متحري في الثانوية، كان لديه موعد مع ران-نيتشان في حوض أسماك بيكا! يبدو أن الأمر كان بمثابة معاينة وتخطيط لخطة تهدف لمصالحة العم كوجورو والسيدة إيري المنفصلين. لكن، وسط الأجواء الغريبة في حوض الأسماك، لاحظ شينيتشي-نيتشان وقوع جريمة! وخلف تلك الجريمة، كانت هناك 'معاينة أخرى' ترتبط بذلك اليوم المشهود...!؟
+  <div class="glass-card">
+    <h3 style="color: var(--primary-color); margin-top: 0;">⚡ قصة الحلقة</h3>
+    <p style="line-height: 1.8; color: #ddd;">
+      يُقال إن شينيتشي-نيتشان، وهو متحري في الثانوية، كان لديه موعد مع ران في حوض أسماك بيكا! يبدو أن الأمر كان بمثابة معاينة وتخطيط لخطة تهدف لمصالحة العم كوجورو والسيدة إيري.
     </p>
   </div>
 
-  <div class="section-box">
-    <h3>📁 ملفات السوفت سب </h3>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-        <a href="https://drive.google.com/file/d/1xq0X8mINTTGJxL9QyP9SNB6QKz8fN2mQ/view?usp=drivesdk" target="_blank" class="styled-btn" style="font-size: 13px;">🔹 الخام (MP4)</a>
-        <a href="https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10191114" target="_blank" class="styled-btn" style="font-size: 13px;">🔤 ملف الترجمة (Subsource)</a>
+  <div class="glass-card" style="text-align: center;">
+    <h3 style="color: var(--primary-color);">⭐ قيّم الحلقة</h3>
+    <div class="stars" id="rating-stars">
+      <span onclick="rate(1)">★</span><span onclick="rate(2)">★</span><span onclick="rate(3)">★</span><span onclick="rate(4)">★</span><span onclick="rate(5)">★</span>
     </div>
-  </div>
-
-  <div class="section-box" style="text-align: center; border-left: none; border-top: 3px solid var(--primary-color);">
-    <h3 style="justify-content: center;">⭐ قيّم الحلقة</h3>
-    <div id="rating-stars" style="direction: ltr;">
-      <span onclick="rate(1)">★</span>
-      <span onclick="rate(2)">★</span>
-      <span onclick="rate(3)">★</span>
-      <span onclick="rate(4)">★</span>
-      <span onclick="rate(5)">★</span>
-    </div>
-    <p id="rating-result" style="margin-top: 10px; font-size: 14px; color: var(--primary-color);"></p>
+    <p id="rating-msg" style="color: var(--primary-color); height: 20px; margin-top: 10px;"></p>
   </div>
 
 </div>
 
 <footer>
-  <p>&copy; 2025 Aoibu Team | جميع الحقوق محفوظة</p>
-  <p>
-    <a href="https://t.me/Aoibu_Arabic" target="_blank">تيليجرام</a> | 
-    <a href="https://x.com/TheConanSign" target="_blank">تويتر</a>
-  </p>
+  &copy; 2025 Aoibu Team | جميع الحقوق محفوظة
 </footer>
+
 <script>
-  // 1. تسريع إخفاء شاشة التحميل (أهم تعديل)
-  // بدلاً من انتظار الفيديو (load)، سنكتفي بتحميل هيكل الصفحة (DOMContentLoaded)
-  document.addEventListener("DOMContentLoaded", () => {
-      // إخفاء الشاشة بعد ثانية ونصف كحد أقصى حتى لو الفيديو لسه ما حمل
+  // 1. إخفاء شاشة التحميل (مؤقت آمن)
+  window.onload = () => {
       setTimeout(() => {
           document.body.classList.add('loaded');
-      }, 1000); 
-  });
+      }, 1000);
+  };
 
-  // كود احتياطي: في حال تأخرت الصفحة، اجبر الشاشة تختفي بعد 3 ثواني
-  setTimeout(() => {
-      if (!document.body.classList.contains('loaded')) {
-          document.body.classList.add('loaded');
-      }
-  }, 3000);
+  // 2. إنشاء النجوم المتحركة (Optimized JS)
+  const particleContainer = document.getElementById('particles-container');
+  const particleCount = 35; // عدد مناسب يعطي جمالية بدون تعليق
 
+  for (let i = 0; i < particleCount; i++) {
+      let p = document.createElement('div');
+      p.classList.add('particle');
+      
+      // خصائص عشوائية
+      let size = Math.random() * 3 + 1; // حجم بين 1 و 4 بكسل
+      let left = Math.random() * 100;
+      let duration = Math.random() * 10 + 10; // مدة بين 10 و 20 ثانية
+      let delay = Math.random() * 10;
 
-  // 2. الجزيئات المتحركة (Particles)
-  function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    // قللنا العدد قليلاً لتحسين الأداء على الجوال
-    const particleCount = 20; 
-
-    for (let i = 0; i < particleCount; i++) {
-      let particle = document.createElement('div');
-      particle.classList.add('particle');
-      let size = Math.random() * 4 + 1;
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = '105%';
-      particle.style.width = size + 'px';
-      particle.style.height = size + 'px';
-      particle.style.animationDuration = (Math.random() * 30 + 15) + 's';
-      particle.style.animationDelay = (Math.random() * 10) + 's';
-      particlesContainer.appendChild(particle);
-    }
+      p.style.width = `${size}px`;
+      p.style.height = `${size}px`;
+      p.style.left = `${left}%`;
+      p.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+      
+      particleContainer.appendChild(p);
   }
-  createParticles();
 
-  // 3. تأثير الظهور عند التمرير (Scroll Reveal)
+  // 3. ظهور العناصر عند التمرير
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // إيقاف المراقبة بعد الظهور لتخفيف الضغط
-      }
-    });
+      entries.forEach(entry => {
+          if(entry.isIntersecting) {
+              entry.target.classList.add('visible');
+          }
+      });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.section-box, .info-card').forEach(el => observer.observe(el));
+  document.querySelectorAll('.glass-card').forEach(el => observer.observe(el));
 
   // 4. تغيير السيرفر
   function changeServer(url, btn) {
-    document.getElementById('videoFrame').src = url;
-    document.querySelectorAll('.btn-group button').forEach(b => b.classList.remove('active'));
-    if(btn) btn.classList.add('active');
+      document.getElementById('videoFrame').src = url;
+      document.querySelectorAll('.neon-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
   }
 
   // 5. التقييم
-  function rate(stars) {
-    const starsContainer = document.getElementById("rating-stars").children;
-    for (let i = 0; i < starsContainer.length; i++) {
-      starsContainer[i].style.color = (i < stars) ? "#ffc107" : "#444";
-    }
-    const msg = document.getElementById("rating-result");
-    msg.innerText = `شكراً! تم تقييم الحلقة بـ ${stars} نجوم`;
-    msg.style.animation = "none";
-    msg.offsetHeight; /* trigger reflow */
-    msg.style.animation = "wiggle 0.5s ease";
+  function rate(n) {
+      let stars = document.querySelectorAll('.stars span');
+      stars.forEach((s, index) => {
+          s.style.color = index < n ? '#ffd700' : '#333';
+          s.style.textShadow = index < n ? '0 0 15px #ffd700' : 'none';
+      });
+      document.getElementById('rating-msg').innerText = `تم التقييم: ${n}/5`;
   }
 </script>
-
 
 </body>
 </html>
