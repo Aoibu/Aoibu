@@ -476,12 +476,84 @@
         width: 100%;
       }
     }
+/* --- تنسيق شاشة التحميل --- */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0f1014; /* لون خلفية داكن يناسب الثيم */
+  z-index: 99999; /* لضمان ظهوره فوق كل شيء */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* حاوية الدائرة والشعار */
+.loader-container {
+  position: relative;
+  width: 120px;  /* حجم الدائرة */
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* الدائرة الدوارة */
+.spinner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid rgba(0, 188, 212, 0.2); /* لون خافت للدائرة */
+  border-top: 4px solid #00bcd4; /* لون التمييز (السيان/الأزرق) */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* تنسيق الشعار في المنتصف */
+.loader-logo {
+  width: 65%; /* حجم الشعار نسبة للدائرة */
+  height: 65%;
+  object-fit: contain;
+  border-radius: 50%; /* لجعل الشعار دائرياً إذا كان مربعاً */
+  position: relative;
+  z-index: 2;
+  /* تأثير نبض خفيف للشعار (اختياري) */
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* حركة الدوران */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* حركة النبض للشعار */
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.9; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.9; }
+}
+
+/* كلاس لإخفاء التحميل */
+.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
 
   </style>
 
 </head>
 
 <body>
+<div id="preloader">
+  <div class="loader-container">
+    <div class="spinner"></div>
+    <img src="https://c.top4top.io/p_3658cyqs70.png" alt="Aoibu Logo" class="loader-logo">
+  </div>
+</div>
 
 <div id="celebrationModal">
     <canvas id="fireworksCanvas"></canvas>
@@ -936,6 +1008,17 @@ function closeCelebration() {
 }
 
   
+</script>
+<script>
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    preloader.classList.add('loaded');
+    
+    // إزالة العنصر تماماً من الصفحة بعد انتهاء تأثير الاختفاء للحفاظ على الأداء
+    setTimeout(() => {
+        preloader.style.display = 'none';
+    }, 500);
+  });
 </script>
 
 </body>
