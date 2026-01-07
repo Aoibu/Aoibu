@@ -1,0 +1,26 @@
+{
+  "name": "المحقق كونان - فريق اويبو للترجمة (Aoibu)",
+  "short_name": "كونان | Aoibu",
+  "description": "شاهد جميع حلقات وأفلام المحقق كونان مترجمة للعربية بجودة عالية وبدون إعلانات. ترجمة فريق اويبو (Aoibu).",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0b10",
+  "theme_color": "#00bcd4",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "https://c.top4top.io/p_36599fvhh4.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://f.top4top.io/p_3659n65ze1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
