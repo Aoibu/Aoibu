@@ -1,3 +1,9 @@
 User-agent: *
 Allow: /
+
+# منع أرشفة ملفات النظام أو التكوين إن وجدت
+Disallow: /README.md
+Disallow: /LICENSE
+
+# رابط خريطة الموقع لمساعدة جوجل على اكتشاف الحلقات الجديدة فوراً
 Sitemap: https://aoibu.github.io/Aoibu/sitemap.xml
