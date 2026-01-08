@@ -225,6 +225,10 @@ body {
 <header>
   <a href="#" class="home-link">Aoibu Team</a>
   <span style="color:var(--primary-color); font-size: 1.2rem;">★</span>
+  <button class="cinema-btn" onclick="shareEpisode()">
+  <span>🔗</span> مشاركة الحلقة
+</button>
+
 </header>
 
 <div class="container">
@@ -386,6 +390,17 @@ document.addEventListener('keydown', function(e) {
     e.preventDefault();
   }
 });
+
+  function shareEpisode() {
+  const url = window.location.href;
+  navigator.clipboard.writeText(url).then(() => {
+    showToast("تم نسخ رابط الحلقة للحافظة!");
+  }).catch(() => {
+    showToast("فشل النسخ، انسخ الرابط يدوياً");
+  });
+}
+
+  
 </script>
   
 </body>
