@@ -165,6 +165,42 @@
         border-top: 1px solid rgba(255,255,255,0.05);
         background: linear-gradient(to top, #000, transparent);
     }
+
+        /* تنسيق قسم طاقم العمل */
+    .credits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .credit-item {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 15px 10px;
+        text-align: center;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    .credit-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255,255,255,0.08);
+        box-shadow: 0 5px 20px rgba(0, 188, 212, 0.15);
+    }
+    .credit-role {
+        display: block; font-size: 0.9rem; color: #888; margin-bottom: 5px;
+    }
+    .credit-name {
+        display: block; font-size: 1.1rem; font-weight: bold; color: #fff;
+        text-shadow: 0 0 5px rgba(255,255,255,0.3);
+        text-decoration: none; transition: 0.3s;
+    }
+    .credit-name:hover {
+        color: var(--primary-color);
+        text-shadow: 0 0 15px var(--primary-color);
+    }
+
   </style>
 
   <style>
@@ -243,6 +279,29 @@ body {
       يُقال إن شينيتشي-نيتشان، وهو متحري في الثانوية، كان لديه موعد مع ران في حوض أسماك بيكا! يبدو أن الأمر كان بمثابة معاينة وتخطيط لخطة تهدف لمصالحة العم كوجورو والسيدة إيري.
     </p>
   </div>
+
+    <div class="glass-card">
+    <h3 style="color: var(--primary-color); margin-top: 0; display: flex; align-items: center; gap: 10px;">
+        <span>✒️</span> طاقم العمل
+    </h3>
+    <p style="font-size: 14px; color: #bbb;">تم إعداد هذه الحلقة بواسطة ( فريق اويبو للترجمة ):</p>
+    
+    <div class="credits-grid">
+        <div class="credit-item">
+            <span class="credit-role">الترجمة والإنتاج والشارات</span>
+            <a href="https://x.com/ABOODY_SUBS" target="_blank" class="credit-name">ABOODYSUBS</a> 
+        </div>
+        <div class="credit-item">
+            <span class="credit-role">ملف الترجمة</span>
+            <a href="https://x.com/CodeSubs" target="_blank" class="credit-name">CodeSubs</a> 
+        </div>
+        <div class="credit-item">
+            <span class="credit-role">المحاكاة والبرمجة</span>
+            <a href="https://x.com/TheConanSign" target="_blank" class="credit-name">TheConanSign</a> 
+        </div>
+    </div>
+  </div>
+
 
   <div class="glass-card" style="text-align: center;">
     <h3 style="color: var(--primary-color);">⭐ قيّم الحلقة</h3>
