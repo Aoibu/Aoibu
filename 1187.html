@@ -447,42 +447,36 @@ document.addEventListener('keydown', function(e) {
   </script>
 
   <script>
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8PjG8u6pgPDGznZJXKfJHtojrZ0N8a-sNoa2CCiB_VEsXWUC89pihc1IqkFAMwuhDgQ/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1E_Kprq9n-PRY2a1innOWlBn4h4ld4QOonfy0rknd2dl9qX0MuC-IszRPt5-Gwle7cg/exec";
 
+const episode = parseInt(
+  document.querySelector("h1").innerText.match(/\d+/)[0]
+);
+
+// عرض المتوسط وعدد المصوّتين
+fetch(GOOGLE_SCRIPT_URL + "?episode=" + episode)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("avg-rating").innerText = data.avg;
+    document.getElementById("vote-count").innerText = data.votes;
+  });
+
+// إرسال التقييم
 function rate(n) {
-  const episode = parseInt(
-    document.querySelector("h1").innerText.match(/\d+/)[0]
-  );
-
   if (localStorage.getItem("rated_" + episode)) {
     document.getElementById("rating-msg").innerText = "⭐ لقد قيّمت هذه الحلقة مسبقًا";
     return;
   }
 
-  // تلوين النجوم
-  document.querySelectorAll('.stars span').forEach((s, i) => {
-    s.style.color = i < n ? '#ffd700' : '#333';
-    s.style.textShadow = i < n ? '0 0 15px #ffd700' : 'none';
-  });
-
-  document.getElementById("rating-msg").innerText = "⏳ جارٍ إرسال التقييم...";
-
-  // إرسال بدون انتظار response (حل CORS)
   fetch(GOOGLE_SCRIPT_URL, {
     method: "POST",
     mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      episode: episode,
-      rating: n
-    })
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ episode: episode, rating: n })
   });
 
-  // نعتبره ناجح
   localStorage.setItem("rated_" + episode, true);
-  document.getElementById("rating-msg").innerText = `✅ شكراً! تم تقييم الحلقة ${n}/5`;
+  document.getElementById("rating-msg").innerText = "✅ شكراً على التقييم!";
 }
   </script>
 
