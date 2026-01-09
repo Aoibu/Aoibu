@@ -383,14 +383,44 @@ body {
   }
 
   // 5. التقييم
+    // 1. رابط الـ Apps Script الخاص بك
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzK1u56o3Vz2qiNIEio_NMZKThCkckFCUOG2fi0HZCXn2pDGjxmcy6mxXP3hsZ7HkjWA/exec"; 
+
+  // 2. استخراج رقم الحلقة من اسم الملف (مثلاً 1187)
+  const fileName = window.location.pathname.split("/").pop();
+  let currentEpisode = fileName.replace(".html", "");
+
+  // 3. دالة التقييم
   function rate(n) {
+      // تغيير شكل النجوم في الصفحة فوراً
       let stars = document.querySelectorAll('.stars span');
       stars.forEach((s, index) => {
           s.style.color = index < n ? '#ffd700' : '#333';
           s.style.textShadow = index < n ? '0 0 15px #ffd700' : 'none';
       });
-      document.getElementById('rating-msg').innerText = `تم التقييم: ${n}/5`;
+
+      const msgElement = document.getElementById('rating-msg');
+      msgElement.innerText = `جاري إرسال تقييمك (${n}/5)...`;
+
+      // إرسال البيانات إلى Google Sheets
+      fetch(`${GOOGLE_SCRIPT_URL}?episode=${currentEpisode}&rating=${n}`, {
+          method: "POST",
+          mode: "no-cors" // لتجنب مشاكل الـ CORS مع جوجل
+      })
+      .then(() => {
+          msgElement.innerText = `تم تسجيل تقييمك بنجاح! (${n}/5)`;
+          msgElement.style.color = "#00bcd4";
+          
+          // قفل النجوم لمنع التقييم المتكرر في نفس الزيارة
+          document.getElementById('rating-stars').style.pointerEvents = 'none';
+      })
+      .catch(error => {
+          console.error('Error:', error);
+          msgElement.innerText = `حدث خطأ في الاتصال.`;
+          msgElement.style.color = "red";
+      });
   }
+
 </script>
 <script>
 document.addEventListener('contextmenu', e => e.preventDefault());
@@ -445,153 +475,6 @@ document.addEventListener('keydown', function(e) {
     nextBtn.style.display = "none";
   }
   </script>
-
-<script>
-  // ============================================================
-  // إعدادات الربط مع جوجل شيت
-  // ============================================================
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzK1u56o3Vz2qiNIEio_NMZKThCkckFCUOG2fi0HZCXn2pDGjxmcy6mxXP3hsZ7HkjWA/exec"; 
-
-  // ============================================================
-  // 1. تحديد رقم الحلقة والتحكم في التنقل
-  // ============================================================
-  const fileName = window.location.pathname.split("/").pop();
-  // محاولة استخراج الرقم، إذا كان الاسم ليس رقماً نضع قيمة افتراضية
-  let currentEpisode = fileName.replace(".html", "");
-  
-  // التأكد من أن الرقم صحيح (لأغراض التنقل)
-  let episodeNumber = parseInt(currentEpisode);
-
-  const prevBtn = document.getElementById("prevEpisode");
-  const nextBtn = document.getElementById("nextEpisode");
-  const minEpisode = 1;
-
-  if (!isNaN(episodeNumber)) {
-    // إعداد أزرار التنقل
-    if (episodeNumber > minEpisode) {
-      prevBtn.href = `${episodeNumber - 1}.html`;
-    } else {
-      prevBtn.style.opacity = "0.4";
-      prevBtn.style.pointerEvents = "none";
-    }
-    nextBtn.href = `${episodeNumber + 1}.html`;
-  } else {
-    // إخفاء الأزرار إذا لم يكن اسم الملف رقماً
-    if(prevBtn) prevBtn.style.display = "none";
-    if(nextBtn) nextBtn.style.display = "none";
-  }
-
-  // ============================================================
-  // 2. دالة التقييم وإرسال البيانات
-  // ============================================================
-  function rate(n) {
-      // 1. تلوين النجوم محلياً (Visual Feedback)
-      let stars = document.querySelectorAll('.stars span');
-      stars.forEach((s, index) => {
-          s.style.color = index < n ? '#ffd700' : '#333';
-          s.style.textShadow = index < n ? '0 0 15px #ffd700' : 'none';
-      });
-
-      const msgElement = document.getElementById('rating-msg');
-      msgElement.innerText = `جاري إرسال تقييمك (${n}/5)...`;
-      msgElement.style.color = "#fff";
-
-      // 2. إرسال البيانات إلى السيرفر (Google Sheet)
-      // نستخدم fetch مع no-cors لأن جوجل شيت لا يرجع استجابة JSON مباشرة في هذا الوضع
-      // البيانات المرسلة: رقم الحلقة (currentEpisode) + التقييم (n)
-      const fullUrl = `${GOOGLE_SCRIPT_URL}?episode=${currentEpisode}&rating=${n}`;
-
-      fetch(fullUrl, {
-          method: "POST",
-          mode: "no-cors" // مهم جداً لتجنب أخطاء المتصفح مع جوجل
-      })
-      .then(() => {
-          // بما أن الوضع no-cors، نفترض النجاح إذا لم يحدث خطأ في الشبكة
-          msgElement.innerText = `تم تسجيل تقييمك بنجاح! (${n}/5)`;
-          msgElement.style.color = "#00bcd4"; 
-          
-          // منع التقييم مرة أخرى لمنع التكرار (اختياري)
-          document.getElementById('rating-stars').style.pointerEvents = 'none';
-          document.getElementById('rating-stars').style.opacity = '0.7';
-      })
-      .catch(error => {
-          console.error('Error:', error);
-          msgElement.innerText = `حدث خطأ في الاتصال، تأكد من الإنترنت.`;
-          msgElement.style.color = "red";
-      });
-  }
-
-  // ============================================================
-  // 3. وظائف الواجهة (التحميل، الخلفية، الفيديو)
-  // ============================================================
-  
-  // إخفاء شاشة التحميل
-  window.onload = () => {
-      setTimeout(() => {
-          document.body.classList.add('loaded');
-      }, 1000);
-  };
-
-  // النجوم الخلفية (Particles)
-  const particleContainer = document.getElementById('particles-container');
-  if (particleContainer) {
-    const particleCount = 35; 
-    for (let i = 0; i < particleCount; i++) {
-        let p = document.createElement('div');
-        p.classList.add('particle');
-        let size = Math.random() * 3 + 1;
-        let left = Math.random() * 100;
-        let duration = Math.random() * 10 + 10;
-        let delay = Math.random() * 10;
-        p.style.width = `${size}px`;
-        p.style.height = `${size}px`;
-        p.style.left = `${left}%`;
-        p.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
-        particleContainer.appendChild(p);
-    }
-  }
-
-  // ظهور البطاقات عند التمرير
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if(entry.isIntersecting) {
-              entry.target.classList.add('visible');
-          }
-      });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.glass-card').forEach(el => observer.observe(el));
-
-  // تغيير السيرفر
-  function changeServer(url, btn) {
-      const frame = document.getElementById('videoFrame');
-      if(frame) frame.src = url;
-      document.querySelectorAll('.neon-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-  }
-  
-  // زر المشاركة
-  function shareEpisode() {
-      const url = window.location.href;
-      navigator.clipboard.writeText(url).then(() => {
-        // يمكن استبدال التنبيه برسالة مخصصة (Toast) إذا رغبت
-        alert("تم نسخ رابط الحلقة للحافظة!");
-      }).catch(() => {
-        alert("فشل النسخ، انسخ الرابط يدوياً");
-      });
-  }
-
-  // ============================================================
-  // 4. حماية المحتوى
-  // ============================================================
-  document.addEventListener('contextmenu', e => e.preventDefault());
-  document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey && ['c','a','x','u','s'].includes(e.key.toLowerCase())) || e.key === 'F12') {
-      e.preventDefault();
-    }
-  });
-</script>
-
-
   
 </body>
 </html>
