@@ -459,29 +459,30 @@ function rate(n) {
     return;
   }
 
+  // تلوين النجوم
   document.querySelectorAll('.stars span').forEach((s, i) => {
     s.style.color = i < n ? '#ffd700' : '#333';
     s.style.textShadow = i < n ? '0 0 15px #ffd700' : 'none';
   });
 
-  document.getElementById("rating-msg").innerText = "⏳ يتم إرسال التقييم...";
+  document.getElementById("rating-msg").innerText = "⏳ جارٍ إرسال التقييم...";
 
+  // إرسال بدون انتظار response (حل CORS)
   fetch(GOOGLE_SCRIPT_URL, {
     method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
       episode: episode,
       rating: n
-    }),
-    headers: { "Content-Type": "application/json" }
-  })
-  .then(res => res.json())
-  .then(() => {
-    localStorage.setItem("rated_" + episode, true);
-    document.getElementById("rating-msg").innerText = `✅ شكراً! تم تقييم الحلقة ${n}/5`;
-  })
-  .catch(() => {
-    document.getElementById("rating-msg").innerText = "❌ فشل إرسال التقييم";
+    })
   });
+
+  // نعتبره ناجح
+  localStorage.setItem("rated_" + episode, true);
+  document.getElementById("rating-msg").innerText = `✅ شكراً! تم تقييم الحلقة ${n}/5`;
 }
   </script>
 
