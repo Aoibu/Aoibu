@@ -447,34 +447,42 @@ document.addEventListener('keydown', function(e) {
 </script>
 
   <script>
-  // استخراج رقم الحلقة من اسم الملف (1188.html)
-  const fileName = window.location.pathname.split("/").pop();
-  const currentEpisode = parseInt(fileName.replace(".html", ""));
+  // 1. استخراج اسم الملف بطريقة لا تتعارض مع الكود السابق
+  const navPath = window.location.pathname;
+  const navFileName = navPath.substring(navPath.lastIndexOf('/') + 1);
+  
+  // تنظيف الاسم من أي رموز إضافية واستخراج الرقم
+  const cleanName = navFileName.split('?')[0].split('#')[0];
+  const navCurrentEp = parseInt(cleanName.replace(/\D/g, '')); // استخراج الأرقام فقط لضمان الدقة
 
-  const minEpisode = 1; // أول حلقة
+  const minEpisode = 1; // رقم أول حلقة
   const prevBtn = document.getElementById("prevEpisode");
   const nextBtn = document.getElementById("nextEpisode");
 
-  // تحقق أن الصفحة فعلاً رقم
-  if (!isNaN(currentEpisode)) {
+  // التأكد من أننا حصلنا على رقم صحيح
+  if (!isNaN(navCurrentEp)) {
 
-    // الحلقة السابقة
-    if (currentEpisode > minEpisode) {
-      prevBtn.href = `${currentEpisode - 1}.html`;
+    // --- إعداد زر الحلقة السابقة ---
+    if (navCurrentEp > minEpisode) {
+      prevBtn.setAttribute("href", `${navCurrentEp - 1}.html`);
     } else {
+      // تعطيل الزر إذا كانت الحلقة الأولى
       prevBtn.style.opacity = "0.4";
       prevBtn.style.pointerEvents = "none";
+      prevBtn.removeAttribute("href");
     }
 
-    // الحلقة التالية
-    nextBtn.href = `${currentEpisode + 1}.html`;
+    // --- إعداد زر الحلقة التالية ---
+    nextBtn.setAttribute("href", `${navCurrentEp + 1}.html`);
 
   } else {
-    // إذا الصفحة مو رقم (احتياط)
+    // إذا لم يكن اسم الملف يحتوي على رقم (مثلاً index.html)
+    console.warn("لم يتم العثور على رقم الحلقة في اسم الملف");
     prevBtn.style.display = "none";
     nextBtn.style.display = "none";
   }
-  </script>
+</script>
+
   
 </body>
 </html>
