@@ -221,25 +221,31 @@
     ========================================= */
     
     /* --- الهيدر --- */
+    /* --- الهيدر المعدل --- */
     header {
       background: rgba(22, 24, 31, 0.85);
       backdrop-filter: blur(10px);
-      padding: 15px 30px;
+      padding: 8px 20px; /* تقليل الحجم بجعل الحواف أصغر */
       position: sticky; top: 0; z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex; justify-content: center; align-items: center;
+      display: flex; 
+      flex-direction: column; /* جعل العناصر تظهر تحت بعضها */
+      justify-content: center; 
+      align-items: center;
+      gap: 5px; /* مسافة بسيطة بين الاسم والأقسام */
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      transform: translateY(-100%); /* بداية خارج الشاشة */
+      transform: translateY(-100%);
       transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    body.loaded header { transform: translateY(0); }
 
-    /* تأثير الجليتش على عنوان الهيدر */
     header h1 {
-      margin: 0; font-size: 24px; font-weight: 700;
+      margin: 0; 
+      font-size: 20px; /* تصغير حجم الخط قليلاً ليناسب الهيدر الجديد */
+      font-weight: 700;
       color: var(--primary-color);
       text-shadow: 2px 0 0 rgba(255,0,0,0.3), -2px 0 0 rgba(0,255,255,0.3);
-      position: relative; transition: all 0.3s;
+      position: relative; 
+      transition: all 0.3s;
     }
     header h1:hover {
       animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
@@ -564,25 +570,26 @@
   }
 }
     /* تنسيق قائمة التنقل */
-.main-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0 0;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+    /* تنسيق قائمة التنقل المعدل */
+    .main-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 5px 0 0 0; /* تقليل المسافة العلوية */
+      display: flex;
+      gap: 15px; /* تقليل المسافة بين الأقسام لتناسب العرض */
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.main-nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.3s;
-  padding: 5px 10px;
-  border-radius: 15px;
-}
+    .main-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px; /* تصغير حجم خط الأقسام قليلاً */
+      font-weight: bold;
+      transition: 0.3s;
+      padding: 4px 8px;
+      border-radius: 15px;
+    }
 
 .main-nav a:hover {
   color: var(--primary-color);
