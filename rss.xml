@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Aoibu | مكتبة كونان</title>
+  <link>https://aoibu.github.io/Aoibu/</link>
+  <description>آخر الحلقات، الأفلام، وفصول المانجا المضافة في مكتبة كونان لفريق Aoibu.</description>
+  <language>ar</language>
+  <copyright>2025 Aoibu Team</copyright>
+  <atom:link href="https://aoibu.github.io/Aoibu/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>1190 - الحبيب الذي اختفى عند جسر كويتاني (فصل توتوري)</title>
+    <link>https://aoibu.github.io/Aoibu/1190.html</link>
+    <guid>https://aoibu.github.io/Aoibu/1190.html</guid>
+    <description>مشاهدة الحلقة 1190 - فلر - الحبيب الذي اختفى عند جسر كويتاني</description>
+  </item>
+
+  <item>
+    <title>1189 - حجة الغياب المزدوجة</title>
+    <link>https://aoibu.github.io/Aoibu/1189.html</link>
+    <guid>https://aoibu.github.io/Aoibu/1189.html</guid>
+    <description>مشاهدة الحلقة 1189 - فلر - حجة الغياب المزدوجة</description>
+  </item>
+
+  <item>
+    <title>1188 - الحقهم! يا تاكسي المحقق 3</title>
+    <link>https://aoibu.github.io/Aoibu/1188.html</link>
+    <guid>https://aoibu.github.io/Aoibu/1188.html</guid>
+    <description>مشاهدة الحلقة 1188 - فلر - الحقهم! يا تاكسي المحقق 3</description>
+  </item>
+
+  <item>
+    <title>1187 - الحلقة صفر: قضية شينيتشي كودو في حوض الأسماك</title>
+    <link>https://aoibu.github.io/Aoibu/1187.html</link>
+    <guid>https://aoibu.github.io/Aoibu/1187.html</guid>
+    <description>حلقة خاصة لمدة ساعة - مانجا - الحلقة صفر</description>
+  </item>
+
+  <item>
+    <title>Movie 28 - فلاش باك ذو العين الواحدة</title>
+    <link>https://aoibu.github.io/Aoibu/M28.html</link>
+    <guid>https://aoibu.github.io/Aoibu/M28.html</guid>
+    <description>حصرياً: الفيلم 28 من المحقق كونان - فلاش باك ذو العين الواحدة</description>
+  </item>
+
+  <item>
+    <title>مانجا الفصل 1152</title>
+    <link>https://aoibu.github.io/Aoibu/M1152.html</link>
+    <guid>https://aoibu.github.io/Aoibu/M1152.html</guid>
+    <description>قراءة الفصل 1152 من مانجا المحقق كونان</description>
+  </item>
+
+</channel>
+</rss>
