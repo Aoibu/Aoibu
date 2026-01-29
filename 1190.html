@@ -209,6 +209,19 @@
   transition: 0.3s;
 }
 .cinema-btn:hover { background: var(--primary-color); color: #000; }
+
+    /* تنسيق أزرار المترجمين */
+    .translator-btn {
+        border-color: #ff4757; /* لون أحمر */
+        color: #ff4757;
+        background: rgba(255, 71, 87, 0.1);
+    }
+    .translator-btn:hover, .translator-btn.active {
+        background: #ff4757;
+        color: #fff;
+        box-shadow: 0 0 20px #ff4757;
+    }
+
   </style>
 
   <style>
@@ -252,27 +265,30 @@ body {
   <a id="nextEpisode" class="neon-btn">الحلقة التالية ➡️</a>
     </div>
     
-    <div class="video-wrap">
-      <iframe id="videoFrame" src="https://drive.google.com/file/d/1A1CRmJ_ENr0DmKMhTH4IU7HotUPSEwKK/preview" allowfullscreen></iframe>
+<div style="text-align: center; margin-bottom: 20px;">
+    <span style="color:#888; font-size:0.9rem; margin-bottom:8px; display:block;">اختر الفريق / المترجم:</span>
+    <div style="display: flex; justify-content: center; gap: 10px;">
+        <button class="neon-btn translator-btn active" onclick="switchTranslator('aoibu', this)">TheConanSign</button>
+        <button class="neon-btn translator-btn" onclick="switchTranslator('other', this)">ABOODY_SUBS</button>
     </div>
+</div>
 
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
-      <button class="neon-btn active" onclick="changeServer('https://drive.google.com/file/d/1A1CRmJ_ENr0DmKMhTH4IU7HotUPSEwKK/preview', this)">
-        Google Drive
-      </button>
-      <button class="neon-btn" onclick="changeServer('https://mega.nz/embed/KccigZBD#mBw8cKgqZGxMI49hClPpPOL8_su-6U2-5YBH3IYMYso', this)">
-        Mega 1080p
-      </button>
-    </div>
+<div class="video-wrap">
+  <iframe id="videoFrame" src="" allowfullscreen></iframe>
+</div>
 
-    <div style="overflow-x: auto;">
-        <table class="dl-table">
-            <tr><th>السيرفر</th><th>الجودة</th><th>التحميل</th></tr>
-            <tr><td>Mega</td><td>1080p FHD</td><td><a href="https://mega.nz/file/KccigZBD#mBw8cKgqZGxMI49hClPpPOL8_su-6U2-5YBH3IYMYso" class="dl-link">تحميل</a></td></tr>
-            <tr><td>Drive</td><td>1080p FHD</td><td><a href="https://drive.google.com/file/d/1A1CRmJ_ENr0DmKMhTH4IU7HotUPSEwKK/view?usp=drivesdk" class="dl-link">تحميل</a></td></tr>
-        </table>
-    </div>
-  </div>
+<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
+  <button id="btn-drive" class="neon-btn active" onclick="setServer('drive')">Google Drive</button>
+  <button id="btn-mega" class="neon-btn" onclick="setServer('mega')">Mega 1080p</button>
+</div>
+
+<div style="overflow-x: auto;">
+    <table class="dl-table">
+        <tr><th>السيرفر</th><th>الجودة</th><th>التحميل</th></tr>
+        <tr><td>Mega</td><td>1080p FHD</td><td><a href="#" id="dl-mega" target="_blank" class="dl-link">تحميل</a></td></tr>
+        <tr><td>Drive</td><td>1080p FHD</td><td><a href="#" id="dl-drive" target="_blank" class="dl-link">تحميل</a></td></tr>
+    </table>
+</div>
 
   <div class="glass-card">
     <h3 style="color: var(--primary-color); margin-top: 0; display: flex; align-items: center; gap: 10px;">
@@ -285,7 +301,7 @@ body {
         <a href="https://drive.google.com/file/d/1bZ42NDLA7XwiGvyBOz99P0RkppNxPbJV/view?usp=drivesdk" target="_blank" class="neon-btn">
           <span>🎬</span> الخام (MP4)
         </a>
-        <a href="https://subdl.com/s/info/nXfFOdTDnu" target="_blank" class="neon-btn">
+        <a href="https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10196584" target="_blank" class="neon-btn">
           <span>📝</span> ملف الترجمة (ASS)
         </a>
     </div>
@@ -307,6 +323,10 @@ body {
     <p style="font-size: 14px; color: #bbb;">تم إعداد هذه الحلقة بواسطة ( فريق اويبو للترجمة ):</p>
     
     <div class="credits-grid">
+        <div class="credit-item">
+            <span class="credit-role">الترجمة والإنتاج والشارات</span>
+            <a href="https://x.com/ABOODY_SUBS" target="_blank" class="credit-name">ABOODYSUBS</a> 
+        </div>
         <div class="credit-item">
             <span class="credit-role">المحاكاة والترجمة والانتاج والبرمجة والتصميم</span>
             <a href="https://x.com/TheConanSign" target="_blank" class="credit-name">TheConanSign</a> 
@@ -370,11 +390,69 @@ body {
 
   document.querySelectorAll('.glass-card').forEach(el => observer.observe(el));
 
-  // 4. تغيير السيرفر
-  function changeServer(url, btn) {
-      document.getElementById('videoFrame').src = url;
-      document.querySelectorAll('.neon-btn').forEach(b => b.classList.remove('active'));
+  // 4. نظام المترجمين والسيرفرات
+  // --- ضع روابطك هنا ---
+  const episodeData = {
+    "aoibu": {
+      servers: {
+        drive: "https://drive.google.com/file/d/1A1CRmJ_ENr0DmKMhTH4IU7HotUPSEwKK/preview",
+        mega: "https://mega.nz/embed/KccigZBD#mBw8cKgqZGxMI49hClPpPOL8_su-6U2-5YBH3IYMYso"
+      },
+      downloads: {
+        drive: "https://drive.google.com/file/d/1A1CRmJ_ENr0DmKMhTH4IU7HotUPSEwKK/view?usp=drivesdk",
+        mega: "https://mega.nz/file/KccigZBD#mBw8cKgqZGxMI49hClPpPOL8_su-6U2-5YBH3IYMYso"
+      }
+    },
+    "other": { // بيانات المترجم الثاني
+      servers: {
+        drive: "https://drive.google.com/file/d/1v3cfQjhqas6K4ysh-8ORvwj5jAcVT1m8/preview",
+        mega: "https://mega.nz/embed/rF02gL4a#TbKC8E4r_AlsXxJv7Vn8Qk5G-LK31iF2cnz0PP4-UBc"
+      },
+      downloads: {
+        drive: "https://drive.google.com/file/d/1v3cfQjhqas6K4ysh-8ORvwj5jAcVT1m8/view?usp=drivesdk",
+        mega: "https://mega.nz/file/rF02gL4a#TbKC8E4r_AlsXxJv7Vn8Qk5G-LK31iF2cnz0PP4-UBc"
+      }
+    }
+  };
+  let currentTranslator = "aoibu"; 
+  let currentServer = "drive";
+  // تشغيل الصفحة
+  document.addEventListener("DOMContentLoaded", () => {
+      updatePageContent();
+  });
+  function switchTranslator(key, btn) {
+      currentTranslator = key;
+      // تحديث شكل زر المترجم
+      document.querySelectorAll('.translator-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      updatePageContent();
+  }
+  function setServer(key) {
+      currentServer = key;
+      updatePageContent();
+  }
+  function updatePageContent() {
+      const data = episodeData[currentTranslator];
+  // تحديث الفيديو
+  const iframe = document.getElementById('videoFrame');
+  if(data.servers[currentServer]) {
+      iframe.src = data.servers[currentServer];
+  } else {
+      iframe.src = ""; 
+  }
+
+  // تحديث شكل أزرار السيرفر
+  document.querySelectorAll('#btn-drive, #btn-mega').forEach(b => b.classList.remove('active'));
+  const activeBtn = document.getElementById('btn-' + currentServer);
+  if(activeBtn) activeBtn.classList.add('active');
+
+  // تحديث روابط التحميل
+  const dlMega = document.getElementById('dl-mega');
+  const dlDrive = document.getElementById('dl-drive');
+  
+  if(dlMega) dlMega.href = data.downloads.mega || "#";
+  if(dlDrive) dlDrive.href = data.downloads.drive || "#";
+
   }
 
   // 5. التقييم
