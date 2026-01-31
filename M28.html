@@ -2,26 +2,59 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>فيلم كونان 28 - Aoibu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>مشاهدة وتحميل فيلم كونان 28: فلاش باك ذو العين الواحدة | ترجمة Aoibu</title>
+  <meta name="description" content="حصرياً مشاهدة وتحميل فيلم المحقق كونان 28 (The One-Eyed Flashback) مترجم عربي كامل بجودة عالية 1080p. ترجمة احترافية من فريق Aoibu. روابط مباشرة Drive و Mega.">
+  <meta name="keywords" content="كونان 28, فيلم كونان فلاش باك ذو العين الواحدة, تحميل فيلم كونان 28, ترجمة Aoibu, المحقق كونان, مشاهدة مباشرة">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="فيلم كونان 28 - فلاش باك ذو العين الواحدة | Aoibu Team">
+  <meta property="og:description" content="شاهد الآن الفيلم المنتظر بجودة خارقة وترجمة حصرية.">
+  <meta property="og:image" content="https://c.top4top.io/p_36383dr260.jpeg">
+  <meta property="og:url" content="https://your-website.com/conan-28"> <meta property="og:type" content="video.movie">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Movie",
+    "name": "المحقق كونان: فلاش باك ذو العين الواحدة",
+    "image": "https://c.top4top.io/p_36383dr260.jpeg",
+    "description": "قصة فيلم كونان 28 تدور حول ياماتو كانسوكي وحادثة جبال ياتسوغاتاكي.",
+    "dateCreated": "2025-01-01",
+    "director": {
+      "@type": "Person",
+      "name": "Chika Nagaoka"
+    },
+    "potentialAction": {
+      "@type": "WatchAction",
+      "target": "https://your-website.com/conan-28"
+    },
+    "subjectOf": {
+      "@type": "VideoObject",
+      "name": "فيلم المحقق كونان 28 مترجم كامل",
+      "description": "مشاهدة وتحميل فيلم كونان 28 مترجم عربي بجودة عالية.",
+      "thumbnailUrl": "https://c.top4top.io/p_36383dr260.jpeg",
+      "uploadDate": "2026-01-31T20:00:00+03:00",
+      "embedUrl": "https://drive.google.com/file/d/1d4QWEtfbFGAUA2dglK6GNbLCKXibLjVd/preview"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
+    /* تم تحسين التصميم قليلاً ليكون متجاوباً مع الموبايل */
     body {
       background: radial-gradient(circle at top, #200020, #0a0a0a);
       color: #eee;
       font-family: 'Almarai', sans-serif;
       margin: 0;
-      font-size: 15px;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
-    a {
-      color: #e74c3c;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      color: #ff6b6b;
-    }
+    a { color: #e74c3c; text-decoration: none; transition: 0.3s; }
+    a:hover { text-decoration: underline; color: #ff6b6b; }
 
     .topbar {
       background: #111;
@@ -37,13 +70,15 @@
       background: linear-gradient(90deg, #700000, #300030);
       padding: 18px 20px;
       text-align: center;
-      font-size: 18px;
+      font-size: 1.2rem;
       font-weight: bold;
       letter-spacing: 1px;
       border-bottom: 2px solid #500000;
     }
 
     .container {
+      max-width: 800px; /* تحديد العرض ليكون مريحاً للقراءة */
+      margin: 0 auto;
       padding: 25px;
     }
 
@@ -57,23 +92,26 @@
     }
 
     .poster {
-      max-width: 320px;
-      width: 100%;
+      max-width: 100%;
+      width: 320px;
+      height: auto;
       border-radius: 6px;
       margin-bottom: 15px;
       box-shadow: 0 0 10px rgba(255,0,0,0.6);
     }
 
-    .title {
-      font-size: 22px;
-      font-weight: bold;
+    /* تحويل العنوان إلى H1 للأهمية القصوى في السيو */
+    h1.title {
+      font-size: 26px;
+      font-weight: 800;
       margin-bottom: 8px;
       color: #ff4444;
+      margin-top: 0;
     }
 
     .subtitle {
       color: #bbb;
-      font-size: 15px;
+      font-size: 16px;
       margin-bottom: 18px;
     }
 
@@ -95,28 +133,42 @@
       color: #ff9999;
     }
 
-    .video-player iframe {
-      width: 100%;
-      height: 420px;
-      border: none;
-      border-radius: 6px;
+    .video-player {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
       margin-top: 20px;
       box-shadow: 0 0 15px rgba(200,0,0,0.6);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .video-player iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     .server-buttons {
       margin: 20px 0;
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     .server-buttons button {
       background: #200010;
       color: #ff5555;
       border: 1px solid #500000;
-      padding: 10px 18px;
-      margin: 5px;
+      padding: 12px 20px;
       cursor: pointer;
       font-size: 14px;
+      font-weight: bold;
       border-radius: 5px;
       transition: 0.3s;
     }
@@ -128,29 +180,32 @@
 
     .section-box {
       background: rgba(20,0,20,0.85);
-      padding: 18px;
+      padding: 20px;
       border: 1px solid #500000;
       border-radius: 6px;
       margin-top: 28px;
       box-shadow: 0 0 8px rgba(100,0,0,0.6);
     }
 
-    .section-box h3 {
+    /* استخدام H2 للعناوين الفرعية */
+    .section-box h2 {
       color: #ff4444;
       margin-top: 0;
+      font-size: 20px;
+      border-right: 4px solid #ff4444;
+      padding-right: 10px;
     }
 
     .section-box p, .section-box a {
-      line-height: 1.8;
       color: #ccc;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     footer {
       background: #111;
-      padding: 15px 20px;
+      padding: 20px;
       text-align: center;
-      font-size: 13px;
+      font-size: 14px;
       color: #888;
       border-top: 2px solid #700000;
       margin-top: 35px;
@@ -159,6 +214,8 @@
     #rating-stars span {
       cursor: pointer;
       transition: 0.3s;
+      font-size: 35px;
+      padding: 0 5px;
     }
 
     #rating-stars span:hover {
@@ -170,24 +227,21 @@
 
 <body>
 
-  <!-- Topbar -->
   <div class="topbar">
     <a href="index.html">← الصفحة الرئيسية </a>
+    <span>Aoibu Translation</span>
   </div>
 
-  <!-- Banner -->
   <div class="banner">
     فريق ترجمة أويبو - Aoibu Team
   </div>
 
-  <!-- Main Container -->
   <div class="container">
 
-    <!-- Info Section -->
     <div class="info-section">
-      <img class="poster" src="https://c.top4top.io/p_36383dr260.jpeg" alt="بوستر الفيلم">
-      <div class="title">المحقق كونان</div>
-      <div class="subtitle">الفيلم 28 - فلاش باك ذو العين الواحدة </div>
+      <img class="poster" src="https://c.top4top.io/p_36383dr260.jpeg" alt="بوستر فيلم المحقق كونان 28 مترجم">
+      <h1 class="title">المحقق كونان: فلاش باك ذو العين الواحدة</h1>
+      <div class="subtitle">الفيلم 28 - مترجم للعربية بجودة عالية</div>
 
       <table class="download-table">
         <tr>
@@ -195,43 +249,41 @@
           <th>الجودة</th>
           <th>تحميل</th>
         </tr>
-        <tr><td>Drive</td><td>1080p</td><td><a href="https://drive.google.com/file/d/1d4QWEtfbFGAUA2dglK6GNbLCKXibLjVd/view?usp=drivesdk">تحميل</a></td></tr>
-        <tr><td>Mega</td><td>1080p</td><td><a href="https://mega.nz/file/vUtmDQyD#LTS7_0CnR_RkHhkGeGv1tG2e1ecWzVl1W9O4fmy2Gyk">تحميل</a></td></tr>
-        <tr><td>Mega</td><td>720p</td><td><a href="https://mega.nz/file/PcsmGbBS#SLx5hFQNggYBn6ckCJgxC07CLuBRgbFtPiUa2RPimPA">تحميل</a></td></tr>
-        <tr><td>Mega</td><td>480p</td><td><a href="https://mega.nz/file/2JcklDZC#INP5FHPDOrvjaLiNtC4-NHm7QLNQcqc55oqHjNVlIXU">تحميل</a></td></tr>
-        <tr><td>Mega</td><td>360p</td><td><a href="https://mega.nz/file/DR9znRTC#2Jk_LAYvHAZdL1qcnsy4IHuU-n2RChHRxoSYwOvwS8E">تحميل</a></td></tr>
+        <tr><td>Google Drive</td><td>1080p</td><td><a href="https://drive.google.com/file/d/1d4QWEtfbFGAUA2dglK6GNbLCKXibLjVd/view?usp=drivesdk" rel="nofollow">تحميل</a></td></tr>
+        <tr><td>Mega</td><td>1080p</td><td><a href="https://mega.nz/file/vUtmDQyD#LTS7_0CnR_RkHhkGeGv1tG2e1ecWzVl1W9O4fmy2Gyk" rel="nofollow">تحميل</a></td></tr>
+        <tr><td>Mega</td><td>720p</td><td><a href="https://mega.nz/file/PcsmGbBS#SLx5hFQNggYBn6ckCJgxC07CLuBRgbFtPiUa2RPimPA" rel="nofollow">تحميل</a></td></tr>
+        <tr><td>Mega</td><td>480p</td><td><a href="https://mega.nz/file/2JcklDZC#INP5FHPDOrvjaLiNtC4-NHm7QLNQcqc55oqHjNVlIXU" rel="nofollow">تحميل</a></td></tr>
       </table>
     </div>
 
-    <!-- Video Player -->
     <div class="video-player">
-      <iframe id="videoFrame" src="https://drive.google.com/file/d/1d4QWEtfbFGAUA2dglK6GNbLCKXibLjVd/preview" allowfullscreen></iframe>
+      <iframe id="videoFrame" title="مشاهدة فيلم كونان 28" src="https://drive.google.com/file/d/1d4QWEtfbFGAUA2dglK6GNbLCKXibLjVd/preview" allowfullscreen></iframe>
     </div>
 
-    <!-- Server Buttons -->
     <div class="server-buttons">
-      <button onclick="changeServer('https://drive.google.com/file/d/1d4QWEtfbFGAUA2dglK6GNbLCKXibLjVd/preview')">GDrive -متعدد الجودات</button>
+      <button onclick="changeServer('https://drive.google.com/file/d/1d4QWEtfbFGAUA2dglK6GNbLCKXibLjVd/preview')">GDrive - متعدد الجودات</button>
       <button onclick="changeServer('https://mega.nz/embed/vUtmDQyD#LTS7_0CnR_RkHhkGeGv1tG2e1ecWzVl1W9O4fmy2Gyk')">Mega 1080p</button>
     </div>
 
-    <!-- نبذة -->
     <div class="section-box">
-      <h3>💡 نبذة عن الفيلم</h3>
+      <h2>💡 قصة فيلم كونان 28</h2>
       <p>
-سويهوداكي في سلسلة جبال ياتسوغاتاكي، محافظة ناغانو. ضابط شرطة محافظة ناغانو ياماتو كانسوكي على جبل ثلجي أثناء مطاردة "رجل معين "، يظهر ظل فجأة في مجال رؤية كانسوكي. وفي اللحظة التي كان فيها مشتتاً, أصابت رصاصة بندقية أطلقها أحد الأشخاص عينه اليسرى، مما أدى إلى حدوث انهيار جليدي وهدير عالي. كما هو لقد ابتلعت كانسوكي. بعد 10 أشهر. بعد تلقي تقرير يفيد بأن أحد الباحثين في منشأة المرصد الفلكي الوطني نوبياما قد تعرض لهجوم من قبل شخص ما, نجا كانسوكي بأعجوبة من انهيار جليدي.هرعت يوي أوهارا إلى مكان الحادث.أثناء التحقيق، يبدأ الهوائي المكافئ العملاق للمرصد في التحرك.ثم، لسبب ما, بدأت عين كانسوكي المصابة فجأة بالوخز بعنف.في تلك الليلة، تلقت وكالة موري للتحريات مكالمة هاتفية من محقق يُعرف باسم"واني" والذي كان زميلًا مقربًا لكوغورو منذ وقته في قسم شرطة العاصمة. نحن نحقق في حادث الإنهيار الجليدي الذي تورط فيه كانسوكي في جبل.ويقال أن اسم كوغورو كان على الرسالة. يتبع كونان كوغورو، الذي وعد بمقابلته في وقت لاحق، لكنه ينتظر.وفي الطريق إلى مكان الاجتماع، سمع صوت طلقة نارية فجأة .
+        في محافظة ناغانو، وتحديداً سلسلة جبال ياتسوغاتاكي، يواجه الضابط ياماتو كانسوكي حادثاً غامضاً أثناء مطاردة مجرم. إصابة في العين اليسرى وانهيار جليدي ضخم يغيران مجرى الأحداث. بعد 10 أشهر، وبالتزامن مع تحركات مريبة في المرصد الفلكي، تبدأ عين كانسوكي بالألم مجدداً. 
+        <br><br>
+        يتدخل كوغورو موري ومعه <strong>المحقق كونان</strong> لكشف لغز الرسالة المجهولة وحادثة الانهيار الجليدي. هل سينجو كانسوكي؟ وما سر الطلقة النارية؟ شاهد الفيلم لمعرفة الحقيقة.
       </p>
     </div>
 
-‎    <!-- السوفتسب -->
     <div class="section-box">
-      <h3>SoftSub</h3>
-      <a href="https://nyaa.land/view/2054866" target="_blank">🔹 تحميل الخام</a>
-     </p> <a href="https://subsource.net/subtitle/detective-conan-one-eyed-flashback-2025/arabic/10185081" target="_blank">🔤 ملف الترجمة (Subsource)</a> </p>
+      <h2>📥 ملفات الترجمة والخام (SoftSub)</h2>
+      <p>
+        <a href="https://nyaa.land/view/2054866" target="_blank" rel="noopener">🔹 تحميل الخام (RAW)</a><br>
+        <a href="https://subsource.net/subtitle/detective-conan-one-eyed-flashback-2025/arabic/10185081" target="_blank" rel="noopener">🔤 ملف الترجمة العربي (Subsource)</a>
+      </p>
     </div>
 
-    <!-- تقييم -->
     <div class="section-box" style="text-align: center;">
-      <h3>⭐ قيّم الفيلم</h3>
+      <h2>⭐ قيّم الفيلم</h2>
       <div id="rating-stars" style="font-size: 32px; direction: rtl;">
         <span onclick="rate(1)">★</span>
         <span onclick="rate(2)">★</span>
@@ -244,13 +296,13 @@
 
   </div>
 
-  <!-- Footer -->
   <footer>
-    جميع الحقوق محفوظة © Aoibu<br>
-    تابعونا: <a href="https://t.me/Aoibu_Arabic" target="_blank">تيليجرام</a> | <a href="https://x.com/TheConanSign" target="_blank">تويتر</a>
+    جميع الحقوق محفوظة © Aoibu 2026<br>
+    <div style="margin-top:10px;">
+      تابعونا: <a href="https://t.me/Aoibu_Arabic" target="_blank">تيليجرام</a> | <a href="https://x.com/TheConanSign" target="_blank">تويتر</a>
+    </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
     function changeServer(url) {
       document.getElementById('videoFrame').src = url;
@@ -262,6 +314,8 @@
         starsContainer[i].style.color = (i < stars) ? "#ffc107" : "#444";
       }
       document.getElementById("rating-result").innerText = `شكراً! تم تقييم الفيلم بـ ${stars} نجوم`;
+      
+      // هنا يمكنك إضافة كود لإرسال التقييم لقاعدة البيانات مستقبلاً
     }
   </script>
 
