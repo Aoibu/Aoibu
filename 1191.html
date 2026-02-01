@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "انمي المحقق كونان الحلقة 1191 مترجمة",
-  "description": "مشاهدة الحلقة 1191 من انمي المحقق كونان...",
-  "thumbnailUrl": "https://i.ibb.co/XrTBDdpK/1769871847093-edit-200610717148003.webp",
-  "uploadDate": "2025-01-31", 
-  "contentUrl": "https://aoibu.github.io/Aoibu/1191.html",
-  "embedUrl": "https://drive.google.com/file/d/1w-gnlZ06NoDD_mg7HGEjBxY9LzqoPhjr/preview"
-}
-</script>
-
     <title>انمي المحقق كونان Detective Conan الحلقة {EP} مترجمة</title>
     <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
   
@@ -594,6 +581,46 @@ document.addEventListener('keydown', function(e) {
     nextBtn.style.display = "none";
   }
 </script>
-  
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. استخراج المعلومات الحالية من الصفحة
+    var path = window.location.pathname;
+    var fileName = path.substring(path.lastIndexOf('/') + 1);
+    var match = fileName.match(/(\d+)/);
+    var epNum = match ? match[0] : "0";
+    
+    // سحب رابط الصورة الموجودة في الصفحة تلقائياً
+    // (يجب أن يكون للصورة كلاس poster-glow كما في كودك)
+    var posterImage = document.querySelector('.poster-glow') ? document.querySelector('.poster-glow').src : "";
+    
+    // تاريخ اليوم كتاريخ رفع (أو يمكنك تثبيته)
+    var todayDate = new Date().toISOString().split('T')[0];
+
+    // 2. إنشاء كائن البيانات (Schema)
+    var schemaData = {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "انمي المحقق كونان الحلقة " + epNum + " مترجمة",
+      "description": "مشاهدة الحلقة " + epNum + " من انمي المحقق كونان فريق اويبو للترجمة...",
+      "thumbnailUrl": posterImage, // يأخذ الصورة تلقائياً من الصفحة
+      "uploadDate": todayDate, // تاريخ الفهرسة
+      "contentUrl": window.location.href, // رابط الصفحة الحالي
+      "embedUrl": "https://drive.google.com/file/d/1w-gnlZ06NoDD_mg7HGEjBxY9LzqoPhjr/preview" 
+      // ملاحظة: embedUrl صعب جعله تلقائياً إلا إذا كان يتبع نمطاً ثابتاً، لذا سيبقى كما هو أو يحتاج لمنطق خاص
+    };
+
+    // 3. تحويل البيانات لـ JSON وإنشاء الوسم
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schemaData);
+    
+    // 4. حقن الكود في رأس الصفحة
+    document.getElementsByTagName('head')[0].appendChild(script);
+    
+    console.log("تم إنشاء بيانات جوجل للفيديو بنجاح للحلقة: " + epNum);
+  });
+</script>
+
 </body>
 </html>
