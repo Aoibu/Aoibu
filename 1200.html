@@ -881,42 +881,268 @@ document.addEventListener('keydown', function(e) {
         formData.append('action', 'like');
         formData.append('id', id);
 
-        fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: formData
-        }).catch(err => {
-            // تراجع في حال الخطأ
-            countSpan.innerText = currentCount;
-            btnElement.style.color = "";
-        });
-    }
+<script>
+  // ==========================================
+  // 1. الإعدادات الأساسية وتشغيل الصفحة
+  // ==========================================
+  
+  // استخراج رقم الحلقة واسم الملف مرة واحدة واستخدامه في كل مكان
+  const navPath = window.location.pathname;
+  const navFileName = navPath.substring(navPath.lastIndexOf('/') + 1);
+  // استخراج الرقم (يدعم 1191.html أو 1191 فقط)
+  const epMatch = navFileName.match(/(\d+)/);
+  const currentEp = epMatch ? epMatch[0] : "General"; 
 
-    // 5. إعداد الرد على تعليق
-    function setReply(id, name) {
-        parentId = id;
-        document.getElementById('reply-status').style.display = 'flex';
-        document.getElementById('reply-to-name').innerText = name;
-        document.getElementById('c-content').focus();
-        // تمرير سلس لمربع الكتابة
-        document.querySelector('.comment-form').scrollIntoView({behavior: 'smooth'});
-    }
+  // إخفاء شاشة التحميل
+  function hideLoader() { document.body.classList.add('loaded'); }
+  window.addEventListener('load', () => setTimeout(hideLoader, 1000));
+  setTimeout(hideLoader, 3000); // أمان إضافي
 
-    function cancelReply() {
-        parentId = "";
-        document.getElementById('reply-status').style.display = 'none';
-    }
+  // ==========================================
+  // 2. المؤثرات البصرية (Particles & Animations)
+  // ==========================================
+  const particleContainer = document.getElementById('particles-container');
+  if (particleContainer) {
+      for (let i = 0; i < 35; i++) {
+          let p = document.createElement('div');
+          p.classList.add('particle');
+          let size = Math.random() * 3 + 1;
+          let left = Math.random() * 100;
+          let duration = Math.random() * 10 + 10;
+          let delay = Math.random() * 10;
+          p.style.width = `${size}px`;
+          p.style.height = `${size}px`;
+          p.style.left = `${left}%`;
+          p.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+          particleContainer.appendChild(p);
+      }
+  }
 
-    // 6. دالة حماية النصوص
-    function escapeHtml(text) {
-        if (!text) return "";
-        return text
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    }
+  // المراقب لظهور العناصر (Observer)
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.glass-card').forEach(el => observer.observe(el));
+
+  // ==========================================
+  // 3. وظائف المشغل والتنقل
+  // ==========================================
+  function changeServer(url, btn) {
+      document.getElementById('videoFrame').src = url;
+      document.querySelectorAll('.neon-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+  }
+
+  function shareEpisode() {
+      navigator.clipboard.writeText(window.location.href)
+      .then(() => alert("تم نسخ رابط الحلقة!"))
+      .catch(() => alert("انسخ الرابط يدوياً"));
+  }
+
+  // أزرار التنقل (السابق والتالي)
+  const prevBtn = document.getElementById("prevEpisode");
+  const nextBtn = document.getElementById("nextEpisode");
+  const epNumInt = parseInt(currentEp);
+
+  if (!isNaN(epNumInt)) {
+      if (epNumInt > 1) {
+          prevBtn.setAttribute("href", `${epNumInt - 1}.html`);
+      } else {
+          prevBtn.style.opacity = "0.4";
+          prevBtn.style.pointerEvents = "none";
+      }
+      nextBtn.setAttribute("href", `${epNumInt + 1}.html`);
+  }
+
+  // ==========================================
+  // 4. نظام التقييم (Google Sheets)
+  // ==========================================
+  const RATING_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzK1u56o3Vz2qiNIEio_NMZKThCkckFCUOG2fi0HZCXn2pDGjxmcy6mxXP3hsZ7HkjWA/exec"; 
+
+  function rate(n) {
+      let stars = document.querySelectorAll('.stars span');
+      stars.forEach((s, index) => {
+          s.style.color = index < n ? '#ffd700' : '#333';
+          s.style.textShadow = index < n ? '0 0 15px #ffd700' : 'none';
+      });
+
+      const msgElement = document.getElementById('rating-msg');
+      msgElement.innerText = `جاري إرسال تقييمك (${n}/5)...`;
+
+      fetch(`${RATING_SCRIPT_URL}?episode=${currentEp}&rating=${n}`, {
+          method: "POST", mode: "no-cors"
+      })
+      .then(() => {
+          msgElement.innerText = `تم التسجيل بنجاح! (${n}/5)`;
+          msgElement.style.color = "#00bcd4";
+          document.getElementById('rating-stars').style.pointerEvents = 'none';
+      })
+      .catch(() => {
+          msgElement.innerText = `فشل الاتصال.`;
+          msgElement.style.color = "red";
+      });
+  }
+
+  // ==========================================
+  // 5. نظام التعليقات (Google Apps Script)
+  // ==========================================
+  const COMMENTS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzV7dMLHD51j_DOypZXcrhSBR2YVVruMjsAHfKxCL0CqSf7zRLiWC6ofLpu6KHfoA_/exec"; 
+  let parentId = "";
+
+  document.addEventListener("DOMContentLoaded", fetchComments);
+
+  function fetchComments() {
+      const container = document.getElementById('comments-container');
+      fetch(`${COMMENTS_SCRIPT_URL}?episode=${currentEp}`)
+      .then(res => res.json())
+      .then(data => {
+          container.innerHTML = "";
+          if(data.length === 0) {
+              container.innerHTML = "<p style='text-align:center; color:#777;'>كن أول من يعلق!</p>";
+              return;
+          }
+          renderComments(data);
+      })
+      .catch(err => container.innerHTML = "<p style='color:red; text-align:center;'>خطأ في التحميل.</p>");
+  }
+
+  function renderComments(comments) {
+      const container = document.getElementById('comments-container');
+      const commentsMap = {};
+      comments.forEach(c => { c.children = []; commentsMap[c.id] = c; });
+      
+      const roots = [];
+      comments.forEach(c => {
+          if (c.parent_id && commentsMap[c.parent_id]) {
+              commentsMap[c.parent_id].children.push(c);
+          } else {
+              roots.push(c);
+          }
+      });
+      roots.forEach(root => container.appendChild(createCommentElement(root)));
+  }
+
+  function createCommentElement(c) {
+      const div = document.createElement('div');
+      div.className = 'comment-item';
+      div.id = `comment-${c.id}`;
+      
+      const safeName = escapeHtml(c.name || "مجهول");
+      const safeContent = escapeHtml(c.content);
+
+      // البنية الأساسية
+      div.innerHTML = `
+          <div class="comment-header">
+              <span class="comment-author">${safeName}</span>
+              <span class="comment-date">${new Date(c.timestamp).toLocaleDateString('ar-EG')}</span>
+          </div>
+          <div class="comment-body">${safeContent}</div>
+          <div class="comment-actions">
+              <span class="action-btn" onclick="likeComment('${c.id}', this)">❤️ <span class="like-count">${c.likes}</span></span>
+              <span class="action-btn" onclick="setReply('${c.id}', '${safeName}')">↩️ رد</span>
+          </div>
+      `;
+
+      // إضافة الردود بشكل صحيح (Recursion)
+      if (c.children && c.children.length > 0) {
+          const replyBox = document.createElement('div');
+          replyBox.className = 'reply-list';
+          replyBox.style.marginRight = "20px"; // إزاحة بسيطة للردود
+          replyBox.style.borderRight = "2px solid var(--primary-color)";
+          c.children.forEach(kid => replyBox.appendChild(createCommentElement(kid)));
+          div.appendChild(replyBox);
+      }
+      return div;
+  }
+
+  document.getElementById('commentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      const originalText = btn.innerText;
+      btn.innerText = "جاري الإرسال...";
+      btn.disabled = true;
+
+      const formData = new FormData();
+      formData.append('action', 'add_comment');
+      formData.append('episode', currentEp);
+      formData.append('name', document.getElementById('c-name').value);
+      formData.append('content', document.getElementById('c-content').value);
+      formData.append('parent_id', parentId);
+
+      fetch(COMMENTS_SCRIPT_URL, { method: 'POST', body: formData })
+      .then(res => res.json())
+      .then(data => {
+          if(data.result === "success") {
+              document.getElementById('c-content').value = "";
+              cancelReply();
+              fetchComments();
+          } else { alert("خطأ في الإرسال"); }
+      })
+      .finally(() => { btn.innerText = originalText; btn.disabled = false; });
+  });
+
+  function likeComment(id, btn) {
+      if(btn.classList.contains('liked')) return;
+      const countSpan = btn.querySelector('.like-count');
+      countSpan.innerText = parseInt(countSpan.innerText) + 1;
+      btn.style.color = "#ff3d3d";
+      btn.classList.add('liked');
+
+      const fd = new FormData();
+      fd.append('action', 'like');
+      fd.append('id', id);
+      fetch(COMMENTS_SCRIPT_URL, { method: 'POST', body: fd });
+  }
+
+  function setReply(id, name) {
+      parentId = id;
+      document.getElementById('reply-status').style.display = 'flex';
+      document.getElementById('reply-to-name').innerText = name;
+      document.getElementById('c-content').focus();
+      document.querySelector('.comment-form').scrollIntoView({behavior: 'smooth'});
+  }
+
+  function cancelReply() {
+      parentId = "";
+      document.getElementById('reply-status').style.display = 'none';
+  }
+
+  function escapeHtml(text) {
+      if (!text) return "";
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  // ==========================================
+  // 6. الحماية والاختصارات
+  // ==========================================
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+      if ((e.ctrlKey && ['c','u','s'].includes(e.key.toLowerCase())) || e.key === 'F12') {
+          e.preventDefault();
+      }
+  });
+
+  // Schema Markup (SEO)
+  document.addEventListener("DOMContentLoaded", function() {
+      const poster = document.querySelector('.poster-glow') ? document.querySelector('.poster-glow').src : "";
+      const schemaData = {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "name": `انمي المحقق كونان الحلقة ${currentEp} مترجمة`,
+          "description": `مشاهدة الحلقة ${currentEp} من انمي المحقق كونان...`,
+          "thumbnailUrl": poster,
+          "uploadDate": new Date().toISOString(),
+          "contentUrl": window.location.href
+      };
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+  });
 </script>
+
 
 
 </body>
