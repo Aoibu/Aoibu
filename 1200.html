@@ -455,232 +455,6 @@ body {
     </div>
 </div>
 
-<script>
-    // **************************************************
-    // استبدل هذا الرابط برابط السكربت الخاص بك
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzV7dMLHD51j_DOypZXcrhSBR2YVVruMjsAHfKxCL0CqSf7zRLiWC6ofLpu6KHfoA_/exec"; 
-    // **************************************************
-
-    // استخراج رقم الحلقة الحالي (يعتمد على الكود السابق الموجود في صفحتك)
-    // نستخدم المتغير epNum الذي عرفته أنت مسبقاً في بداية الصفحة أو نستخرجه هنا
-    var path = window.location.pathname;
-    var fileName = path.substring(path.lastIndexOf('/') + 1);
-    var epMatch = fileName.match(/(\d+)/);
-    var currentEp = epMatch ? epMatch[0] : "General";
-
-    let parentId = ""; // لتخزين معرف التعليق الذي يتم الرد عليه
-
-    // 1. جلب التعليقات عند تحميل الصفحة
-    document.addEventListener("DOMContentLoaded", fetchComments);
-
-    function fetchComments() {
-        const container = document.getElementById('comments-container');
-        
-        fetch(`${SCRIPT_URL}?episode=${currentEp}`)
-        .then(response => response.json())
-        .then(data => {
-            container.innerHTML = ""; // مسح التحميل
-            if(data.length === 0) {
-                container.innerHTML = "<p style='text-align:center; color:#777;'>كن أول من يعلق على هذه الحلقة!</p>";
-                return;
-            }
-            renderComments(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            container.innerHTML = "<p style='color:red; text-align:center;'>حدث خطأ في تحميل التعليقات.</p>";
-        });
-    }
-
-    // 2. عرض التعليقات (مع دعم الردود)
-    function renderComments(comments) {
-        const container = document.getElementById('comments-container');
-        const commentsMap = {};
-
-        // تنظيم البيانات
-        comments.forEach(c => {
-            c.children = [];
-            commentsMap[c.id] = c;
-        });
-
-        // ربط الردود بالتعليقات الأصلية
-        const roots = [];
-        comments.forEach(c => {
-            if (c.parent_id && commentsMap[c.parent_id]) {
-                commentsMap[c.parent_id].children.push(c);
-            } else {
-                roots.push(c);
-            }
-        });
-
-        // رسم العناصر
-        roots.forEach(root => {
-            container.appendChild(createCommentElement(root));
-        });
-    }
-
-    function createCommentElement(c) {
-        const div = document.createElement('div');
-        div.className = 'comment-item';
-        div.id = `comment-${c.id}`;
-        
-        // تنظيف النصوص لمنع أكواد خبيثة (XSS)
-        const safeName = escapeHtml(c.name);
-        const safeContent = escapeHtml(c.content);
-
-        let html = `
-            <div class="comment-header">
-                <span class="comment-author">${safeName}</span>
-                <span class="comment-date">${c.timestamp}</span>
-            </div>
-            <div class="comment-body">${safeContent}</div>
-            <div class="comment-actions">
-                <span class="action-btn" onclick="likeComment('${c.id}', this)">
-                    ❤️ <span class="like-count">${c.likes}</span>
-                </span>
-                <span class="action-btn" onclick="setReply('${c.id}', '${safeName}')">
-                    ↩️ رد
-                </span>
-            </div>
-        `;
-
-        // إذا كان هناك ردود، نضيفها
-        if (c.children && c.children.length > 0) {
-            const replyContainer = document.createElement('div');
-            replyContainer.className = 'reply-list';
-            c.children.forEach(child => {
-                replyContainer.appendChild(createCommentElement(child));
-            });
-            div.appendChild(replyContainer); // إضافة الردود داخل التعليق الأصلي ولكن كعناصر DOM
-        } else {
-             // نقوم بإغلاق الـ div للتعليق الأصلي فقط، الردود ستضاف لاحقاً عبر DOM
-             div.innerHTML = html;
-             // إذا كان هناك ردود تم إنشاؤها في الاستدعاء العودي (Recursive) نحتاج طريقة أخرى
-             // الطريقة الأبسط هنا:
-             if(c.children && c.children.length > 0) {
-                 const replyBox = document.createElement('div');
-                 replyBox.className = 'reply-list';
-                 c.children.forEach(kid => {
-                     replyBox.appendChild(createCommentElement(kid));
-                 });
-                 div.appendChild(replyBox);
-             }
-        }
-        
-        // إعادة تعيين الـ HTML بشكل صحيح للتعليقات التي تحتوي على ردود
-        // الطريقة أعلاه قد تكون معقدة قليلاً، لنبسطها:
-        if (c.children && c.children.length > 0) {
-             div.innerHTML = html; // المحتوى الأساسي
-             const replyBox = document.createElement('div');
-             replyBox.className = 'reply-list';
-             c.children.forEach(kid => {
-                 replyBox.appendChild(createCommentElement(kid));
-             });
-             div.appendChild(replyBox);
-        } else {
-            div.innerHTML = html;
-        }
-
-        return div;
-    }
-
-    // 3. دالة إرسال التعليق
-    document.getElementById('commentForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = this.querySelector('button');
-        const originalText = btn.innerText;
-        btn.innerText = "جاري الإرسال...";
-        btn.disabled = true;
-
-        const name = document.getElementById('c-name').value;
-        const content = document.getElementById('c-content').value;
-
-        // إرسال البيانات بطريقة Form Data لضمان التوافق
-        const formData = new FormData();
-        formData.append('action', 'add_comment');
-        formData.append('episode', currentEp);
-        formData.append('name', name);
-        formData.append('content', content);
-        formData.append('parent_id', parentId);
-
-        fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.result === "success") {
-                document.getElementById('c-content').value = "";
-                cancelReply(); // إعادة تعيين وضع الرد
-                fetchComments(); // تحديث القائمة
-                // إظهار إشعار باستخدام الدالة التي أضفتها سابقاً
-                if(typeof showToast === "function") showToast("تم إضافة تعليقك بنجاح!");
-            } else {
-                alert("حدث خطأ أثناء الإرسال");
-            }
-        })
-        .catch(err => console.error(err))
-        .finally(() => {
-            btn.innerText = originalText;
-            btn.disabled = false;
-        });
-    });
-
-    // 4. دالة الإعجاب (Like)
-    function likeComment(id, btnElement) {
-        // منع التكرار البصري المؤقت
-        if(btnElement.classList.contains('liked')) return;
-        
-        const countSpan = btnElement.querySelector('.like-count');
-        const currentCount = parseInt(countSpan.innerText);
-        
-        // تحديث وهمي فوري (UI Optimistic Update)
-        countSpan.innerText = currentCount + 1;
-        btnElement.style.color = "#ff3d3d";
-        btnElement.classList.add('liked');
-
-        const formData = new FormData();
-        formData.append('action', 'like');
-        formData.append('id', id);
-
-        fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: formData
-        }).catch(err => {
-            // تراجع في حال الخطأ
-            countSpan.innerText = currentCount;
-            btnElement.style.color = "";
-        });
-    }
-
-    // 5. إعداد الرد على تعليق
-    function setReply(id, name) {
-        parentId = id;
-        document.getElementById('reply-status').style.display = 'flex';
-        document.getElementById('reply-to-name').innerText = name;
-        document.getElementById('c-content').focus();
-        // تمرير سلس لمربع الكتابة
-        document.querySelector('.comment-form').scrollIntoView({behavior: 'smooth'});
-    }
-
-    function cancelReply() {
-        parentId = "";
-        document.getElementById('reply-status').style.display = 'none';
-    }
-
-    // 6. دالة حماية النصوص
-    function escapeHtml(text) {
-        if (!text) return "";
-        return text
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    }
-</script>
-
-
 </div>
 
 <footer>
@@ -919,6 +693,229 @@ document.addEventListener('keydown', function(e) {
     
     console.log("تم إنشاء بيانات جوجل للفيديو بنجاح (مع إصلاح التاريخ) للحلقة: " + epNum);
   });
+
+        // **************************************************
+    // استبدل هذا الرابط برابط السكربت الخاص بك
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzV7dMLHD51j_DOypZXcrhSBR2YVVruMjsAHfKxCL0CqSf7zRLiWC6ofLpu6KHfoA_/exec"; 
+    // **************************************************
+
+    // استخراج رقم الحلقة الحالي (يعتمد على الكود السابق الموجود في صفحتك)
+    // نستخدم المتغير epNum الذي عرفته أنت مسبقاً في بداية الصفحة أو نستخرجه هنا
+    var path = window.location.pathname;
+    var fileName = path.substring(path.lastIndexOf('/') + 1);
+    var epMatch = fileName.match(/(\d+)/);
+    var currentEp = epMatch ? epMatch[0] : "General";
+
+    let parentId = ""; // لتخزين معرف التعليق الذي يتم الرد عليه
+
+    // 1. جلب التعليقات عند تحميل الصفحة
+    document.addEventListener("DOMContentLoaded", fetchComments);
+
+    function fetchComments() {
+        const container = document.getElementById('comments-container');
+        
+        fetch(`${SCRIPT_URL}?episode=${currentEp}`)
+        .then(response => response.json())
+        .then(data => {
+            container.innerHTML = ""; // مسح التحميل
+            if(data.length === 0) {
+                container.innerHTML = "<p style='text-align:center; color:#777;'>كن أول من يعلق على هذه الحلقة!</p>";
+                return;
+            }
+            renderComments(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            container.innerHTML = "<p style='color:red; text-align:center;'>حدث خطأ في تحميل التعليقات.</p>";
+        });
+    }
+
+    // 2. عرض التعليقات (مع دعم الردود)
+    function renderComments(comments) {
+        const container = document.getElementById('comments-container');
+        const commentsMap = {};
+
+        // تنظيم البيانات
+        comments.forEach(c => {
+            c.children = [];
+            commentsMap[c.id] = c;
+        });
+
+        // ربط الردود بالتعليقات الأصلية
+        const roots = [];
+        comments.forEach(c => {
+            if (c.parent_id && commentsMap[c.parent_id]) {
+                commentsMap[c.parent_id].children.push(c);
+            } else {
+                roots.push(c);
+            }
+        });
+
+        // رسم العناصر
+        roots.forEach(root => {
+            container.appendChild(createCommentElement(root));
+        });
+    }
+
+    function createCommentElement(c) {
+        const div = document.createElement('div');
+        div.className = 'comment-item';
+        div.id = `comment-${c.id}`;
+        
+        // تنظيف النصوص لمنع أكواد خبيثة (XSS)
+        const safeName = escapeHtml(c.name);
+        const safeContent = escapeHtml(c.content);
+
+        let html = `
+            <div class="comment-header">
+                <span class="comment-author">${safeName}</span>
+                <span class="comment-date">${c.timestamp}</span>
+            </div>
+            <div class="comment-body">${safeContent}</div>
+            <div class="comment-actions">
+                <span class="action-btn" onclick="likeComment('${c.id}', this)">
+                    ❤️ <span class="like-count">${c.likes}</span>
+                </span>
+                <span class="action-btn" onclick="setReply('${c.id}', '${safeName}')">
+                    ↩️ رد
+                </span>
+            </div>
+        `;
+
+        // إذا كان هناك ردود، نضيفها
+        if (c.children && c.children.length > 0) {
+            const replyContainer = document.createElement('div');
+            replyContainer.className = 'reply-list';
+            c.children.forEach(child => {
+                replyContainer.appendChild(createCommentElement(child));
+            });
+            div.appendChild(replyContainer); // إضافة الردود داخل التعليق الأصلي ولكن كعناصر DOM
+        } else {
+             // نقوم بإغلاق الـ div للتعليق الأصلي فقط، الردود ستضاف لاحقاً عبر DOM
+             div.innerHTML = html;
+             // إذا كان هناك ردود تم إنشاؤها في الاستدعاء العودي (Recursive) نحتاج طريقة أخرى
+             // الطريقة الأبسط هنا:
+             if(c.children && c.children.length > 0) {
+                 const replyBox = document.createElement('div');
+                 replyBox.className = 'reply-list';
+                 c.children.forEach(kid => {
+                     replyBox.appendChild(createCommentElement(kid));
+                 });
+                 div.appendChild(replyBox);
+             }
+        }
+        
+        // إعادة تعيين الـ HTML بشكل صحيح للتعليقات التي تحتوي على ردود
+        // الطريقة أعلاه قد تكون معقدة قليلاً، لنبسطها:
+        if (c.children && c.children.length > 0) {
+             div.innerHTML = html; // المحتوى الأساسي
+             const replyBox = document.createElement('div');
+             replyBox.className = 'reply-list';
+             c.children.forEach(kid => {
+                 replyBox.appendChild(createCommentElement(kid));
+             });
+             div.appendChild(replyBox);
+        } else {
+            div.innerHTML = html;
+        }
+
+        return div;
+    }
+
+    // 3. دالة إرسال التعليق
+    document.getElementById('commentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button');
+        const originalText = btn.innerText;
+        btn.innerText = "جاري الإرسال...";
+        btn.disabled = true;
+
+        const name = document.getElementById('c-name').value;
+        const content = document.getElementById('c-content').value;
+
+        // إرسال البيانات بطريقة Form Data لضمان التوافق
+        const formData = new FormData();
+        formData.append('action', 'add_comment');
+        formData.append('episode', currentEp);
+        formData.append('name', name);
+        formData.append('content', content);
+        formData.append('parent_id', parentId);
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.result === "success") {
+                document.getElementById('c-content').value = "";
+                cancelReply(); // إعادة تعيين وضع الرد
+                fetchComments(); // تحديث القائمة
+                // إظهار إشعار باستخدام الدالة التي أضفتها سابقاً
+                if(typeof showToast === "function") showToast("تم إضافة تعليقك بنجاح!");
+            } else {
+                alert("حدث خطأ أثناء الإرسال");
+            }
+        })
+        .catch(err => console.error(err))
+        .finally(() => {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        });
+    });
+
+    // 4. دالة الإعجاب (Like)
+    function likeComment(id, btnElement) {
+        // منع التكرار البصري المؤقت
+        if(btnElement.classList.contains('liked')) return;
+        
+        const countSpan = btnElement.querySelector('.like-count');
+        const currentCount = parseInt(countSpan.innerText);
+        
+        // تحديث وهمي فوري (UI Optimistic Update)
+        countSpan.innerText = currentCount + 1;
+        btnElement.style.color = "#ff3d3d";
+        btnElement.classList.add('liked');
+
+        const formData = new FormData();
+        formData.append('action', 'like');
+        formData.append('id', id);
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: formData
+        }).catch(err => {
+            // تراجع في حال الخطأ
+            countSpan.innerText = currentCount;
+            btnElement.style.color = "";
+        });
+    }
+
+    // 5. إعداد الرد على تعليق
+    function setReply(id, name) {
+        parentId = id;
+        document.getElementById('reply-status').style.display = 'flex';
+        document.getElementById('reply-to-name').innerText = name;
+        document.getElementById('c-content').focus();
+        // تمرير سلس لمربع الكتابة
+        document.querySelector('.comment-form').scrollIntoView({behavior: 'smooth'});
+    }
+
+    function cancelReply() {
+        parentId = "";
+        document.getElementById('reply-status').style.display = 'none';
+    }
+
+    // 6. دالة حماية النصوص
+    function escapeHtml(text) {
+        if (!text) return "";
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
 </script>
 
 
