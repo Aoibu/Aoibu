@@ -688,12 +688,23 @@ body {
 </footer>
 
 <script>
-  // 1. إخفاء شاشة التحميل (مؤقت آمن)
-  window.onload = () => {
-      setTimeout(() => {
-          document.body.classList.add('loaded');
-      }, 1000);
-  };
+  // 1. إخفاء شاشة التحميل (نظام ذكي)
+  function hideLoader() {
+      document.body.classList.add('loaded');
+  }
+
+  // الطريقة الأولى: الانتظار الطبيعي لاكتمال التحميل
+  window.addEventListener('load', () => {
+      setTimeout(hideLoader, 1000);
+  });
+
+  // الطريقة الثانية (الأمان): إجبار الصفحة على الفتح بعد 4 ثوانٍ كحد أقصى
+  // (حل مشكلة التعليق بسبب الفيديو أو ضعف النت)
+  setTimeout(hideLoader, 4000);
+
+  // 2. إنشاء النجوم المتحركة (Optimized JS)
+  const particleContainer = document.getElementById('particles-container');
+
 
   // 2. إنشاء النجوم المتحركة (Optimized JS)
   const particleContainer = document.getElementById('particles-container');
