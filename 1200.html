@@ -687,7 +687,7 @@ body {
   &copy; 2025 Aoibu Team | جميع الحقوق محفوظة
 </footer>
 
-<script>
+    <script>
   // 1. إخفاء شاشة التحميل (نظام ذكي)
   function hideLoader() {
       document.body.classList.add('loaded');
@@ -699,18 +699,52 @@ body {
   });
 
   // الطريقة الثانية (الأمان): إجبار الصفحة على الفتح بعد 4 ثوانٍ كحد أقصى
-  // (حل مشكلة التعليق بسبب الفيديو أو ضعف النت)
   setTimeout(hideLoader, 1000);
-
-  // 2. إنشاء النجوم المتحركة (Optimized JS)
-  const particleContainer = document.getElementById('particles-container');
-
 
   // 2. إنشاء النجوم المتحركة (Optimized JS)
   const particleContainer = document.getElementById('particles-container');
   const particleCount = 35; // عدد مناسب يعطي جمالية بدون تعليق
 
-  for (let i = 0; i < particleCount; i++) {
+  if (particleContainer) { // تأكد من وجود العنصر قبل إضافة النجوم
+      for (let i = 0; i < particleCount; i++) {
+          let p = document.createElement('div');
+          p.classList.add('particle');
+          
+          // خصائص عشوائية
+          let size = Math.random() * 3 + 1; 
+          let left = Math.random() * 100;
+          let duration = Math.random() * 10 + 10; 
+          let delay = Math.random() * 10;
+
+          p.style.width = `${size}px`;
+          p.style.height = `${size}px`;
+          p.style.left = `${left}%`;
+          p.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+          
+          particleContainer.appendChild(p);
+      }
+  }
+
+  // 3. ظهور العناصر عند التمرير
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if(entry.isIntersecting) {
+              entry.target.classList.add('visible');
+          }
+      });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.glass-card').forEach(el => observer.observe(el));
+
+  // 4. تغيير السيرفر
+  function changeServer(url, btn) {
+      document.getElementById('videoFrame').src = url;
+      document.querySelectorAll('.neon-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+  }
+
+
+    for (let i = 0; i < particleCount; i++) {
       let p = document.createElement('div');
       p.classList.add('particle');
       
