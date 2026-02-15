@@ -204,7 +204,7 @@
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz2_FZvjQFyDbn9Ya-bChIBalgybOVjkS3EhYU5PhURzOIauOldhT5XDIi4zoQq5KD4vQ/exec';
     const CHAR_LIMIT = 100;
 
-    // دالة تحديث بيانات السكيما ديناميكياً لكل خبر لزيادة فرص الظهور في جوجل
+    // دالة تحديث بيانات السكيما لجوجل
     function injectNewsSchema(newsData) {
         newsData.slice(0, 10).forEach(news => {
             const schema = {
@@ -212,7 +212,7 @@
                 "@type": "NewsArticle",
                 "headline": news.title,
                 "image": [news.image || "https://aoibu.github.io/Aoibu/Aoibu_Logo192.webp"],
-                "datePublished": new Date().toISOString(), // يفضل أن يكون من الشيت
+                "datePublished": new Date().toISOString(),
                 "author": { "@type": "Person", "name": "Aoibu" },
                 "publisher": {
                     "@type": "Organization",
@@ -243,8 +243,12 @@
         data.forEach((news, index) => {
             const card = document.createElement('article');
             card.className = 'news-card';
+            // إنشاء آيدي فريد لكل خبر بناءً على ترتيبه
             const uniqueId = 'conan-news-' + index;
             card.id = uniqueId;
+
+            // تنظيف العنوان من علامات التنصيص التي قد تكسر كود المشاركة
+            const safeTitle = news.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
             let imageHTML = `<img src="${news.image || 'Aoibu_Logo192.webp'}" alt="${news.title}" class="card-img">`;
             let badgeHTML = news.category ? `<span class="card-category-badge">${news.category}</span>` : '';
@@ -264,13 +268,32 @@
                 </div>
                 <div class="card-actions">
                     <button class="action-btn like-btn" onclick="this.classList.toggle('liked')"><i class="far fa-heart"></i></button>
-                    <button class="action-btn" onclick="shareN('${news.title}', '${uniqueId}')"><i class="fas fa-share-alt"></i> مشاركة</button>
+                    <button class="action-btn" onclick="shareN('${uniqueId}', '${safeTitle}')"><i class="fas fa-share-alt"></i> مشاركة</button>
                 </div>
             `;
             grid.appendChild(card);
             setTimeout(() => card.classList.add('visible'), index * 100);
         });
+        
         injectNewsSchema(data);
+        // التحقق من وجود رابط مباشر لخبر معين والتمرير إليه
+        checkUrlHash();
+    }
+
+    // دالة للذهاب للخبر المحدد إذا تم فتح الرابط
+    function checkUrlHash() {
+        if(window.location.hash) {
+            const id = window.location.hash.substring(1); // إزالة علامة #
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if(element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // ومضة لتمييز الخبر
+                    element.style.border = "2px solid var(--primary-color)";
+                    setTimeout(() => element.style.border = "1px solid rgba(255,255,255,0.05)", 2000);
+                }
+            }, 800); // تأخير بسيط لضمان اكتمال التحميل
+        }
     }
 
     function toggleT(btn) {
@@ -280,20 +303,41 @@
         else { st.style.display='none'; ft.style.display='inline'; btn.innerText='إخفاء'; }
     }
 
-    function shareN(title, id) {
-        const url = `https://aoibu.github.io/Aoibu/news.html#${id}`;
-        if(navigator.share) navigator.share({title, url});
-        else { navigator.clipboard.writeText(url); showToast(); }
+    // دالة المشاركة الجديدة والمحسنة
+    async function shareN(id, title) {
+        // إنشاء الرابط بناءً على عنوان الصفحة الحالي + الآيدي
+        const url = `${window.location.origin}${window.location.pathname}#${id}`;
+        
+        const shareData = {
+            title: title,
+            text: `اقرأ هذا الخبر عن كونان: ${title}`,
+            url: url
+        };
+
+        try {
+            // محاولة استخدام مشاركة النظام (موبايل)
+            if (navigator.share) {
+                await navigator.share(shareData);
+            } else {
+                throw new Error("Web Share not supported");
+            }
+        } catch (err) {
+            // البديل: نسخ الرابط للحافظة
+            navigator.clipboard.writeText(url).then(() => {
+                showToast();
+            }).catch(err => console.error('فشل النسخ', err));
+        }
     }
 
     function showToast() {
         const t = document.getElementById('toast');
+        t.innerText = "تم نسخ رابط الخبر المحدد!";
         t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000);
     }
 
     showSkeleton();
     fetch(SCRIPT_URL).then(r => r.json()).then(data => renderNews(data)).catch(() => {
-        document.getElementById('news-grid').innerHTML = '<p>حدث خطأ في تحميل أخبار كونان.</p>';
+        document.getElementById('news-grid').innerHTML = '<p style="text-align:center; padding:20px;">حدث خطأ في تحميل أخبار كونان.</p>';
     });
 
     // جزيئات الخلفية
