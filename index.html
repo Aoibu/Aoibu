@@ -635,6 +635,52 @@
     }
   ]
 }
+    /* --- زر الأخبار المميز --- */
+.news-btn {
+  background: rgba(255, 61, 61, 0.1) !important; /* خلفية حمراء شفافة */
+  border: 1px solid var(--secondary-color) !important; /* إطار أحمر */
+  color: var(--secondary-color) !important;
+  box-shadow: 0 0 10px rgba(255, 61, 61, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* تأثير التوهج عند التمرير */
+.news-btn:hover {
+  background: var(--secondary-color) !important;
+  color: #fff !important;
+  box-shadow: 0 0 25px var(--secondary-color), 0 0 50px var(--secondary-color);
+  transform: translateY(-2px);
+  border-color: transparent !important;
+}
+
+/* نقطة التنبيه الحمراء (Pulse) */
+.news-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ff3d3d;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #ff3d3d;
+  animation: pulseRed 1.5s infinite;
+  display: inline-block;
+  margin-right: 5px; /* مسافة بين النقطة والنص */
+}
+
+/* عند الهوفر تصبح النقطة بيضاء */
+.news-btn:hover .news-dot {
+  background-color: #fff;
+  box-shadow: 0 0 5px #fff;
+}
+
+@keyframes pulseRed {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 61, 61, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 61, 61, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 61, 61, 0); }
+}
+
 </script>
 
 </head>
@@ -667,14 +713,20 @@
 
 <header>
   <h1>Aoibu | مكتبة كونان</h1>
-  <nav class="main-nav">
+<nav class="main-nav">
   <ul>
+    <li>
+        <a href="news.html" class="news-btn">
+            <span class="news-dot"></span> أخبار الفريق
+        </a>
+    </li>
     <li><a href="#new-eps">✨ الحلقات الجديدة</a></li>
     <li><a href="#movies">🎬 الأفلام</a></li>
     <li><a href="#manga">📚 المانجا</a></li>
     <li><a href="#old-eps">📂 القديمة</a></li>
   </ul>
 </nav>
+
 
 </header>
 
