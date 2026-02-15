@@ -204,7 +204,15 @@
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz2_FZvjQFyDbn9Ya-bChIBalgybOVjkS3EhYU5PhURzOIauOldhT5XDIi4zoQq5KD4vQ/exec';
     const CHAR_LIMIT = 100;
 
-    // دالة تحديث بيانات السكيما لجوجل
+    // دالة لتوليد ID ثابت بناءً على العنوان
+    // مثال: "تسريبات الفصل 1100" -> "news-تسريبات-الفصل-1100"
+    function generateSafeId(title) {
+        if (!title) return 'news-unknown-' + Math.floor(Math.random() * 1000);
+        return 'news-' + title.trim()
+            .replace(/\s+/g, '-')       // استبدال المسافات بشرطة
+            .replace(/[^\w\u0600-\u06FF\-]/g, ''); // إزالة الرموز الخاصة والإبقاء على العربية والإنجليزية والأرقام
+    }
+
     function injectNewsSchema(newsData) {
         newsData.slice(0, 10).forEach(news => {
             const schema = {
@@ -243,11 +251,12 @@
         data.forEach((news, index) => {
             const card = document.createElement('article');
             card.className = 'news-card';
-            // إنشاء آيدي فريد لكل خبر بناءً على ترتيبه
-            const uniqueId = 'conan-news-' + index;
+            
+            // التغيير هنا: استخدام العنوان لتوليد المعرف بدلاً من الترتيب
+            const uniqueId = generateSafeId(news.title); 
             card.id = uniqueId;
 
-            // تنظيف العنوان من علامات التنصيص التي قد تكسر كود المشاركة
+            // تجهيز العنوان للمشاركة (معالجة الفواصل وعلامات التنصيص)
             const safeTitle = news.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
             let imageHTML = `<img src="${news.image || 'Aoibu_Logo192.webp'}" alt="${news.title}" class="card-img">`;
@@ -276,23 +285,24 @@
         });
         
         injectNewsSchema(data);
-        // التحقق من وجود رابط مباشر لخبر معين والتمرير إليه
         checkUrlHash();
     }
 
-    // دالة للذهاب للخبر المحدد إذا تم فتح الرابط
+    // تم تحديث الدالة لفك تشفير العناوين العربية
     function checkUrlHash() {
         if(window.location.hash) {
-            const id = window.location.hash.substring(1); // إزالة علامة #
-            setTimeout(() => {
-                const element = document.getElementById(id);
-                if(element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    // ومضة لتمييز الخبر
-                    element.style.border = "2px solid var(--primary-color)";
-                    setTimeout(() => element.style.border = "1px solid rgba(255,255,255,0.05)", 2000);
-                }
-            }, 800); // تأخير بسيط لضمان اكتمال التحميل
+            try {
+                // decodeURIComponent مهم جداً لأن المتصفح يحول العربية إلى رموز %D8%A7
+                const id = decodeURIComponent(window.location.hash.substring(1));
+                setTimeout(() => {
+                    const element = document.getElementById(id);
+                    if(element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        element.classList.add('highlight-news'); // إضافة كلاس للوميض
+                        setTimeout(() => element.classList.remove('highlight-news'), 2000);
+                    }
+                }, 800);
+            } catch (e) { console.log('Invalid Hash'); }
         }
     }
 
@@ -303,29 +313,25 @@
         else { st.style.display='none'; ft.style.display='inline'; btn.innerText='إخفاء'; }
     }
 
-    // دالة المشاركة الجديدة والمحسنة
     async function shareN(id, title) {
-        // إنشاء الرابط بناءً على عنوان الصفحة الحالي + الآيدي
         const url = `${window.location.origin}${window.location.pathname}#${id}`;
         
         const shareData = {
             title: title,
-            text: `اقرأ هذا الخبر عن كونان: ${title}`,
+            text: `📰 ${title}\nاقرأ التفاصيل هنا:`,
             url: url
         };
 
         try {
-            // محاولة استخدام مشاركة النظام (موبايل)
             if (navigator.share) {
                 await navigator.share(shareData);
             } else {
-                throw new Error("Web Share not supported");
+                throw new Error("No Share API");
             }
         } catch (err) {
-            // البديل: نسخ الرابط للحافظة
             navigator.clipboard.writeText(url).then(() => {
                 showToast();
-            }).catch(err => console.error('فشل النسخ', err));
+            });
         }
     }
 
@@ -337,10 +343,10 @@
 
     showSkeleton();
     fetch(SCRIPT_URL).then(r => r.json()).then(data => renderNews(data)).catch(() => {
-        document.getElementById('news-grid').innerHTML = '<p style="text-align:center; padding:20px;">حدث خطأ في تحميل أخبار كونان.</p>';
+        document.getElementById('news-grid').innerHTML = '<p style="text-align:center;">حدث خطأ في جلب البيانات.</p>';
     });
-
-    // جزيئات الخلفية
+    
+    // تأثيرات الخلفية
     const parts = document.getElementById('particles');
     for(let i=0; i<20; i++){
         let p = document.createElement('div'); p.className='particle';
@@ -348,5 +354,14 @@
         p.style.animationDuration=Math.random()*10+10+'s'; parts.appendChild(p);
     }
 </script>
+
+<style>
+/* إضافة ستايل بسيط لتمييز الخبر عند الوصول إليه */
+.highlight-news {
+    border: 2px solid var(--primary-color) !important;
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.4) !important;
+    transition: 0.5s;
+}
+</style>
 </body>
 </html>
