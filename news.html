@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>أخبار المحقق كونان - Aoibu News</title>
+<meta name="description" content="تغطية حصرية وشاملة لأحدث أخبار المحقق كونان، مواعيد الحلقات، تسريبات المانجا، وأخبار الأفلام السنوية. كل ما يخص كونان في مكان واحد.">
+<meta name="keywords" content="المحقق كونان, أخبار كونان, حلقات كونان, مانجا كونان, فيلم كونان الجديد, تسريبات كونان, Aoibu, Detective Conan News">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Aoibu">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="أخبار المحقق كونان | Aoibu News">
+<meta property="og:description" content="مصدرك الأول لمتابعة كل جديد عن عالم المحقق كونان (حلقات، أفلام، ومانجا).">
+<meta property="og:url" content="https://aoibu.github.io/Aoibu/news.html">
+<meta property="og:site_name" content="Aoibu News">
+<meta property="og:image" content="Aoibu_Logo192.webp">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="أخبار المحقق كونان - Aoibu">
+<meta name="twitter:description" content="تابع أحدث تسريبات ومواعيد عرض المحقق كونان.">
+<meta name="twitter:image" content="Aoibu_Logo192.webp">
+
+<link rel="canonical" href="https://aoibu.github.io/Aoibu/news.html">
+<link rel="icon" type="image/webp" href="Aoibu_Logo192.webp">
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "Aoibu Detective Conan News",
+  "alternateName": "أخبار كونان Aoibu",
+  "url": "https://aoibu.github.io/Aoibu/news.html",
+  "logo": "https://aoibu.github.io/Aoibu/Aoibu_Logo192.webp",
+  "sameAs": [
+    "https://aoibu.github.io/Aoibu/news.html"
+  ],
+  "description": "موقع متخصص في نشر أخبار أنمي ومانجا المحقق كونان."
+}
+</script>
+
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "01c320e6-50eb-419f-9a4a-27dbb40c3cbb",
+      safari_web_id: "web.onesignal.auto.xxxxx",
+      notifyButton: { enable: true, position: 'bottom-left' },
+      allowLocalhostAsSecureOrigin: true,
+    });
+  });
+</script>
+
+<style>
+    :root {
+      --primary-color: #00bcd4;
+      --secondary-color: #ff3d3d;
+      --bg-dark: #0a0b10;
+      --card-bg: #16181f;
+      --text-main: #ffffff;
+      --text-muted: #a0a0a0;
+      --skeleton-base: #222530;
+      --skeleton-shine: #2e3242;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 25%, rgba(0, 188, 212, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 85% 75%, rgba(255, 61, 61, 0.1) 0%, transparent 25%);
+      font-family: 'El Messiri', sans-serif;
+      color: var(--text-main);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: rgba(22, 24, 31, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      text-align: center;
+      position: sticky; top: 0; z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    header h1 { margin: 0; color: var(--primary-color); font-size: 24px; }
+    
+    .home-link {
+        position: absolute; right: 20px; color: white;
+        text-decoration: none; font-size: 1.2rem; transition: 0.3s;
+        display: flex; align-items: center; gap: 5px;
+    }
+    .home-link:hover { color: var(--primary-color); transform: scale(1.1); }
+
+    .bg-particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+    .particle { position: absolute; background: rgba(255, 255, 255, 0.1); border-radius: 50%; animation: floatUp 20s infinite linear; }
+    @keyframes floatUp { from { transform: translateY(100vh); opacity: 0; } to { transform: translateY(-100px); opacity: 0.5; } }
+
+    .container { max-width: 1100px; margin: 20px auto 40px auto; padding: 20px; }
+
+    .news-grid {
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px; perspective: 1000px;
+    }
+
+    article.news-card {
+      background-color: var(--card-bg);
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      opacity: 0; transform: translateY(50px);
+      position: relative;
+    }
+    
+    article.news-card.visible { opacity: 1; transform: translateY(0); }
+    article.news-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 15px rgba(0, 188, 212, 0.2);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .card-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid var(--primary-color); }
+    .card-category-badge {
+        position: absolute; top: 10px; right: 10px; background: var(--primary-color);
+        color: #000; font-size: 11px; font-weight: bold; padding: 3px 10px;
+        border-radius: 12px; z-index: 2;
+    }
+
+    .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .card-date { font-size: 12px; color: var(--primary-color); margin-bottom: 8px; font-weight: bold; display: block; }
+    .card-title { font-size: 18px; font-weight: 700; margin: 0 0 10px; color: white; line-height: 1.4; }
+    .card-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    .read-more-btn {
+        background: none; border: none; color: var(--primary-color);
+        cursor: pointer; font-family: 'El Messiri', sans-serif;
+        font-size: 13px; padding: 0; margin-top: 5px; font-weight: bold;
+    }
+
+    .card-actions {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 10px 20px; background: rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .action-btn {
+        background: none; border: none; color: var(--text-muted);
+        cursor: pointer; font-family: 'El Messiri', sans-serif;
+        font-size: 16px; display: flex; align-items: center; gap: 6px;
+    }
+    .like-btn.liked { color: var(--secondary-color); animation: pop 0.3s; }
+    @keyframes pop { 50% { transform: scale(1.4); } }
+
+    .toast {
+        position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+        background: var(--primary-color); color: #000;
+        padding: 10px 20px; border-radius: 30px; font-weight: bold;
+        opacity: 0; pointer-events: none; transition: 0.3s; z-index: 2000;
+    }
+    .toast.show { opacity: 1; bottom: 50px; }
+
+    /* Skeleton Loading */
+    .skeleton-card { background-color: var(--card-bg); border-radius: 15px; min-height: 350px; }
+    .skeleton-anim {
+        background: var(--skeleton-base);
+        background-image: linear-gradient(90deg, var(--skeleton-base) 0px, var(--skeleton-shine) 40px, var(--skeleton-base) 80px);
+        background-size: 200% 100%; animation: shimmer 1.5s infinite linear;
+    }
+    @keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+    @media (max-width: 600px) { .home-link span { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="bg-particles" id="particles"></div>
+
+<header>
+  <a href="index.html" class="home-link">
+      <i class="fas fa-home"></i> <span>الرئيسية</span>
+  </a>
+  <h1>📰 أخبار المحقق كونان</h1>
+</header>
+
+<div class="container">
+    <div id="news-grid" class="news-grid"></div>
+</div>
+
+<div id="toast" class="toast">تم نسخ رابط الخبر!</div>
+
+<script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz2_FZvjQFyDbn9Ya-bChIBalgybOVjkS3EhYU5PhURzOIauOldhT5XDIi4zoQq5KD4vQ/exec';
+    const CHAR_LIMIT = 100;
+
+    // دالة تحديث بيانات السكيما ديناميكياً لكل خبر لزيادة فرص الظهور في جوجل
+    function injectNewsSchema(newsData) {
+        newsData.slice(0, 10).forEach(news => {
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "NewsArticle",
+                "headline": news.title,
+                "image": [news.image || "https://aoibu.github.io/Aoibu/Aoibu_Logo192.webp"],
+                "datePublished": new Date().toISOString(), // يفضل أن يكون من الشيت
+                "author": { "@type": "Person", "name": "Aoibu" },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Aoibu Detective Conan News",
+                    "logo": { "@type": "ImageObject", "url": "https://aoibu.github.io/Aoibu/Aoibu_Logo192.webp" }
+                }
+            };
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.text = JSON.stringify(schema);
+            document.head.appendChild(script);
+        });
+    }
+
+    function showSkeleton() {
+        const grid = document.getElementById('news-grid');
+        grid.innerHTML = ''; 
+        for(let i=0; i<6; i++) {
+            grid.innerHTML += `<div class="skeleton-card skeleton-anim"></div>`;
+        }
+    }
+
+    function renderNews(data) {
+        const grid = document.getElementById('news-grid');
+        grid.innerHTML = ''; 
+        if(!data || data.length === 0) return;
+
+        data.forEach((news, index) => {
+            const card = document.createElement('article');
+            card.className = 'news-card';
+            const uniqueId = 'conan-news-' + index;
+            card.id = uniqueId;
+
+            let imageHTML = `<img src="${news.image || 'Aoibu_Logo192.webp'}" alt="${news.title}" class="card-img">`;
+            let badgeHTML = news.category ? `<span class="card-category-badge">${news.category}</span>` : '';
+            
+            let fullText = news.desc || "";
+            let isLong = fullText.length > CHAR_LIMIT;
+            let descHTML = isLong ? 
+                `<div class="card-desc"><span class="s-t">${fullText.substring(0, CHAR_LIMIT)}...</span><span class="f-t" style="display:none">${fullText}</span><button class="read-more-btn" onclick="toggleT(this)">المزيد</button></div>` :
+                `<div class="card-desc">${fullText}</div>`;
+
+            card.innerHTML = `
+                ${badgeHTML} ${imageHTML}
+                <div class="card-content">
+                    <time class="card-date">${news.date || ''}</time>
+                    <h2 class="card-title">${news.title}</h2>
+                    ${descHTML}
+                </div>
+                <div class="card-actions">
+                    <button class="action-btn like-btn" onclick="this.classList.toggle('liked')"><i class="far fa-heart"></i></button>
+                    <button class="action-btn" onclick="shareN('${news.title}', '${uniqueId}')"><i class="fas fa-share-alt"></i> مشاركة</button>
+                </div>
+            `;
+            grid.appendChild(card);
+            setTimeout(() => card.classList.add('visible'), index * 100);
+        });
+        injectNewsSchema(data);
+    }
+
+    function toggleT(btn) {
+        const p = btn.parentElement;
+        const st = p.querySelector('.s-t'), ft = p.querySelector('.f-t');
+        if(st.style.display==='none'){ st.style.display='inline'; ft.style.display='none'; btn.innerText='المزيد'; }
+        else { st.style.display='none'; ft.style.display='inline'; btn.innerText='إخفاء'; }
+    }
+
+    function shareN(title, id) {
+        const url = `https://aoibu.github.io/Aoibu/news.html#${id}`;
+        if(navigator.share) navigator.share({title, url});
+        else { navigator.clipboard.writeText(url); showToast(); }
+    }
+
+    function showToast() {
+        const t = document.getElementById('toast');
+        t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000);
+    }
+
+    showSkeleton();
+    fetch(SCRIPT_URL).then(r => r.json()).then(data => renderNews(data)).catch(() => {
+        document.getElementById('news-grid').innerHTML = '<p>حدث خطأ في تحميل أخبار كونان.</p>';
+    });
+
+    // جزيئات الخلفية
+    const parts = document.getElementById('particles');
+    for(let i=0; i<20; i++){
+        let p = document.createElement('div'); p.className='particle';
+        p.style.left = Math.random()*100+'%'; p.style.width=p.style.height=Math.random()*5+2+'px';
+        p.style.animationDuration=Math.random()*10+10+'s'; parts.appendChild(p);
+    }
+</script>
+</body>
+</html>
