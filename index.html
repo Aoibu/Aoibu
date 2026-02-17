@@ -3,6 +3,8 @@
 <head>
 <meta name="description" content="مكتبة Aoibu: موقعك الأول لمشاهدة حلقات المحقق كونان الجديدة والقديمة، الأفلام، وفصول المانجا الحصرية مترجمة وبجودة عالية.">
 
+<title>مكتبة Aoibu | عالم المحقق كونان المترجم</title>
+
 
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KLX7081KN"></script>
@@ -457,66 +459,6 @@
       .episode-card:hover { transform: translateY(-10px) scale(1.02); }
     }
 
-        /* --- تنسيق أزرار النافذة المنبثقة الجديدة --- */
-    .modal-buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 30px;
-      flex-wrap: wrap; /* لكي تترتب الأزرار فوق بعضها في الشاشات الصغيرة جداً */
-    }
-
-    .modal-btn {
-      padding: 12px 25px;
-      border-radius: 50px;
-      border: none;
-      font-weight: bold;
-      font-family: 'El Messiri', sans-serif;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      font-size: 15px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* زر التهنئة - أحمر متوهج */
-    .congrats-btn {
-      background: linear-gradient(135deg, var(--secondary-color), #b32d2d);
-      color: white;
-      box-shadow: 0 0 15px rgba(255, 61, 61, 0.3);
-    }
-
-    /* زر استكشف المكتبة - سيان */
-    .close-modal-btn {
-      background: linear-gradient(135deg, var(--primary-color), #008ba3);
-      color: #000;
-    }
-
-    .modal-btn:hover {
-      transform: scale(1.08);
-      color: white;
-    }
-
-    .congrats-btn:hover {
-      box-shadow: 0 0 25px var(--secondary-color);
-    }
-
-    .close-modal-btn:hover {
-      box-shadow: 0 0 25px var(--primary-color);
-    }
-
-    /* تعديل بسيط للموبايل */
-    @media (max-width: 480px) {
-      .modal-buttons {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .modal-btn {
-        width: 100%;
-      }
-    }
 /* 🕵️‍♂️ قفل كونان مع شعار الفريق */
 .conan-lock {
   position: relative;
@@ -686,39 +628,6 @@
     font-size: 14px;
   }
 }
-
-  </style>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Aoibu - مكتبة كونان",
-  "url": "https://aoibu.github.io/Aoibu/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://aoibu.github.io/Aoibu/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
-  "hasPart": [
-    {
-      "@type": "SiteNavigationElement",
-      "name": "الحلقات الجديدة",
-      "url": "https://aoibu.github.io/Aoibu/#new-eps"
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "name": "الأفلام",
-      "url": "https://aoibu.github.io/Aoibu/#movies"
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "name": "المانجا",
-      "url": "https://aoibu.github.io/Aoibu/#manga"
-    }
-  ]
-}
-    /* --- زر الأخبار المميز --- */
 .news-btn {
   background: rgba(255, 61, 61, 0.1) !important; /* خلفية حمراء شفافة */
   border: 1px solid var(--secondary-color) !important; /* إطار أحمر */
@@ -763,6 +672,39 @@
   70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 61, 61, 0); }
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 61, 61, 0); }
 }
+
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Aoibu - مكتبة كونان",
+  "url": "https://aoibu.github.io/Aoibu/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://aoibu.github.io/Aoibu/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "hasPart": [
+    {
+      "@type": "SiteNavigationElement",
+      "name": "الحلقات الجديدة",
+      "url": "https://aoibu.github.io/Aoibu/#new-eps"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "الأفلام",
+      "url": "https://aoibu.github.io/Aoibu/#movies"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "المانجا",
+      "url": "https://aoibu.github.io/Aoibu/#manga"
+    }
+  ]
+}
+    /* --- زر الأخبار المميز --- */
 
 </script>
 
@@ -1169,92 +1111,6 @@
     }
   });
 
-  // --- منطق الألعاب النارية والنافذة المنبثقة ---
-
-const modal = document.getElementById('celebrationModal');
-const canvas = document.getElementById('fireworksCanvas');
-const ctx = canvas.getContext('2d');
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-class Firework {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height;
-        this.sx = Math.random() * 3 - 1.5;
-        this.sy = Math.random() * -3 - 3;
-        this.size = Math.random() * 2 + 1;
-        this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        this.exploded = false;
-        this.particles = [];
-    }
-    update() {
-        if (!this.exploded) {
-            this.x += this.sx;
-            this.y += this.sy;
-            this.sy += 0.05;
-            if (this.sy >= -1) this.explode();
-        }
-        this.particles.forEach((p, i) => {
-            p.x += p.vx;
-            p.y += p.vy;
-            p.opacity -= 0.01;
-            if (p.opacity <= 0) this.particles.splice(i, 1);
-        });
-    }
-    explode() {
-        this.exploded = true;
-        for (let i = 0; i < 50; i++) {
-            this.particles.push({
-                x: this.x, y: this.y,
-                vx: Math.random() * 6 - 3,
-                vy: Math.random() * 6 - 3,
-                opacity: 1
-            });
-        }
-    }
-    draw() {
-        ctx.fillStyle = this.color;
-        if (!this.exploded) {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-        this.particles.forEach(p => {
-            ctx.globalAlpha = p.opacity;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        });
-        ctx.globalAlpha = 1;
-    }
-}
-
-let fireworks = [];
-function animateFireworks() {
-    if (!modal.classList.contains('show')) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if (Math.random() < 0.05) fireworks.push(new Firework());
-    fireworks.forEach((f, i) => {
-        f.update();
-        f.draw();
-        if (f.exploded && f.particles.length === 0) fireworks.splice(i, 1);
-    });
-    requestAnimationFrame(animateFireworks);
-}
-
-// تشغيل النافذة تلقائياً عند تحميل الصفحة
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        modal.classList.add('show');
-        animateFireworks();
-    }, 2500); // تظهر بعد 2.5 ثانية من دخول الموقع
-});
 
 function closeCelebration() {
     modal.classList.remove('show');
@@ -1264,4 +1120,4 @@ function closeCelebration() {
 </script>
 
 </body>
-        </html>
+</html>
