@@ -603,6 +603,89 @@
   color: var(--primary-color);
   background: rgba(0, 188, 212, 0.1);
 }
+/* --- 💎 زر دعم الفريق الملكي (Royal Support Button) --- */
+.support-floating-btn {
+  position: fixed;
+  bottom: 25px; /* المسافة من الأسفل */
+  right: 25px;  /* المسافة من اليمين */
+  z-index: 9999; /* لضمان ظهوره فوق كل شيء */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #FFD700 0%, #FDB931 50%, #d4af37 100%); /* تدرج ذهبي فاخر */
+  color: #3e2723; /* لون نص بني غامق لقراءة أفضل على الذهبي */
+  
+  text-decoration: none;
+  border-radius: 50px; /* حواف دائرية بالكامل */
+  font-family: 'El Messiri', sans-serif;
+  font-weight: 800; /* خط عريض */
+  font-size: 16px;
+  
+  /* ظلال وتوهج */
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3), /* ظل عادي */
+    0 0 20px rgba(255, 215, 0, 0.4), /* توهج ذهبي */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4); /* خط اضاءة علوي */
+    
+  overflow: hidden; /* لاحتواء اللمعة */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة مرنة */
+  
+  /* أنيميشن النبض المستمر */
+  animation: pulseGold 3s infinite;
+}
+
+/* أيقونة الهدية */
+.support-icon {
+  font-size: 20px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+}
+
+/* تأثير اللمعة المتحركة (Shine Effect) */
+.support-floating-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -150%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  transform: skewX(-20deg);
+  animation: shineRun 6s infinite linear; /* اللمعة تمر كل 6 ثواني */
+}
+
+/* عند مرور الماوس */
+.support-floating-btn:hover {
+  transform: translateY(-5px) scale(1.05); /* يرتفع ويكبر قليلاً */
+  box-shadow: 
+    0 15px 25px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 215, 0, 0.6); /* زيادة التوهج */
+  background: linear-gradient(135deg, #ffe57f 0%, #ffc107 100%); /* يصبح أفتح قليلاً */
+  color: #000;
+}
+
+/* الأنيميشنات */
+@keyframes pulseGold {
+  0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+@keyframes shineRun {
+  0% { left: -150%; }
+  20% { left: 150%; } /* تمر بسرعة */
+  100% { left: 150%; } /* تنتظر قليلاً قبل العودة */
+}
+
+/* للموبايل: تصغير بسيط */
+@media (max-width: 600px) {
+  .support-floating-btn {
+    padding: 10px 20px;
+    bottom: 20px; right: 20px;
+    font-size: 14px;
+  }
+}
 
   </style>
 
@@ -701,6 +784,10 @@
     </div>
 </div>
 
+<a href="Gift.html" class="support-floating-btn">
+  <span class="support-icon">إدعم الفريق 💫</span>
+  <span>ادعم الفريق</span>
+</a>
 
  <div id="preloader">
   <div class="conan-lock">
