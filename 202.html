@@ -129,7 +129,45 @@
         <button onclick="reportIssue()" class="neon-btn report-btn">
             <span>⚠️</span> إبلاغ عن مشكلة
         </button>
-    </div> </div> </div> <script src="script2.js"></script>
+    </div> </div> 
+
+<div class="glass-card" style="text-align: center;">
+    <h3 style="color: var(--primary-color);">⭐ قيّم الحلقة</h3>
+    <div class="stars" id="rating-stars">
+      <span onclick="rate(1)">★</span><span onclick="rate(2)">★</span><span onclick="rate(3)">★</span><span onclick="rate(4)">★</span><span onclick="rate(5)">★</span>
+    </div>
+    <p id="rating-msg" style="color: var(--primary-color); height: 20px; margin-top: 10px;"></p>
+  </div>
+
+
+<div class="glass-card">
+    <h3 style="color: var(--primary-color); margin-top: 0;">💬 التعليقات</h3>
+    
+    <div class="comments-section">
+        <div id="reply-status">
+            <span>جاري الرد على <b id="reply-to-name"></b>...</span>
+            <span style="cursor:pointer; color:red;" onclick="cancelReply()">✕ إلغاء</span>
+        </div>
+
+        <form id="commentForm" class="comment-form">
+            <input type="text" id="c-name" class="comment-input" placeholder="الاسم (اختياري)">
+            <textarea id="c-content" class="comment-textarea" rows="3" placeholder="اكتب تعليقك هنا..." required></textarea>
+            <button type="submit" class="neon-btn" style="justify-content:center;">🚀 إرسال التعليق</button>
+        </form>
+
+        <div id="comments-container" class="comment-list">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<footer>
+  &copy; 2025 Aoibu Team | جميع الحقوق محفوظة
+</footer>
+
+ <script src="script2.js"></script>
 
 </body>
 </html>
