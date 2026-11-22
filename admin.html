@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>أداة الإضافة والفحص | Aoibu</title>
-<meta name="description" content="أداة داخلية لفريق اويبو لإضافة الحلقات وفحص ملفات البيانات.">
+<title>لوحة النشر | Aoibu</title>
+<meta name="description" content="لوحة نشر الحلقات والأفلام وفصول المانجا لفريق اويبو.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#060a17">
 <meta name="color-scheme" content="dark light">
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aoibu | مكتبة كونان">
 <meta property="og:locale" content="ar_AR">
-<meta property="og:title" content="أداة الإضافة والفحص | Aoibu">
-<meta property="og:description" content="أداة داخلية لفريق اويبو لإضافة الحلقات وفحص ملفات البيانات.">
+<meta property="og:title" content="لوحة النشر | Aoibu">
+<meta property="og:description" content="لوحة نشر الحلقات والأفلام وفصول المانجا لفريق اويبو.">
 <meta property="og:image" content="https://aoibu.github.io/Aoibu/assets/img/og-cover.jpg">
 <meta property="og:url" content="https://aoibu.github.io/Aoibu/admin.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,198 +33,184 @@
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-MGG2SS4T");</script>
 
 </head>
+
 <body data-page="admin">
 <a class="sr-only" href="#main">تخطَّ إلى المحتوى</a>
 <header id="site-header" class="site-header"></header>
 <main id="main">
-<div class="container" style="max-width:1100px">
-<div class="page-head"><h1>🛠️ أداة إضافة الحلقات</h1><p>املأ الحقول، وانسخ الكود الجاهز، والصقه في ملف البيانات على GitHub. لا تحتاج أي خبرة برمجية. (هذه الصفحة للفريق فقط ولا تظهر في جوجل.)</p></div>
-<div class="tabs" role="tablist" id="adm-tabs" style="margin-top:18px">
-  <button class="tab" role="tab" data-t="episode" aria-selected="true">حلقة جديدة</button>
-  <button class="tab" role="tab" data-t="movie" aria-selected="false">فيلم</button>
-  <button class="tab" role="tab" data-t="manga" aria-selected="false">فصل مانجا</button>
-  <button class="tab" role="tab" data-t="validate" aria-selected="false">فحص الملفات</button>
-</div>
+<div class="container admin">
+  <div class="page-head"><h1>🚀 لوحة النشر</h1><p>املأ معلومات الحلقة واضغط «نشر» — تظهر في موقع اويبو تلقائياً خلال دقيقة أو دقيقتين.</p></div>
 
-<div class="watch-layout" id="gen-view" style="margin-top:20px;grid-template-columns:minmax(0,1fr) 340px">
-  <form class="panel form-grid" id="gen-form" style="margin-top:0" autocomplete="off">
-    <div class="form-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
-      <label><span id="lbl-id">رقم الحلقة *</span><input class="input" name="id" required placeholder="1205" dir="ltr"></label>
-      <label data-for="episode">النوع *<select class="select" name="type"><option value="manga">مانجا (أساسية)</option><option value="filler">فلر</option><option value="remaster">مُعاد إنتاجها</option><option value="special">خاصة</option></select></label>
-      <label data-for="movie">السنة<input class="input" name="year" placeholder="2026" dir="ltr"></label>
-      <label>تاريخ الإضافة<input class="input" name="date" type="date"></label>
-    </div>
-    <label><span>العنوان <span data-for="episode movie">*</span></span><input class="input" name="title" placeholder="من اختطف كونان وأزوسا؟ (الجزء الثاني)"></label>
-    <label data-for="movie">العنوان بالإنجليزي<input class="input" name="titleEn" dir="ltr" placeholder="One-eyed Flashback"></label>
-    <label data-for="episode movie">رابط صورة البوستر<input class="input" name="poster" dir="ltr" placeholder="https://i.ibb.co/…/poster.webp"></label>
-    <div data-for="episode movie" class="form-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-      <label>رابط Google Drive (رابط المشاركة العادي)<input class="input" name="drive" dir="ltr" placeholder="https://drive.google.com/file/d/…/view"></label>
-      <label>رابط Mega (رابط المشاركة العادي)<input class="input" name="mega" dir="ltr" placeholder="https://mega.nz/file/…#…"></label>
-      <label>رابط الخام (RAW)<input class="input" name="raw" dir="ltr"></label>
-      <label>رابط ملف الترجمة<input class="input" name="sub" dir="ltr" placeholder="https://subsource.net/…"></label>
-    </div>
-    <p data-for="episode movie" style="font-size:13px;color:var(--text-3);margin-top:-4px">💡 ضع روابط Drive وMega العادية فقط — الموقع يحوّلها تلقائياً إلى مشغّل + زر تحميل.</p>
-    <div data-for="manga" class="form-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-      <label>رابط القارئ (Cubari) *<input class="input" name="reader" dir="ltr" placeholder="https://cubari.moe/read/imgur/…/1/1/"></label>
-      <label>المترجم (اختياري)<input class="input" name="translator" placeholder="TMDCX"></label>
-      <label>رابط تحميل PDF/ZIP 1<input class="input" name="dl1" dir="ltr"></label>
-      <label>رابط تحميل PDF/ZIP 2<input class="input" name="dl2" dir="ltr"></label>
-    </div>
-    <label data-for="episode movie">القصة<textarea class="textarea" name="story" placeholder="نبذة قصيرة عن الحلقة…"></textarea></label>
-    <label data-for="episode">ملاحظة (اختياري)<input class="input" name="note" placeholder="هذه الحلقة مقتبسة من فصول المانجا 1130-1131"></label>
-    <label>شارات إضافية (اختياري، افصل بفاصلة)<input class="input" name="tags" placeholder="حصرية، حلقة خاصة لمدة ساعة"></label>
-    <label data-for="episode" style="display:flex;align-items:center;gap:10px;flex-direction:row"><input type="checkbox" name="defaultCredits" checked style="width:20px;height:20px"> استخدم طاقم العمل الافتراضي (من ملف site.json)</label>
-  </form>
-  <aside class="side">
-    <div class="panel" style="margin-top:0"><h3 class="panel-title" style="font-size:16px">معاينة البطاقة</h3><div id="preview"></div><div id="warn" style="margin-top:12px;font-size:13px"></div></div>
-  </aside>
-</div>
+  <div id="conn" style="margin-top:16px"></div>
 
-<section class="panel" id="out-panel">
-  <h2 class="panel-title">الكود الجاهز</h2>
-  <ol style="color:var(--text-2);font-size:14px;padding-inline-start:20px;margin:0 0 14px;line-height:2">
-    <li>اضغط «نسخ الكود».</li>
-    <li>افتح الملف على GitHub: <a id="gh-link" target="_blank" rel="noopener" style="color:var(--brand)" dir="ltr">data/episodes.json</a> ثم اضغط أيقونة القلم ✏️.</li>
-    <li>انزل لآخر الملف. قبل القوس الأخير <code dir="ltr">]</code> مباشرة، ضع فاصلة <code dir="ltr">,</code> بعد آخر <code dir="ltr">}</code> ثم الصق الكود.</li>
-    <li>اضغط <b>Commit changes</b>. خلال دقيقة إلى دقيقتين تظهر الحلقة في الموقع ✨</li>
-  </ol>
-  <pre id="out" dir="ltr" style="text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;max-height:420px;overflow:auto;margin:0"></pre>
-  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="btn btn-primary" type="button" id="copy-btn">نسخ الكود</button><button class="btn" type="button" id="copy-comma">نسخ مع فاصلة في البداية</button><button class="btn btn-ghost" type="button" id="reset-btn">تفريغ الحقول</button></div>
-</section>
-
-<section id="validate-view" hidden style="margin-top:20px">
-  <div class="panel" style="margin-top:0"><h2 class="panel-title">فحص ملفات البيانات</h2>
-    <p style="color:var(--text-2);font-size:14px;margin-bottom:12px">يفحص ملفات الموقع الحالية ويكشف الأخطاء: فاصلة ناقصة، رقم مكرر، حلقة بدون سيرفر، رابط غير صحيح…</p>
-    <button class="btn btn-primary" type="button" id="check-live">فحص ملفات الموقع الآن</button>
-    <div id="check-out" style="margin-top:16px;display:grid;gap:8px"></div>
+  <div class="tabs" role="tablist" id="main-tabs" style="margin-top:18px">
+    <button class="tab" role="tab" data-t="publish" aria-selected="true">➕ نشر جديد</button>
+    <button class="tab" role="tab" data-t="manage" aria-selected="false">📋 إدارة المنشور</button>
+    <button class="tab" role="tab" data-t="banner" aria-selected="false">🖼️ البانر</button>
+    <button class="tab" role="tab" data-t="validate" aria-selected="false">🩺 فحص</button>
   </div>
-  <div class="panel"><h2 class="panel-title">فحص نص JSON قبل رفعه</h2>
-    <p style="color:var(--text-2);font-size:14px;margin-bottom:12px">الصق محتوى الملف كاملاً هنا لفحصه قبل الحفظ على GitHub.</p>
-    <textarea class="textarea" id="paste" dir="ltr" style="min-height:200px;font-family:monospace;font-size:13px"></textarea>
-    <div style="margin-top:10px"><button class="btn" type="button" id="check-paste">فحص النص</button></div>
-    <div id="paste-out" style="margin-top:14px"></div>
-  </div>
-</section>
+
+  <!-- ===================== نشر ===================== -->
+  <section data-view="publish">
+    <div class="editing-bar" id="editing-bar" hidden><span>✏️ أنت تعدّل: <b id="editing-what"></b></span><button class="btn btn-sm" type="button" id="cancel-edit">إلغاء التعديل</button></div>
+
+    <div class="kind-pick">
+      <span class="kp-label">ماذا تريد أن تنشر؟</span>
+      <div class="tabs" id="kind-tabs" role="tablist">
+        <button class="tab" role="tab" data-k="episode" aria-selected="true">📺 حلقة</button>
+        <button class="tab" role="tab" data-k="movie" aria-selected="false">🎬 فيلم</button>
+        <button class="tab" role="tab" data-k="manga" aria-selected="false">📚 فصل مانجا</button>
+      </div>
+    </div>
+
+    <div class="admin-grid">
+      <form id="pub-form" class="admin-form" autocomplete="off" onsubmit="return false">
+        <fieldset class="panel">
+          <legend class="panel-title">المعلومات الأساسية</legend>
+          <div class="fg-2">
+            <label><span id="lbl-id">رقم الحلقة *</span><input class="input" name="id" required dir="ltr" inputmode="text"></label>
+            <label>تاريخ الإضافة<input class="input" name="date" type="date"></label>
+          </div>
+          <div data-for="episode" class="type-pick">
+            <span class="lbl">نوع الحلقة *</span>
+            <div class="type-opts">
+              <label class="topt t-manga"><input type="radio" name="type" value="manga" checked><span>📘 مانجا <small>أساسية</small></span></label>
+              <label class="topt t-filler"><input type="radio" name="type" value="filler"><span>🟠 فلر <small>غير أساسية</small></span></label>
+              <label class="topt t-remaster"><input type="radio" name="type" value="remaster"><span>⭐ مُعاد إنتاجها</span></label>
+              <label class="topt t-special"><input type="radio" name="type" value="special"><span>💎 خاصة</span></label>
+            </div>
+          </div>
+          <label><span>العنوان <span data-for="episode movie">*</span></span><input class="input" name="title" placeholder="مثال: من اختطف كونان وأزوسا؟ (الجزء الثاني)"></label>
+          <div data-for="movie" class="fg-2">
+            <label>العنوان بالإنجليزي<input class="input" name="titleEn" dir="ltr" placeholder="One-eyed Flashback"></label>
+            <label>سنة الفيلم<input class="input" name="year" dir="ltr" inputmode="numeric" placeholder="2026"></label>
+          </div>
+          <div data-for="manga" class="fg-2">
+            <label>المترجم (اختياري)<input class="input" name="translator" placeholder="مثال: TMDCX"></label>
+            <p class="hint" style="align-self:end">💡 لفصل خاص اكتب الرقم مثل <code dir="ltr">SP2</code></p>
+          </div>
+          <label>شارات إضافية (اختياري — افصل بفاصلة)<input class="input" name="tags" placeholder="مثال: حصرية، حلقة خاصة لمدة ساعة"></label>
+        </fieldset>
+
+        <fieldset class="panel" data-for="episode movie">
+          <legend class="panel-title">🖼️ صورة الحلقة (البوستر)</legend>
+          <div class="poster-row">
+            <label class="btn upload-btn">📷 اختر صورة من الجهاز<input type="file" id="poster-file" accept="image/*" hidden></label>
+            <span class="or">أو ضع رابط صورة</span>
+          </div>
+          <input class="input" name="poster" dir="ltr" placeholder="https://i.ibb.co/…/poster.webp">
+          <div id="poster-prev" class="poster-prev"></div>
+        </fieldset>
+
+        <fieldset class="panel" data-for="episode movie">
+          <legend class="panel-title">▶️ روابط المشاهدة والتحميل</legend>
+          <p class="hint" style="margin-top:-6px">ضع روابط المشاركة العادية فقط — الموقع يحوّلها تلقائياً إلى مشغّل + زر تحميل.</p>
+          <label>رابط Google Drive<input class="input" name="drive" dir="ltr" inputmode="url" placeholder="https://drive.google.com/file/d/…/view"></label>
+          <label>رابط Mega<input class="input" name="mega" dir="ltr" inputmode="url" placeholder="https://mega.nz/file/…#…"></label>
+          <div class="fg-2">
+            <label>رابط الخام (RAW)<input class="input" name="raw" dir="ltr" inputmode="url"></label>
+            <label>رابط ملف الترجمة<input class="input" name="sub" dir="ltr" inputmode="url" placeholder="https://subsource.net/…"></label>
+          </div>
+          <label data-for="movie">رابط الإعلان (يوتيوب، اختياري)<input class="input" name="trailer" dir="ltr" inputmode="url" placeholder="https://youtu.be/…"></label>
+        </fieldset>
+
+        <fieldset class="panel" data-for="manga">
+          <legend class="panel-title">📖 روابط الفصل</legend>
+          <label>رابط القارئ (Cubari) *<input class="input" name="reader" dir="ltr" inputmode="url" placeholder="https://cubari.moe/read/imgur/…/1/1/"></label>
+          <span class="lbl" style="font-size:14px;color:var(--text-2)">روابط التحميل (PDF / ZIP)</span>
+          <div id="rows-mangadl"></div>
+        </fieldset>
+
+        <fieldset class="panel" data-for="episode movie">
+          <legend class="panel-title">📝 الوصف</legend>
+          <label>قصة الحلقة<textarea class="textarea" name="story" rows="4" placeholder="نبذة قصيرة عن الحلقة…"></textarea></label>
+          <label data-for="episode">ملاحظة (اختياري)<input class="input" name="note" placeholder="مثال: مقتبسة من فصول المانجا 1130-1131"></label>
+        </fieldset>
+
+        <fieldset class="panel" data-for="episode">
+          <legend class="panel-title">👥 طاقم العمل</legend>
+          <label class="check"><input type="checkbox" name="defaultCredits" checked> استخدم الطاقم الافتراضي للفريق</label>
+          <div id="rows-credits" hidden></div>
+        </fieldset>
+
+        <details class="panel" id="extra" data-for="episode movie">
+          <summary class="panel-title" style="cursor:pointer;margin:0">⚙️ خيارات متقدمة (سيرفرات وروابط إضافية)</summary>
+          <div class="form-grid" style="margin-top:14px">
+            <span class="lbl">سيرفرات مشاهدة إضافية</span><div id="rows-servers"></div>
+            <span class="lbl">روابط تحميل إضافية</span><div id="rows-downloads"></div>
+            <span class="lbl">روابط سوفت سب إضافية</span><div id="rows-soft"></div>
+          </div>
+        </details>
+      </form>
+
+      <aside class="admin-side">
+        <div class="panel" style="margin-top:0">
+          <h3 class="panel-title" style="font-size:16px">👁️ معاينة</h3>
+          <div id="preview"></div>
+          <div id="checks" class="checks"></div>
+        </div>
+        <details class="panel">
+          <summary style="cursor:pointer;font-size:14px;color:var(--text-2)">طريقة بديلة: نسخ الكود يدوياً</summary>
+          <pre id="out" dir="ltr" class="code-out"></pre>
+          <button class="btn btn-sm" type="button" id="copy-btn" style="margin-top:8px">نسخ الكود</button>
+        </details>
+      </aside>
+    </div>
+
+    <div class="publish-bar">
+      <div class="container">
+        <span id="publish-hint" class="ph"></span>
+        <button class="btn btn-primary publish-btn" type="button" id="publish-btn" disabled>🚀 <span class="lbl">نشر</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== إدارة ===================== -->
+  <section data-view="manage" hidden>
+    <div class="panel">
+      <div class="filters" style="margin-top:0">
+        <div class="filter-chips" id="manage-kinds">
+          <button class="chip" data-k="episode" aria-pressed="true">📺 الحلقات</button>
+          <button class="chip" data-k="movie" aria-pressed="false">🎬 الأفلام</button>
+          <button class="chip" data-k="manga" aria-pressed="false">📚 المانجا</button>
+        </div>
+        <label class="field filter-search"><input id="manage-q" type="search" placeholder="ابحث بالرقم أو الاسم…"></label>
+      </div>
+      <div id="manage-list" class="m-list" style="margin-top:14px"></div>
+    </div>
+  </section>
+
+  <!-- ===================== البانر ===================== -->
+  <section data-view="banner" hidden>
+    <form class="panel form-grid" id="banner-form" onsubmit="return false">
+      <h2 class="panel-title">🖼️ بانر الصفحة الرئيسية</h2>
+      <label class="check"><input type="checkbox" name="show"> إظهار البانر في الصفحة الرئيسية</label>
+      <div class="poster-row"><label class="btn upload-btn">📷 اختر صورة البانر<input type="file" id="banner-file" accept="image/*" hidden></label><span class="or">أو رابط</span></div>
+      <input class="input" name="image" dir="ltr" placeholder="https://… أو assets/img/…">
+      <div id="banner-prev"></div>
+      <label>عند الضغط على البانر يفتح<input class="input" name="link" dir="ltr" placeholder="congrats.html أو رابط خارجي"></label>
+      <label>وصف الصورة<input class="input" name="alt" placeholder="وصف قصير للبانر"></label>
+      <h2 class="panel-title" style="margin-top:12px">⭐ الحلقة المميزة في أعلى الصفحة</h2>
+      <select class="select" name="featured"></select>
+      <button class="btn btn-primary" type="button" id="banner-save">💾 حفظ البانر</button>
+    </form>
+  </section>
+
+  <!-- ===================== فحص ===================== -->
+  <section data-view="validate" hidden>
+    <div class="panel">
+      <h2 class="panel-title">🩺 فحص ملفات البيانات</h2>
+      <p class="hint">يكشف أي خطأ في الملفات: فاصلة ناقصة، رقم مكرر، حلقة بدون سيرفر…</p>
+      <button class="btn btn-primary" type="button" id="check-live">افحص الآن</button>
+      <div id="check-out" class="checks" style="margin-top:14px"></div>
+    </div>
+  </section>
 </div>
+
+<div class="overlay" id="done" hidden><div class="panel overlay-card" role="dialog" aria-modal="true"><button class="icon-btn" type="button" data-close-done aria-label="إغلاق" style="float:left">✕</button><div id="done-body" style="text-align:center;clear:both"></div></div></div>
 </main>
 <footer id="site-footer"></footer>
 <script src="assets/js/app.js?v=3"></script>
-<script>
-(async function(){
-  const A = window.Aoibu, {$, $$, esc} = A;
-  const site = await A.siteReady;
-  const REPO = "https://github.com/Aoibu/Aoibu/edit/main/data/";
-  const FILES = { episode: "episodes", movie: "movies", manga: "manga" };
-  let mode = "episode", existing = {};
-  const form = $("#gen-form"), out = $("#out");
-  form.date.value = new Date().toISOString().slice(0, 10);
-  try { const lib = await A.loadLibrary(); existing = { episode: lib.episodes, movie: lib.movies, manga: lib.manga }; } catch (e) {}
-
-  function setMode(m) {
-    mode = m;
-    $$("#adm-tabs .tab").forEach((t) => t.setAttribute("aria-selected", t.dataset.t === m));
-    const val = m === "validate";
-    $("#gen-view").hidden = val; $("#out-panel").hidden = val; $("#validate-view").hidden = !val;
-    if (val) return;
-    $$("[data-for]", form).forEach((el) => { el.style.display = el.dataset.for.split(" ").includes(m) ? "" : "none"; });
-    $("#lbl-id").textContent = m === "movie" ? "معرّف الفيلم * (مثل M29)" : m === "manga" ? "رقم الفصل * (أو SP2 لفصل خاص)" : "رقم الحلقة *";
-    form.id.placeholder = m === "movie" ? "M29" : m === "manga" ? "1153" : "1205";
-    const gh = $("#gh-link"); gh.href = REPO + FILES[m] + ".json"; gh.textContent = "data/" + FILES[m] + ".json";
-    update();
-  }
-  $("#adm-tabs").addEventListener("click", (e) => { const t = e.target.closest("[data-t]"); if (t) { setMode(t.dataset.t); history.replaceState(null, "", "#" + t.dataset.t); } });
-
-  function build() {
-    const f = Object.fromEntries(new FormData(form).entries());
-    const o = {}; const id = (f.id || "").trim();
-    o.id = id;
-    const num = parseFloat(id.replace(/[^\d.]/g, ""));
-    if (mode === "manga" && /^sp/i.test(id)) { o.number = 0; o.special = true; } else if (!isNaN(num)) o.number = num;
-    if (f.title) o.title = f.title.trim();
-    if (mode === "episode") o.type = f.type;
-    if (mode === "movie") { if (f.titleEn) o.titleEn = f.titleEn.trim(); if (f.year) o.year = +f.year; }
-    const tags = (f.tags || "").split(/[،,]/).map((s) => s.trim()).filter(Boolean); if (tags.length) o.tags = tags;
-    if (f.date) o.date = f.date;
-    if (mode === "manga") {
-      if (f.translator) o.translator = f.translator.trim();
-      o.reader = (f.reader || "").trim();
-      const dls = [f.dl1, f.dl2].map((u) => (u || "").trim()).filter(Boolean).map((u) => ({ host: A.hostName(u), format: /\.zip/i.test(u) ? "ZIP" : "PDF", url: u }));
-      if (dls.length) o.downloads = dls;
-    } else {
-      ["poster", "drive", "mega", "raw", "sub"].forEach((k) => { if (f[k] && f[k].trim()) o[k] = f[k].trim(); });
-      if (f.story && f.story.trim()) o.story = f.story.trim();
-      if (mode === "episode" && f.note && f.note.trim()) o.note = f.note.trim();
-      if (mode === "episode" && form.defaultCredits.checked) o.credits = "default";
-    }
-    return o;
-  }
-  function pretty(o) {
-    const lines = Object.entries(o).map(([k, v]) => Array.isArray(v) && v.length && typeof v[0] === "object" ? `    ${JSON.stringify(k)}: [\n${v.map((x) => "      " + JSON.stringify(x).replace(/","/g, '", "').replace(/":"/g, '": "')).join(",\n")}\n    ]` : `    ${JSON.stringify(k)}: ${JSON.stringify(v).replace(/","/g, '", "')}`);
-    return "  {\n" + lines.join(",\n") + "\n  }";
-  }
-  function update() {
-    const o = build();
-    out.textContent = pretty(o);
-    const it = A.expand(o, mode);
-    $("#preview").innerHTML = `<div style="max-width:300px">${A.card(it).replace("reveal", "in")}</div>`;
-    const w = [];
-    if (!o.id) w.push("⚠️ الرقم مطلوب");
-    if (o.id && (existing[mode] || []).some((x) => x.id.toLowerCase() === o.id.toLowerCase())) w.push(`⛔ الرقم ${esc(o.id)} موجود مسبقاً في الموقع!`);
-    if (mode !== "manga" && !o.drive && !o.mega) w.push("⚠️ أضف رابط Drive أو Mega على الأقل");
-    if (mode === "manga" && !o.reader) w.push("⚠️ رابط القارئ مطلوب");
-    if (o.drive && !/drive\.google\.com\/file\/d\//.test(o.drive)) w.push("⚠️ رابط Drive غير معتاد — يجب أن يحتوي drive.google.com/file/d/");
-    if (o.mega && !/mega\.nz\/(file|embed)\//.test(o.mega)) w.push("⚠️ رابط Mega يجب أن يكون بصيغة mega.nz/file/…");
-    $("#warn").innerHTML = w.length ? w.map((x) => `<div style="color:var(--c-filler)">${x}</div>`).join("") : '<div style="color:var(--c-success)">✓ جاهز للنسخ</div>';
-  }
-  form.addEventListener("input", update);
-  const copy = async (txt) => { try { await navigator.clipboard.writeText(txt); A.toast("تم النسخ ✓"); } catch (e) { prompt("انسخ:", txt); } };
-  $("#copy-btn").addEventListener("click", () => copy(out.textContent));
-  $("#copy-comma").addEventListener("click", () => copy(",\n" + out.textContent));
-  $("#reset-btn").addEventListener("click", () => { form.reset(); form.date.value = new Date().toISOString().slice(0, 10); update(); });
-
-  /* ---------- الفحص ---------- */
-  function lint(name, arr) {
-    const issues = [], ids = {};
-    if (!Array.isArray(arr)) return ["الملف يجب أن يبدأ بـ [ وينتهي بـ ]"];
-    arr.forEach((x, i) => {
-      const where = `العنصر رقم ${i + 1}${x && x.id ? ` (id: ${x.id})` : ""}`;
-      if (!x || typeof x !== "object") return issues.push(`${where}: ليس كائناً صحيحاً`);
-      if (!x.id) issues.push(`${where}: لا يوجد id`);
-      else if (ids[String(x.id).toLowerCase()]) issues.push(`${where}: الرقم مكرر`); else ids[String(x.id).toLowerCase()] = 1;
-      if (name !== "manga") {
-        if (!x.title) issues.push(`${where}: لا يوجد عنوان`);
-        if (!x.drive && !x.mega && !(x.servers || []).length) issues.push(`${where}: لا يوجد أي سيرفر مشاهدة`);
-        if (name === "episodes" && x.type && !A.TYPES[x.type]) issues.push(`${where}: النوع "${x.type}" غير معروف (المسموح: manga, filler, remaster, special)`);
-      } else if (!x.reader) issues.push(`${where}: لا يوجد رابط قارئ`);
-      Object.entries(x).forEach(([k, v]) => { if (typeof v === "string" && /^(poster|drive|mega|raw|sub|reader)$/.test(k) && v && !/^https?:\/\//.test(v)) issues.push(`${where}: الرابط في "${k}" يجب أن يبدأ بـ https://`); });
-    });
-    return issues;
-  }
-  $("#check-live").addEventListener("click", async () => {
-    const box = $("#check-out"); box.innerHTML = '<div class="spinner"></div>';
-    const rows = [];
-    for (const n of ["episodes", "movies", "manga", "site"]) {
-      try {
-        const r = await fetch(`data/${n}.json?nocache=${Date.now()}`, { cache: "no-store" }); const t = await r.text();
-        let data; try { data = JSON.parse(t); } catch (e) { rows.push(`<div class="error-box" style="margin:0"><b>data/${n}.json</b><pre>${esc(A.describeJSONError(t, e))}</pre></div>`); continue; }
-        const iss = n === "site" ? [] : lint(n, data);
-        rows.push(iss.length ? `<div class="note" style="background:color-mix(in srgb,var(--c-filler) 12%,transparent)"><span><b dir="ltr">data/${n}.json</b> — ${iss.length} ملاحظة:<br>${iss.map(esc).join("<br>")}</span></div>` : `<div class="note" style="background:color-mix(in srgb,var(--c-success) 12%,transparent)"><span>✓ <b dir="ltr">data/${n}.json</b> سليم${Array.isArray(data) ? ` (${data.length} عنصر)` : ""}</span></div>`);
-      } catch (e) { rows.push(`<div class="error-box" style="margin:0">تعذّر تحميل data/${n}.json</div>`); }
-    }
-    box.innerHTML = rows.join("");
-  });
-  $("#check-paste").addEventListener("click", () => {
-    const t = $("#paste").value, o = $("#paste-out");
-    if (!t.trim()) return;
-    try { const d = JSON.parse(t); const name = Array.isArray(d) && d[0] && d[0].reader ? "manga" : Array.isArray(d) && d[0] && /^m\d/i.test(d[0].id) ? "movies" : "episodes"; const iss = Array.isArray(d) ? lint(name, d) : [];
-      o.innerHTML = iss.length ? `<div class="note"><span>صيغة JSON سليمة ✓ لكن هناك ملاحظات:<br>${iss.map(esc).join("<br>")}</span></div>` : `<div class="note" style="background:color-mix(in srgb,var(--c-success) 12%,transparent)"><span>✓ الملف سليم تماماً${Array.isArray(d) ? ` (${d.length} عنصر)` : ""} — يمكنك حفظه.</span></div>`;
-    } catch (e) { o.innerHTML = `<div class="error-box" style="margin:0"><pre>${esc(A.describeJSONError(t, e))}</pre></div>`; }
-  });
-
-  const fromHash = () => setMode(["movie", "manga", "validate"].includes(location.hash.slice(1)) ? location.hash.slice(1) : "episode");
-  window.addEventListener("hashchange", fromHash);
-  fromHash();
-})();
-</script>
+<script src="assets/js/admin.js?v=3"></script>
 </body>
 </html>

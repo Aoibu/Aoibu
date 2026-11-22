@@ -36,7 +36,7 @@
   setMeta('meta[name="description"]', "content", desc);
   setMeta('meta[property="og:title"]', "content", fullTitle);
   setMeta('meta[property="og:description"]', "content", desc);
-  if (item.poster) setMeta('meta[property="og:image"]', "content", item.poster);
+  if (item.poster) setMeta('meta[property="og:image"]', "content", new URL(item.poster, location.href).href);
   const canon = $('link[rel="canonical"]'); if (canon) canon.href = `${site.siteUrl || ""}watch.html?id=${encodeURIComponent(item.id)}`;
   const ld = document.createElement("script"); ld.type = "application/ld+json";
   ld.textContent = JSON.stringify(isMovie
