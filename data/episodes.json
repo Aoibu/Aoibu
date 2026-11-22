@@ -1199,5 +1199,17 @@
     "drive": "https://drive.google.com/file/d/1Ie7v8g_6Vsy0tVOKQIdI2AQXFo3I2sxm/view?usp=drivesdk",
     "raw": "https://nyaa.si/view/2183349",
     "sub": "https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10283209"
+  },
+  {
+    "id": "1220",
+    "number": 1220,
+    "title": "غموض إجتماع الفتيات 5 - الجزء الأول",
+    "type": "filler",
+    "date": "2026-11-22",
+    "poster": "assets/posters/episode-1220-mwrptcde.webp",
+    "drive": "https://drive.google.com/file/d/1E4opXgBKRhh-IO0vUh7vCq9vivgdSY6s/view?usp=drivesdk",
+    "raw": "https://nyaa.si/view/2185972",
+    "sub": "https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10286182",
+    "credits": "default"
   }
 ]
