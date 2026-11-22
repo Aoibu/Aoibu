@@ -1135,5 +1135,17 @@
     "drive": "https://drive.google.com/file/d/1HIFZMEZLtDl8LMBcZC4iRnJrJhQDEwlI/view?usp=drivesdk",
     "raw": "https://nyaa.si/view/2163418",
     "sub": "https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10262085"
+  },
+  {
+    "id": "1214",
+    "number": 1214,
+    "title": "العرض الأخير القرمزي - اليوم الأول",
+    "type": "manga",
+    "date": "2026-09-27",
+    "poster": "assets/posters/episode-1214-mwrp5qa6.webp",
+    "drive": "https://drive.google.com/file/d/1uvEBN6rh5C0mDzVux2LLNpujLns8yp5n/view?usp=drivesdk",
+    "raw": "https://drive.google.com/file/d/1xFYHsYIR48B72PX1H2dz0Bf8P-39x0vm/view",
+    "sub": "https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10264352",
+    "note": "مقتبسة من الفصول (1129-1133)"
   }
 ]
