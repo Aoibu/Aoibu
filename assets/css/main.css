@@ -554,20 +554,6 @@ body.theater .player-shell { box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.82), var(
 .status.ok { display: block; background: color-mix(in srgb, var(--c-success) 14%, transparent); color: var(--c-success); }
 .status.err { display: block; background: color-mix(in srgb, var(--c-danger) 14%, transparent); color: var(--c-danger); }
 
-/* ---------- الأخبار ---------- */
-.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 20px; }
-.news-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: 0.3s var(--ease); scroll-margin-top: calc(var(--header-h) + 20px); }
-.news-card:hover { box-shadow: var(--glow); }
-.news-card.highlight { box-shadow: 0 0 0 2px var(--accent), var(--shadow-2); }
-.news-card .media { position: relative; aspect-ratio: 16 / 9; background: var(--surface-2); }
-.news-card .media img { width: 100%; height: 100%; object-fit: cover; }
-.news-card .media .badge { position: absolute; top: 12px; inset-inline-start: 12px; background: rgba(5, 10, 25, 0.7); color: #fff; backdrop-filter: blur(6px); }
-.news-card .body { padding: 16px; display: grid; gap: 8px; flex: 1; align-content: start; }
-.news-card time { font-size: 12px; color: var(--text-3); }
-.news-card h2 { font-size: 19px; }
-.news-card p { color: var(--text-2); font-size: 14px; white-space: pre-line; }
-.news-card .more { color: var(--brand); font-weight: 600; font-size: 14px; justify-self: start; }
-.news-card .actions { display: flex; gap: 8px; padding: 0 16px 16px; }
 
 /* ---------- الاستجابة لكل المقاسات ---------- */
 @media (max-width: 1180px) {

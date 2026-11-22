@@ -6,7 +6,7 @@
     "show": true,
     "image": "assets/img/banner-ramadan.webp",
     "link": "congrats.html",
-    "alt": "كونان وشينيتشي ينظران إلى السماء — اترك تهنئتك للفريق"
+    "alt": "كونان وشينيتشي ينظران إلى السماء — اكتب تعليقك للفريق"
   },
   "social": [
     {"name": "تيليجرام", "url": "https://t.me/Aoibu_Arabic", "icon": "telegram"},
@@ -31,8 +31,6 @@
   "endpoints": {
     "comments": "https://script.google.com/macros/s/AKfycbwzV7dMLHD51j_DOypZXcrhSBR2YVVruMjsAHfKxCL0CqSf7zRLiWC6ofLpu6KHfoA_/exec",
     "rating": "https://script.google.com/macros/s/AKfycbwzK1u56o3Vz2qiNIEio_NMZKThCkckFCUOG2fi0HZCXn2pDGjxmcy6mxXP3hsZ7HkjWA/exec",
-    "news": "https://script.google.com/macros/s/AKfycbz2_FZvjQFyDbn9Ya-bChIBalgybOVjkS3EhYU5PhURzOIauOldhT5XDIi4zoQq5KD4vQ/exec",
-    "gift": "https://script.google.com/macros/s/AKfycbzyqgIEMHPm11u6PRXaQiEm7RDbd5NR3eqB9C-XmPEswOiP7SMPtnnoK9Nbn2777bQq/exec",
     "congrats": "https://script.google.com/macros/s/AKfycbxAp7eXlPKztVu5p1MMWtXVclLdIb5FwqdDon0L5PjK9yK5Z8e17lYFbyjhtao9BWXX6g/exec"
   }
 }

@@ -54,7 +54,7 @@ const today = new Date().toISOString().slice(0, 10);
 const newest = items.map((x) => x.date).filter(Boolean).sort().pop() || today;
 
 // ---------- sitemap.xml ----------
-const pages = [["", newest, "1.0", "daily"], ["news.html", null, "0.8", "daily"], ["Vote.html", null, "0.4", "monthly"], ["congrats.html", null, "0.4", "weekly"], ["Gift.html", null, "0.4", "monthly"], ["download.html", null, "0.4", "monthly"], ["privacy-policy.html", null, "0.2", "yearly"]];
+const pages = [["", newest, "1.0", "daily"], ["Vote.html", null, "0.4", "monthly"], ["congrats.html", null, "0.5", "weekly"], ["download.html", null, "0.4", "monthly"], ["privacy-policy.html", null, "0.2", "yearly"]];
 const urls = [
   ...pages.map(([p, d, pr, cf]) => ({ loc: SITE + p, lastmod: d, priority: pr, changefreq: cf })),
   ...items.map((x) => ({ loc: SITE + x.url, lastmod: x.date, priority: x.kind === "manga" ? "0.6" : "0.8", changefreq: "monthly" })),

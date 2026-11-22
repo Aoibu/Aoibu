@@ -44,7 +44,7 @@
   else if ((m = f.match(/^M(\d{4})$/i))) to = "read.html?id=" + m[1];
   else if ((m = f.match(/^MSPI(\d+)$/i))) to = "read.html?id=SP" + m[1];
   else if ((m = f.match(/^M(\d{1,2})(Watch|Down|Main)?$/i))) to = "watch.html?id=M" + m[1];
-  else if (/^support$/i.test(f) || f === "gift") to = "Gift.html";
+  else if (/^(support|gift|news)$/i.test(f)) to = "./";
   else if (f === "vote") to = "Vote.html";
   else if (/^(home|index)$/i.test(f)) to = "./";
   if (to) location.replace(root + to + location.hash);

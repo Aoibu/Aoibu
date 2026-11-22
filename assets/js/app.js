@@ -48,8 +48,6 @@
     theater: '<rect x="2" y="6" width="20" height="12" rx="2"/>',
     server: '<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
     external: '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
-    news: '<path d="M4 4h13v16H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v10a2 2 0 0 1-2 2"/><path d="M8 8h5M8 12h5M8 16h3"/>',
-    gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/>',
     list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
     eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
     shuffle: '<path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>',
@@ -264,7 +262,6 @@
     { key: "episodes", href: "./?tab=episodes#library", label: "الحلقات", icon: "tv" },
     { key: "movies", href: "./?tab=movies#library", label: "الأفلام", icon: "film" },
     { key: "manga", href: "./?tab=manga#library", label: "المانجا", icon: "book" },
-    { key: "news", href: "news.html", label: "أخبار كونانية", icon: "news", dot: true },
   ];
   function renderChrome(site) {
     let page = document.body.dataset.page || "";
@@ -284,7 +281,6 @@
         </nav>
         <div class="header-actions">
           <button class="search-trigger" type="button" data-open-search aria-label="بحث">${icon("search")}<span>ابحث برقم الحلقة أو اسمها…</span><kbd>/</kbd></button>
-          <a class="icon-btn only-mobile" href="news.html" aria-label="الأخبار">${icon("news")}</a>
           <button class="icon-btn theme-toggle" type="button" aria-label="تبديل الوضع الليلي/النهاري">${icon("moon", "i-moon")}${icon("sun", "i-sun")}</button>
         </div></div>`;
       $(".theme-toggle", header).addEventListener("click", toggleTheme);
@@ -302,8 +298,8 @@
       const social = (site.social || []).map((s) => `<a class="icon-btn" href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${esc(s.name)}">${icon(s.icon || "external")}</a>`).join("");
       footer.innerHTML = `<div class="container">
         <div class="footer-about"><img class="logo-light-f" src="assets/img/wordmark-light.png" alt="Aoibu" width="76" height="34"><p>${esc(site.description || "فريق اويبو للترجمة — المحقق كونان مترجم للعربية.")}</p><div class="footer-social">${social}</div></div>
-        <div><h4>المكتبة</h4><ul><li><a href="./?tab=episodes#library">كل الحلقات</a></li><li><a href="./?tab=movies#library">الأفلام</a></li><li><a href="./?tab=manga#library">فصول المانجا</a></li><li><a href="news.html">أخبار كونانية</a></li></ul></div>
-        <div><h4>المجتمع</h4><ul><li><a href="Gift.html">إهداء للفريق 🎁</a></li><li><a href="congrats.html">سجل التهاني</a></li><li><a href="Vote.html">نتائج تصويت الأفلام</a></li><li><a href="download.html">تطبيق أندرويد</a></li></ul></div>
+        <div><h4>المكتبة</h4><ul><li><a href="./?tab=episodes#library">كل الحلقات</a></li><li><a href="./?tab=movies#library">الأفلام</a></li><li><a href="./?tab=manga#library">فصول المانجا</a></li></ul></div>
+        <div><h4>المجتمع</h4><ul><li><a href="congrats.html">تعليقاتكم للفريق 💬</a></li><li><a href="Vote.html">نتائج تصويت الأفلام</a></li><li><a href="download.html">تطبيق أندرويد</a></li></ul></div>
         <div><h4>تابعنا</h4><ul>${(site.social || []).map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></li>`).join("")}<li><a href="rss.xml">خلاصة RSS</a></li><li><a href="privacy-policy.html">سياسة الخصوصية</a></li></ul></div>
       </div>
       <div class="footer-bottom"><div class="container"><span>© ${new Date().getFullYear()} Aoibu Team — جميع الحقوق محفوظة</span><span>صُنع بحب لمحبي المحقق كونان 💙</span></div></div>`;

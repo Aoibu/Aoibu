@@ -112,7 +112,7 @@
 - `team`: أعضاء الفريق وروابط حساباتهم.
 - `defaultCredits`: الطاقم الافتراضي عند استخدام `"credits": "default"`.
 - `social`: روابط التواصل في الفوتر.
-- `endpoints`: روابط Google Apps Script (التعليقات، التقييم، الأخبار، الإهداءات، التهاني).
+- `endpoints`: روابط Google Apps Script (التعليقات، التقييم، تعليقاتكم للفريق).
 
 ---
 
@@ -137,7 +137,7 @@ watch.html            صفحة المشاهدة لكل الحلقات والأف
 read.html             قارئ المانجا                        ← read.html?id=1152
 admin.html            أداة الإضافة والفحص (للفريق)
 404.html              صفحة الخطأ + تحويل الروابط القديمة تلقائياً
-news.html, Gift.html, congrats.html, Vote.html, download.html, privacy-policy.html
+congrats.html (تعليقاتكم للفريق), Vote.html, download.html, privacy-policy.html
 data/                 ← هنا كل البيانات (هذا فقط ما تعدّله عادةً)
 assets/css/main.css   التصميم (الألوان في أول الملف)
 assets/js/            أكواد الموقع
