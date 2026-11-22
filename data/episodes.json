@@ -1216,5 +1216,23 @@
       {"role": "الشارة والروماجي", "name": "Ammar-Anime"},
       {"role": "الإنتاج", "name": "ABOODY-SUBS"}
     ]
+  },
+  {
+    "id": "1221",
+    "number": 1221,
+    "title": "غموض إجتماع الفتيات 5 - الجزء الثاني",
+    "type": "filler",
+    "date": "2026-11-22",
+    "poster": "assets/posters/episode-1221-mwrrpoj4.webp",
+    "drive": "https://drive.google.com/file/d/1qqX1n_0OIV0MF5WvOpzv-i_WbY4KhhWb/view?usp=drivesdk",
+    "mega": "https://mega.nz/file/PcV0mIKS#ZB2QBputsmQ5DV0xiDM4K_fNvRy_46JpNAm_rUMk0dQ",
+    "raw": "https://nyaa.si/view/2188550",
+    "sub": "https://subsource.net/subtitle/detective-conan-season-0-1996/arabic/10289654",
+    "credits": [
+      {"role": "ترجمة وتدقيق", "name": "ExcelVth"},
+      {"role": "محاكاة وتصميم البنر", "name": "SoloSubs"},
+      {"role": "الشارتين والروماجي", "name": "Ammar-Anime"},
+      {"role": "الإنتاج", "name": "ABOODY-SUBS"}
+    ]
   }
 ]
