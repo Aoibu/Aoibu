@@ -1,172 +1,70 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>سجل تهاني Aoibu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --primary-color: #00bcd4;
-      --secondary-color: #ff3d3d;
-      --bg-dark: #0a0b10;
-      --card-bg: #16181f;
-      --text-main: #ffffff;
-      --text-muted: #a0a0a0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    * { box-sizing: border-box; }
+<title>سجل التهاني | Aoibu</title>
+<meta name="description" content="اترك تهنئتك وكلمتك الجميلة لفريق اويبو للترجمة.">
+<link rel="canonical" href="https://aoibu.github.io/Aoibu/congrats.html">
+<meta name="theme-color" content="#060a17">
+<meta name="color-scheme" content="dark light">
+<meta name="google-site-verification" content="A7fGmgGCOqpAAgVsf23KhGdk7FDoZ7D59UheyipRpMI">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="alternate" type="application/rss+xml" title="Aoibu | مكتبة كونان" href="rss.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aoibu | مكتبة كونان">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="سجل التهاني | Aoibu">
+<meta property="og:description" content="اترك تهنئتك وكلمتك الجميلة لفريق اويبو للترجمة.">
+<meta property="og:image" content="https://aoibu.github.io/Aoibu/assets/img/og-cover.jpg">
+<meta property="og:url" content="https://aoibu.github.io/Aoibu/congrats.html">
+<meta name="twitter:card" content="summary_large_image">
+<script>try{var t=localStorage.getItem("aoibu:theme");document.documentElement.setAttribute("data-theme",t?JSON.parse(t):"dark")}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=3">
+<!-- Google Analytics + Tag Manager -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9KLX7081KN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-9KLX7081KN");
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-MGG2SS4T");</script>
 
-    body {
-      margin: 0;
-      background-color: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 15% 25%, rgba(0, 188, 212, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 85% 75%, rgba(255, 61, 61, 0.1) 0%, transparent 25%);
-      font-family: 'El Messiri', sans-serif;
-      color: var(--text-main);
-      min-height: 100vh;
-    }
-
-    header {
-      background: rgba(22, 24, 31, 0.85); backdrop-filter: blur(10px); padding: 15px 30px;
-      position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex; justify-content: center;
-    }
-    header h1 { color: var(--primary-color); font-size: 24px; margin: 0; }
-
-    .container { max-width: 700px; margin: 40px auto; padding: 20px; }
-
-    .congrats-form {
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 20px;
-      border: 1px solid var(--primary-color);
-      box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
-      margin-bottom: 50px;
-    }
-
-    .form-title { text-align: center; color: var(--primary-color); margin-bottom: 25px; }
-
-    input, textarea {
-      width: 100%; padding: 12px; margin-bottom: 20px;
-      background: #1f222d; border: 2px solid #333; border-radius: 10px;
-      color: white; font-family: inherit; outline: none; transition: 0.3s;
-    }
-    input:focus, textarea:focus { border-color: var(--primary-color); }
-
-    .submit-btn {
-      width: 100%; padding: 15px; border: none; border-radius: 10px;
-      background: var(--primary-color); color: #000; font-weight: bold;
-      cursor: pointer; font-family: inherit; transition: 0.3s;
-    }
-    .submit-btn:disabled { background: #444; cursor: not-allowed; }
-
-    /* تنسيق التعليقات */
-    .comment-card {
-      background: var(--card-bg);
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      border-right: 4px solid var(--secondary-color);
-      animation: fadeIn 0.5s ease forwards;
-    }
-    .comment-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
-    .user-name { color: var(--primary-color); font-weight: bold; }
-    .comment-date { font-size: 12px; color: var(--text-muted); }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    .loading { text-align: center; color: var(--primary-color); font-size: 18px; }
-  </style>
 </head>
-<body>
-
-<header>
-  <h1>Aoibu | سجل التهاني</h1>
-</header>
-
-<div class="container">
-    <div class="congrats-form">
-        <h2 class="form-title">🎉 أرسل تهنئتك للفريق</h2>
-        <form id="congratsForm">
-            <input type="text" id="userName" placeholder="اسمك الكريم" required>
-            <textarea id="userMsg" rows="4" placeholder="اكتب كلمتك الجميلة هنا..." required></textarea>
-            <button type="submit" id="submitBtn" class="submit-btn">إرسال التهنئة ✨</button>
-        </form>
-    </div>
-
-    <div id="commentsSection">
-        <h3 style="border-right: 4px solid var(--primary-color); padding-right: 15px; margin-bottom: 25px;">ماذا قال الأصدقاء:</h3>
-        <div id="loading" class="loading">جاري جلب التهاني...</div>
-        <div id="commentsList"></div>
-    </div>
+<body data-page="congrats">
+<a class="sr-only" href="#main">تخطَّ إلى المحتوى</a>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<div class="container" style="max-width:820px">
+  <div class="page-head" style="text-align:center"><h1>🎉 سجل التهاني</h1><p style="margin-inline:auto">شاركنا فرحتك واترك كلمة جميلة للفريق — كل رسالة تصلنا وتُسعدنا.</p></div>
+  <a class="promo" href="./" style="margin:18px 0"><img src="assets/img/banner-eid.webp" alt="تهنئة من فريق اويبو للترجمة بمناسبة العيد" width="2728" height="832" style="aspect-ratio:2728/832"></a>
+  <section class="panel"><h2 class="panel-title">أرسل تهنئتك للفريق</h2>
+    <form id="congratsForm" class="form-grid"><input class="input" id="userName" placeholder="اسمك الكريم" required maxlength="50"><textarea class="textarea" id="userMsg" placeholder="اكتب كلمتك الجميلة هنا…" required maxlength="800"></textarea><button type="submit" id="submitBtn" class="btn btn-primary">إرسال التهنئة ✨</button></form>
+  </section>
+  <section class="panel"><h2 class="panel-title">ماذا قال الأصدقاء</h2><div class="comment-list" id="commentsList"><div class="spinner" style="margin:20px auto"></div></div></section>
 </div>
-
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/app.js?v=3"></script>
 <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAp7eXlPKztVu5p1MMWtXVclLdIb5FwqdDon0L5PjK9yK5Z8e17lYFbyjhtao9BWXX6g/exec";
-
-    // دالة لجلب البيانات وعرضها
-    async function fetchComments() {
-        try {
-            const response = await fetch(SCRIPT_URL);
-            const data = await response.json();
-            const list = document.getElementById('commentsList');
-            document.getElementById('loading').style.display = 'none';
-            
-            if (data.length === 0) {
-                list.innerHTML = '<p style="text-align:center;">لا توجد تهاني بعد، كن الأول!</p>';
-                return;
-            }
-
-            list.innerHTML = data.map(row => `
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <span class="user-name">👤 ${row[0]}</span>
-                        <span class="comment-date">📅 ${new Date(row[2]).toLocaleDateString('ar-EG')}</span>
-                    </div>
-                    <div class="comment-text">${row[1]}</div>
-                </div>
-            `).join('');
-        } catch (error) {
-            document.getElementById('loading').innerText = "حدث خطأ أثناء تحميل البيانات.";
-        }
-    }
-
-    // دالة إرسال البيانات
-    document.getElementById('congratsForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById('submitBtn');
-        btn.disabled = true;
-        btn.innerText = "جاري الإرسال...";
-
-        const payload = {
-            name: document.getElementById('userName').value,
-            message: document.getElementById('userMsg').value
-        };
-
-        try {
-            await fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors', // ضروري لتجنب مشاكل CORS مع Apps Script
-                body: JSON.stringify(payload)
-            });
-            
-            alert("تم إرسال تهنئتك بنجاح! ستظهر خلال ثوانٍ.");
-            document.getElementById('congratsForm').reset();
-            setTimeout(fetchComments, 2000); // تحديث القائمة بعد ثانيتين
-        } catch (error) {
-            alert("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
-        } finally {
-            btn.disabled = false;
-            btn.innerText = "إرسال التهنئة ✨";
-        }
-    });
-
-    // جلب التعليقات عند تحميل الصفحة
-    window.onload = fetchComments;
+(async function(){
+  const A = window.Aoibu, {$, esc} = A, site = await A.siteReady, URL_ = site.endpoints.congrats;
+  const list = $("#commentsList");
+  async function load(){
+    try { const r = await fetch(URL_); const data = await r.json();
+      list.innerHTML = data.length ? data.slice().reverse().map((row) => `<div class="comment"><span class="avatar">${esc(String(row[0]||"؟").trim().charAt(0))}</span><div class="comment-box"><div class="comment-head"><b>${esc(row[0])}</b><time>${row[2] ? new Date(row[2]).toLocaleDateString("ar",{year:"numeric",month:"short",day:"numeric"}) : ""}</time></div><div class="comment-body">${esc(row[1])}</div></div></div>`).join("") : '<p style="text-align:center;color:var(--text-3)">لا توجد تهاني بعد، كن الأول! ✨</p>';
+    } catch(e){ list.innerHTML = '<p style="text-align:center;color:var(--text-3)">حدث خطأ أثناء تحميل التهاني.</p>'; }
+  }
+  $("#congratsForm").addEventListener("submit", async (e) => {
+    e.preventDefault(); const btn = $("#submitBtn"); btn.disabled = true; btn.textContent = "جاري الإرسال…";
+    try { await fetch(URL_, { method: "POST", mode: "no-cors", body: JSON.stringify({ name: $("#userName").value, message: $("#userMsg").value }) }); A.toast("تم إرسال تهنئتك! ستظهر خلال ثوانٍ 🎉"); e.target.reset(); setTimeout(load, 2000); }
+    catch(err){ A.toast("حدث خطأ، حاول مرة أخرى"); }
+    finally { btn.disabled = false; btn.textContent = "إرسال التهنئة ✨"; }
+  });
+  load();
+})();
 </script>
-
 </body>
 </html>

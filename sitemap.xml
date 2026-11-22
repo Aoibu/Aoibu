@@ -1,302 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://aoibu.github.io/Aoibu/</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/congrats.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/132.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/133.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/134.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/153.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/154.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/156.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/157.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/170.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/171.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/172.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/173.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/194.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/195.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/304.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1160.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1161.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1163.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1164.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1165.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1166.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1167.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1168.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1169.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1170.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1171.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1172.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1173.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1174.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1175.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1176.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1177.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1178.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1179.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1180.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1181.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1182.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1183.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1184.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1185.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1186.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/1187.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M27.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M28.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/MSPI1.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1144.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1145.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1146.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1147.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1148.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1149.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1150.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1151.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/M1152.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/privacy-policy.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://aoibu.github.io/Aoibu/index.html</loc>
-  <lastmod>2026-01-06T17:46:55+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+<!-- يُولَّد تلقائياً من data/*.json — لا تعدّله يدوياً -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://aoibu.github.io/Aoibu/</loc><lastmod>2026-06-21</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/news.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/Vote.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/congrats.html</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/Gift.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/download.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/privacy-policy.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=132</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=133</loc><lastmod>2025-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=134</loc><lastmod>2025-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=153</loc><lastmod>2025-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=154</loc><lastmod>2025-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=156</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=157</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=170</loc><lastmod>2025-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=171</loc><lastmod>2025-08-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=172</loc><lastmod>2025-09-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=173</loc><lastmod>2025-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=194</loc><lastmod>2025-10-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=195</loc><lastmod>2025-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=199</loc><lastmod>2026-02-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=200</loc><lastmod>2026-02-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=201</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=202</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=304</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1160</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1161</loc><lastmod>2025-08-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1163</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1164</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1165</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1166</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1167</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1168</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1169</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1170</loc><lastmod>2025-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1171</loc><lastmod>2025-08-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1172</loc><lastmod>2025-08-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1173</loc><lastmod>2025-08-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1174</loc><lastmod>2025-09-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1175</loc><lastmod>2025-09-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1176</loc><lastmod>2025-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1177</loc><lastmod>2025-09-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1178</loc><lastmod>2025-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1179</loc><lastmod>2025-10-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1180</loc><lastmod>2025-11-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1181</loc><lastmod>2025-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1182</loc><lastmod>2025-11-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1183</loc><lastmod>2025-12-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1184</loc><lastmod>2025-12-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1185</loc><lastmod>2025-12-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1186</loc><lastmod>2025-12-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1187</loc><lastmod>2026-01-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1188</loc><lastmod>2026-01-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1189</loc><lastmod>2026-01-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1190</loc><lastmod>2026-01-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1191</loc><lastmod>2026-01-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1192</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1193</loc><lastmod>2026-03-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1194</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1195</loc><lastmod>2026-03-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1196</loc><lastmod>2026-04-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1197</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1198</loc><lastmod>2026-04-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1199</loc><lastmod>2026-04-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1200</loc><lastmod>2026-02-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1201</loc><lastmod>2026-05-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1202</loc><lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1202.5</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1203</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=1204</loc><lastmod>2026-06-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=M1</loc><lastmod>2025-09-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=M27</loc><lastmod>2025-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/watch.html?id=M28</loc><lastmod>2025-12-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=SP1</loc><lastmod>2025-08-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1144</loc><lastmod>2025-07-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1145</loc><lastmod>2025-07-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1146</loc><lastmod>2025-07-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1147</loc><lastmod>2025-07-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1148</loc><lastmod>2025-07-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1149</loc><lastmod>2025-07-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1150</loc><lastmod>2025-08-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1151</loc><lastmod>2025-10-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aoibu.github.io/Aoibu/read.html?id=1152</loc><lastmod>2025-10-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

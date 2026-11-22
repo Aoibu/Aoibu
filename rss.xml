@@ -1,54 +1,251 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Aoibu | مكتبة كونان</title>
   <link>https://aoibu.github.io/Aoibu/</link>
-  <description>آخر الحلقات، الأفلام، وفصول المانجا المضافة في مكتبة كونان لفريق Aoibu.</description>
+  <description>مكتبة فريق اويبو للترجمة: شاهد حلقات وأفلام المحقق كونان مترجمة للعربية بجودة عالية، واقرأ فصول المانجا.</description>
   <language>ar</language>
-  <copyright>2025 Aoibu Team</copyright>
   <atom:link href="https://aoibu.github.io/Aoibu/rss.xml" rel="self" type="application/rss+xml" />
-
+  <lastBuildDate>Sun, 21 Jun 2026 12:00:00 GMT</lastBuildDate>
   <item>
-    <title>1190 - الحبيب الذي اختفى عند جسر كويتاني (فصل توتوري)</title>
-    <link>https://aoibu.github.io/Aoibu/1190.html</link>
-    <guid>https://aoibu.github.io/Aoibu/1190.html</guid>
-    <description>مشاهدة الحلقة 1190 - فلر - الحبيب الذي اختفى عند جسر كويتاني</description>
+    <title>الحلقة 1204 — من اختطف كونان وأزوسا؟ (الجزء الأول)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1204</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1204</guid>
+    <pubDate>Sun, 21 Jun 2026 12:00:00 GMT</pubDate>
+    <description>كنتُ في مقهى بوارو مع ران وسونوكو وسيرا، وكنا نتحدث عن خبر القبض على قاتل متسلسل عندما قالت أزوسا: &quot;أشعر أنني رأيت وجه القاتل من قبل... أو ربما لا...&quot; بعد ذلك، خرجتُ أنا وأزوسا لشراء بعض التوابل، لكننا لاحظنا بعض الأشخاص المشبوهين يتبعوننا، فطلبنا من أمورو، الذي كان في مقهى بوارو، أن يأتي ويأخذنا! ل</description>
+    <enclosure url="https://i.ibb.co/chD42L66/3693.webp" type="image/jpeg" length="0" />
   </item>
-
   <item>
-    <title>1189 - حجة الغياب المزدوجة</title>
-    <link>https://aoibu.github.io/Aoibu/1189.html</link>
-    <guid>https://aoibu.github.io/Aoibu/1189.html</guid>
-    <description>مشاهدة الحلقة 1189 - فلر - حجة الغياب المزدوجة</description>
+    <title>الحلقة 1202.5 — الإجابة المثالية!</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1202.5</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1202.5</guid>
+    <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
+    <description>الحلقة 1202.5 (فلر) من المحقق كونان مترجمة للعربية — فريق اويبو.</description>
+    <enclosure url="https://i.ibb.co/n85Jd8Rh/3569.jpg" type="image/jpeg" length="0" />
   </item>
-
   <item>
-    <title>1188 - الحقهم! يا تاكسي المحقق 3</title>
-    <link>https://aoibu.github.io/Aoibu/1188.html</link>
-    <guid>https://aoibu.github.io/Aoibu/1188.html</guid>
-    <description>مشاهدة الحلقة 1188 - فلر - الحقهم! يا تاكسي المحقق 3</description>
+    <title>الحلقة 1203 — قصة كونان وسونوكو وليلة الأشباح !</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1203</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1203</guid>
+    <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
+    <description>الحلقة 1203 (فلر) من المحقق كونان مترجمة للعربية — فريق اويبو.</description>
+    <enclosure url="https://i.ibb.co/jP4v1rV0/3570.jpg" type="image/jpeg" length="0" />
   </item>
-
   <item>
-    <title>1187 - الحلقة صفر: قضية شينيتشي كودو في حوض الأسماك</title>
-    <link>https://aoibu.github.io/Aoibu/1187.html</link>
-    <guid>https://aoibu.github.io/Aoibu/1187.html</guid>
-    <description>حلقة خاصة لمدة ساعة - مانجا - الحلقة صفر</description>
+    <title>الحلقة 1202 — القوس الغربي لا يكذب</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1202</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1202</guid>
+    <pubDate>Sun, 31 May 2026 12:00:00 GMT</pubDate>
+    <description>ذهبتُ أنا وعمي كوغورو إلى مسرح جريمة قتل، حيث قُتل رئيس مجلس إدارة شركة أغذية بسهم رماية. كانت سكرتيرته أول من عثر على الجثة، ويبدو أن وجه الضحية كان مبتسمًا لسببٍ ما! كان المشتبه بهما ابني الرئيس، اللذان هرعا إلى مكان الحادث. ولإثبات براءتهما، قررا إطلاق سهام من المكان الذي يُفترض أن السهام أُطلقت </description>
+    <enclosure url="https://i.ibb.co/YB769SPN/29244.webp" type="image/jpeg" length="0" />
   </item>
-
   <item>
-    <title>Movie 28 - فلاش باك ذو العين الواحدة</title>
-    <link>https://aoibu.github.io/Aoibu/M28.html</link>
-    <guid>https://aoibu.github.io/Aoibu/M28.html</guid>
-    <description>حصرياً: الفيلم 28 من المحقق كونان - فلاش باك ذو العين الواحدة</description>
+    <title>الحلقة 1201 — أنا الجاني</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1201</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1201</guid>
+    <pubDate>Sun, 10 May 2026 12:00:00 GMT</pubDate>
+    <description>عُثر على رئيس شركة استثمارية ميتًا في منزله الفخم! بدأ المحقق تاكاغي وفريقه تحقيقاتهم في مسرح الجريمة المغلق، حيث اعترف ثلاثة من أقارب الضحية تباعًا، مدعيًا كل منهم أنه الجاني الوحيد! من منهم يكذب؟</description>
+    <enclosure url="https://i.ibb.co/G4d2fzDS/24096.webp" type="image/jpeg" length="0" />
   </item>
-
   <item>
-    <title>مانجا الفصل 1152</title>
-    <link>https://aoibu.github.io/Aoibu/M1152.html</link>
-    <guid>https://aoibu.github.io/Aoibu/M1152.html</guid>
-    <description>قراءة الفصل 1152 من مانجا المحقق كونان</description>
+    <title>الحلقة 1199 — المحققين الصغار ضد المحققين الكبار 2</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1199</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1199</guid>
+    <pubDate>Sun, 26 Apr 2026 12:00:00 GMT</pubDate>
+    <description>أنا، هايبارا، أيومي، ميتسوهيكو، وجينتا، التقينا صدفةً برابطة المحققين الكبار، الذين يعتبرون رابطة المحققين الصغار منافسيهم، في منطقة سكنية! لقد فقدوا أحد أعضائهم في القضية الأخيرة، لكن يبدو أنهم ما زالوا متماسكين. ثم، ورد طلب للمساعدة في العثور على زوج اختفى فجأة! انطلقت رابطة المحققين الصغار ورابطة</description>
+    <enclosure url="https://i.ibb.co/HLKj9Q8Z/16999.webp" type="image/jpeg" length="0" />
   </item>
-
+  <item>
+    <title>الحلقة 1198 — حذاء سندريلا</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1198</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1198</guid>
+    <pubDate>Sun, 19 Apr 2026 12:00:00 GMT</pubDate>
+    <description>وصل طلب من وريث عائلة ثرية، فذهبتُ أنا وعمي كوغورو وران إلى قصرهم. قال إنه وقع في حب امرأة من النظرة الأولى، ظهرت في حفلة أمس، لكنها اختفت في منتصفها، ولم تترك سوى فردة حذاء واحدة! يريد من عمي كوغورو أن يعثر عليها. فسألته عن ملابسات اختفائها...؟!</description>
+    <enclosure url="https://i.ibb.co/pcRrCB1/15625.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1197 — قائد التنكر الإعصاري</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1197</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1197</guid>
+    <pubDate>Sun, 12 Apr 2026 12:00:00 GMT</pubDate>
+    <description>سمعتُ أن ميتسويهيكو، غينتا، وأيومي-تشان قد وصلهم خبر عن وجود حديقة يأتي إليها ’المقنع يايبا‘ كل صباح! وحين ذهبتُ أنا وهايبرا لاستطلاع الأمر في تلك الحديقة، وجدنا ’المقنع يايبا‘ هناك بالفعل...؟!</description>
+    <enclosure url="https://i.ibb.co/hxy9SMLz/14207.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1196 — لغز القصر: قصر المتاهة (الجزء الثاني)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1196</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1196</guid>
+    <pubDate>Sat, 04 Apr 2026 12:00:00 GMT</pubDate>
+    <description>ذهبتُ برفقة ران-ني تشان والعم كوغورو إلى متحف يعرض فقط الأعمال الفنية التي تتمحور حول ’الأنماط الحلزونية‘، وهناك واجهنا جريمة قتل داخل المتحف! ​وعلى الرغم من أننا هرعنا إلى مسرح الجريمة فور سماع صوت طلقة الرصاص، إلا أن الجاني كان قد اختفى تماماً دون أن يلمحه أحد. ​أثناء فحص المتحف، بدا لي أن المبنى </description>
+    <enclosure url="https://i.ibb.co/FkdJJWn4/13412.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1195 — لغز القصر: قصر المتاهة (الجزء الأول)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1195</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1195</guid>
+    <pubDate>Sun, 29 Mar 2026 12:00:00 GMT</pubDate>
+    <description>لقد ذهبتُ برفقة (ران) والعم (كوجورو) إلى متحف الفنون الذي عرضته (يوكو أوكينو) في التلفاز! المتحف يعرض أعمالاً للفن الحديث موضوعها الأساسي هو 'الأشكال اللولبية'، وحتى مبنى المتحف نفسه يُعتبر من تصميم الفنان صاحب الأعمال! بينما كنا نتجول في أرجاء المتحف برفقة المنسقة، سمعنا فجأة صوت إطلاق نار!؟</description>
+    <enclosure url="https://i.ibb.co/tPZbg2xZ/12522.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1194 — كيد ضد هاكوبا العرش الازرق (الجزء الثاني)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1194</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1194</guid>
+    <pubDate>Sun, 22 Mar 2026 12:00:00 GMT</pubDate>
+    <description>لاحظتُ شيئًا مريبًا بشأن الإجراءات الأمنية التي اتخذها كايتو كيد، الذي كان يسعى وراء &quot;العرش الأزرق&quot; المعروض في قاعة العرض السماوية ببرج شجرة الجرس، فهرعتُ إلى قاعة العرض! عندما وصلتُ، وجدتُ الرئيس الراحل يوشيدا، الذي بنى قاعة العرض، وكايتو كيد، وكان مدخل قاعة العرض مغلقًا! لحلّ القضية، طلبنا من كيد </description>
+    <enclosure url="https://i.ibb.co/yc6x2xcj/11887.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 201 — الراكب العاشر - الجزء الاول</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=201</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=201</guid>
+    <pubDate>Fri, 20 Mar 2026 12:00:00 GMT</pubDate>
+    <description>الحلقة 201 (مُعاد إنتاجها) من المحقق كونان مترجمة للعربية — فريق اويبو.</description>
+    <enclosure url="https://i.ibb.co/qYvW3kp4/11646.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 202 — الراكب العاشر - الجزء الثاني</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=202</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=202</guid>
+    <pubDate>Fri, 20 Mar 2026 12:00:00 GMT</pubDate>
+    <description>الحلقة 202 (مُعاد إنتاجها) من المحقق كونان مترجمة للعربية — فريق اويبو.</description>
+    <enclosure url="https://i.ibb.co/Cs8BdVPY/11647.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1193 — كيد ضد هاكوبا - العرش الأزرق (الجزء الأول)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1193</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1193</guid>
+    <pubDate>Sat, 14 Mar 2026 12:00:00 GMT</pubDate>
+    <description>الحلقة 1193 (مانجا) من المحقق كونان مترجمة للعربية — فريق اويبو.</description>
+    <enclosure url="https://i.ibb.co/p6t3JpCR/11283.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1192 — مذكرات تحقيق تسوبوريا ميتسوهيكو 4</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1192</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1192</guid>
+    <pubDate>Mon, 09 Mar 2026 12:00:00 GMT</pubDate>
+    <description>الحلقة 1192 (فلر) من المحقق كونان مترجمة للعربية — فريق اويبو.</description>
+    <enclosure url="https://i.ibb.co/TDhsqkh3/11032.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 199 — المشتبه به، كوغورو موري ( الجزء الاول )</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=199</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=199</guid>
+    <pubDate>Fri, 06 Feb 2026 12:00:00 GMT</pubDate>
+    <description>الحلقة 199 (مُعاد إنتاجها) من المحقق كونان مترجمة للعربية — فريق اويبو.</description>
+    <enclosure url="https://i.ibb.co/gF9pTYxg/7385.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 200 — المشتبه به، كوغورو موري (الجزء الثاني)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=200</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=200</guid>
+    <pubDate>Fri, 06 Feb 2026 12:00:00 GMT</pubDate>
+    <description>الحلقة 200 (مُعاد إنتاجها) من المحقق كونان مترجمة للعربية — فريق اويبو.</description>
+    <enclosure url="https://i.ibb.co/C3jxFqV9/7386.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1200 — ازدياد سرقات الطرود من أمام المنزل</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1200</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1200</guid>
+    <pubDate>Mon, 02 Feb 2026 12:00:00 GMT</pubDate>
+    <description>تلقينا طلبًا من أحد سكان مبنى سكني شهد عددًا كبيرًا من سرقات الطرود، فقررنا أنا والعم كوغورو وران مراقبة المنطقة معًا. ولكن في لحظة، سُرق الطرد! طاردنا الجاني بجنون، وعندما دخلنا الغرفة التي لجأ إليها، وجدنا رجلاً فاقدًا للوعي بداخلها...؟!</description>
+    <enclosure url="https://i.ibb.co/7xHxmcDw/18719.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1191 — الحبيب الذي اختفى عند جسر كويتاني (فصل ميساسا)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1191</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1191</guid>
+    <pubDate>Tue, 27 Jan 2026 12:00:00 GMT</pubDate>
+    <description>كونان، ران، وكوغورو يزورون ينابيع ميساسا الحارّة في محافظة توتّوري ضمن جولةٍ سياحية بالقطار 🚅 وفي مكان الإقامة، يلتقون ساشيو، وريثة نُزلٍ تقليدي تعاني بسبب معارضة زواجها، لكن في صباح اليوم التالي… تختفي فجأة في حادثة غامضة.</description>
+    <enclosure url="https://i.ibb.co/XrTBDdpK/1769871847093-edit-200610717148003.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1190 — الحبيب الذي اختفى عند جسر كويتاني (فصل جولة توتوري)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1190</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1190</guid>
+    <pubDate>Sat, 24 Jan 2026 12:00:00 GMT</pubDate>
+    <description>كونان، ران، وكوغورو يزورون ينابيع ميساسا الحارّة في محافظة توتّوري ضمن جولةٍ سياحية بالقطار 🚅 وفي مكان الإقامة، يلتقون ساشيو، وريثة نُزلٍ تقليدي تعاني بسبب معارضة زواجها، لكن في صباح اليوم التالي… تختفي فجأة في حادثة غامضة.</description>
+    <enclosure url="https://l.top4top.io/p_3675jq2sv0.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1189 — حجة الغياب المزدوجة</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1189</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1189</guid>
+    <pubDate>Sun, 18 Jan 2026 12:00:00 GMT</pubDate>
+    <description>عميل كوغورو الذي تلقى تهديدات... يُعثر على معلمه جثة هامدة! ⌚💥 ​تحوم الشكوك حول العميل الذي كان قد تشاجر مع الضحية قبل عدة أيام، ولكن نظراً للمسافة الفاصلة عن مسرح الجريمة ووجود حجة غياب (أليباي)، بدا أن ارتكابه للجريمة أمر مستحيل...</description>
+    <enclosure url="https://b.top4top.io/p_36697b8fz0.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1188 — إلحقهم! يا تاكسي المحقق 3</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1188</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1188</guid>
+    <pubDate>Sun, 11 Jan 2026 12:00:00 GMT</pubDate>
+    <description>يصل كونان وكوغورو لزيارة مدينة &quot;فوراي&quot; في سيارة أجرة يقودها إيشيكاوا جينكي، السائق الذي يُعد من أشد المهووسين بكوغورو 🚕. ولكن، في العاصمة التي غادرها كوغورو لتوّه، تندلع سلسلة من عمليات السطو الغريبة على المجوهرات... 💥 استخدم استنتاجاتك لكشف العقل المدبر وراء القضية، وانطلق للمطاردة!.</description>
+    <enclosure url="https://d.top4top.io/p_36628bjq00.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1187 — الحلقة &quot;صفر&quot;: قضية كودو شينيتشي في حوض الأسماك</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1187</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1187</guid>
+    <pubDate>Tue, 06 Jan 2026 12:00:00 GMT</pubDate>
+    <description>يُقال إن شينيتشي-نيتشان، وهو متحري في الثانوية، كان لديه موعد مع ران في حوض أسماك بيكا! يبدو أن الأمر كان بمثابة معاينة وتخطيط لخطة تهدف لمصالحة العم كوجورو والسيدة إيري.</description>
+    <enclosure url="https://h.top4top.io/p_3658zbtbg0.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1186 — غموض إجتماع الفتيات 4</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1186</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1186</guid>
+    <pubDate>Sun, 28 Dec 2025 12:00:00 GMT</pubDate>
+    <description>بينما كنتُ أنا والدكتور أغاسا نلهو بصيد السمك في البحر، ذهبت الأخت ران، والأخت سونوكو، وهايبرا، وأيومي، والمحققة ساتو — وهنَّ «فتيات التحري الخمس» — إلى مطعم أحد الفنادق لتناول الحلويات بلا حدود! لكن فجأة، سقطت امرأتان كانتا تجلسان على الطاولة المجاورة، فتوفيت إحداهما، بينما نُقلت الأخرى إلى المستشف</description>
+    <enclosure url="https://j.top4top.io/p_3648khzk70.jpeg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الفيلم 28 — فلاش باك ذو العين الواحدة</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=M28</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=M28</guid>
+    <pubDate>Thu, 18 Dec 2025 12:00:00 GMT</pubDate>
+    <description>في محافظة ناغانو، وتحديداً سلسلة جبال ياتسوغاتاكي، يواجه الضابط ياماتو كانسوكي حادثاً غامضاً أثناء مطاردة مجرم. إصابة في العين اليسرى وانهيار جليدي ضخم يغيران مجرى الأحداث. بعد 10 أشهر، وبالتزامن مع تحركات مريبة في المرصد الفلكي، تبدأ عين كانسوكي بالألم مجدداً. يتدخل كوغورو موري ومعه المحقق كونان لك</description>
+    <enclosure url="https://c.top4top.io/p_36383dr260.jpeg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1185 — مستودع الطوب الأحمر – المجرم الذي اختفى (الجزء الثاني)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1185</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1185</guid>
+    <pubDate>Sun, 14 Dec 2025 12:00:00 GMT</pubDate>
+    <description>عندما كنا عائدين من المدرسة وذهبنا لنرى القطة الشاردة، وجدنا ورقة في فمها تحمل نداء استغاثة من فتاة! وفي ذلك الوقت، كان المحقق تاكاغي والمحققة ساتو يطاردان خاطفاً هرب على دراجة نارية، لكنهما دخلا محافظة كاناغاوا وضَيّعا أثره! وهناك ظهرت الضابطة تشيهايا من شرطة كاناغاوا، والتي صادف أنها شاهدت المجرم…</description>
+    <enclosure url="https://b.top4top.io/p_3634zobm00.jpeg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1184 — مستودع الطوب الأحمر – الخاطف الذي اختفى (الجزء الأول)</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1184</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1184</guid>
+    <pubDate>Sun, 07 Dec 2025 12:00:00 GMT</pubDate>
+    <description>عندما كنا عائدين من المدرسة وذهبنا لنرى القطة الشاردة، وجدنا ورقة في فمها تحمل نداء استغاثة من فتاة! وفي ذلك الوقت، كان المحقق تاكاغي والمحققة ساتو يطاردان خاطفاً هرب على دراجة نارية، لكنهما دخلا محافظة كاناغاوا وضَيّعا أثره! وهناك ظهرت الضابطة تشيهايا من شرطة كاناغاوا، والتي صادف أنها شاهدت المجرم…</description>
+    <enclosure url="https://j.top4top.io/p_362761pmx0.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1183 — غرفة الإستجواب 3</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1183</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1183</guid>
+    <pubDate>Fri, 05 Dec 2025 12:00:00 GMT</pubDate>
+    <description>ذا أنّ مخرج الفيلم، وهو زبون عمّ كوغورو، قد قُتل، ذهبتُ معه أيضاً لحضور استجواب المشتبه به. يبدو أنّ المخرج طُعن بسكين أثناء وجوده وحده في غرفة الاجتماعات يراجع الاختيارات، ويقول مساعد المخرج إنه رأى شخصاً يخرج مسرعاً من تلك الغرفة. وعندما سألوا ذلك الشخص اعترف بالتهمة، لكنه في غرفة التحقيق قال فجأة</description>
+    <enclosure url="https://f.top4top.io/p_3626x7vxm0.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1182 — اقبض على ذلك الوجه</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1182</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1182</guid>
+    <pubDate>Sat, 15 Nov 2025 12:00:00 GMT</pubDate>
+    <description>يبدو أنّ الرجل الذي صادفته آيومي-تشان أثناء نزهتها كان نفس الشخص الموجود في صورة المطلوبين لدى مركز الشرطة! لذلك ذهبنا نحنُ، فريق المتحرّين الصغار، إلى الشقّة التي دخلها ذلك الرجل. وعلى لوحة باب الغرفة كان مكتوبًا اسم يبدو مزيّفًا جدًا: “يامادا تارو”… لكن أثناء مراقبتنا للمكان، قال غينتا لأحد المارّ</description>
+    <enclosure url="https://d.top4top.io/p_3606qh6rf0.jpeg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>الحلقة 1181 — بوتشي يرد الجميل</title>
+    <link>https://aoibu.github.io/Aoibu/watch.html?id=1181</link>
+    <guid isPermaLink="true">https://aoibu.github.io/Aoibu/watch.html?id=1181</guid>
+    <pubDate>Sun, 09 Nov 2025 12:00:00 GMT</pubDate>
+    <description>تلقّى المحقّق تاكاغي مكالمة في مكتب التحريات موري من شخصٍ يُدعى “بوتشي”، قال فيها إنه يريد “تقديم معلومات ردًّا للجميل”! فذهبنا أنا وعمي كوغورو إلى الحديقة التي تمّ تحديدها كمكان للقاء، لكننا وجدنا جثة رجلٍ مطعونٍ بسكّين! يبدو أن هذا الرجل هو الشخص الذي يُدعى “بوتشي”، وكان يحمل في جيبه مذكرةً تتضمن </description>
+    <enclosure url="https://g.top4top.io/p_35995w32n2.png" type="image/jpeg" length="0" />
+  </item>
 </channel>
 </rss>

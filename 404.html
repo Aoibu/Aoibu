@@ -1,144 +1,69 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>غير متوفر | Aoibu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary-color: #00bcd4;
-      --bg-dark: #0a0b10;
-      --card-bg: rgba(22, 24, 31, 0.75);
-      --text-main: #ffffff;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: 'El Messiri', sans-serif;
-      background-color: var(--bg-dark);
-      background-image:
-        radial-gradient(circle at 10% 20%, rgba(0, 188, 212, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(255, 61, 61, 0.15) 0%, transparent 40%);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    /* مؤثر الضباب */
-    .fog {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 40vh;
-      background: linear-gradient(to top, rgba(0, 188, 212, 0.15), transparent);
-      filter: blur(25px);
-      z-index: -1;
-      animation: fogMove 18s infinite alternate ease-in-out;
-    }
-
-    @keyframes fogMove {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    /* البطاقة الزجاجية */
-    .glass-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 22px;
-      padding: 40px 30px;
-      max-width: 420px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-      animation: fadeUp 1s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .icon {
-      font-size: 64px;
-      margin-bottom: 15px;
-      text-shadow: 0 0 25px var(--primary-color);
-    }
-
-    h1 {
-      margin: 10px 0;
-      font-size: 26px;
-      background: linear-gradient(90deg, #fff, var(--primary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p {
-      color: #bbb;
-      line-height: 1.9;
-      margin-bottom: 25px;
-      font-size: 15px;
-    }
-
-    .neon-btn {
-      display: inline-block;
-      padding: 12px 34px;
-      border-radius: 50px;
-      border: 1px solid var(--primary-color);
-      background: rgba(0, 188, 212, 0.1);
-      color: var(--primary-color);
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-      box-shadow: 0 0 0 transparent;
-    }
-
-    .neon-btn:hover {
-      background: var(--primary-color);
-      color: #000;
-      box-shadow: 0 0 25px var(--primary-color);
-    }
-
-    footer {
-      position: fixed;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-      font-size: 13px;
-      color: #666;
-    }
-
-    body { user-select: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.write('<base href="'+(/^\/Aoibu\//i.test(location.pathname)?"/Aoibu/":"/")+'">');</script>
+<title>الصفحة غير موجودة | Aoibu</title>
+<meta name="description" content="هذه الصفحة غير متوفرة في مكتبة Aoibu.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#060a17">
+<meta name="color-scheme" content="dark light">
+<meta name="google-site-verification" content="A7fGmgGCOqpAAgVsf23KhGdk7FDoZ7D59UheyipRpMI">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="alternate" type="application/rss+xml" title="Aoibu | مكتبة كونان" href="rss.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aoibu | مكتبة كونان">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="الصفحة غير موجودة | Aoibu">
+<meta property="og:description" content="هذه الصفحة غير متوفرة في مكتبة Aoibu.">
+<meta property="og:image" content="https://aoibu.github.io/Aoibu/assets/img/og-cover.jpg">
+<meta property="og:url" content="https://aoibu.github.io/Aoibu/">
+<meta name="twitter:card" content="summary_large_image">
+<script>try{var t=localStorage.getItem("aoibu:theme");document.documentElement.setAttribute("data-theme",t?JSON.parse(t):"dark")}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=3">
+<!-- Google Analytics + Tag Manager -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9KLX7081KN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-9KLX7081KN");
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-MGG2SS4T");</script>
+<script>
+/* تحويل الروابط القديمة (مثل 1204.html أو M28.html) تلقائياً للصفحات الجديدة */
+(function(){
+  var p = location.pathname, root = /^\/Aoibu\//i.test(p) ? "/Aoibu/" : "/";
+  var f = decodeURIComponent(p.slice(p.lastIndexOf("/") + 1)).replace(/\.html?$/i, "");
+  var dir = p.toLowerCase();
+  var to = null, m;
+  if (/^\d{1,4}$/.test(f)) to = "watch.html?id=" + f;
+  else if (/^1202s$/i.test(f)) to = "watch.html?id=1202.5";
+  else if ((m = f.match(/^(\d{1,4})s$/i))) to = "watch.html?id=" + m[1] + ".5";
+  else if ((m = f.match(/^M(\d{4})$/i))) to = "read.html?id=" + m[1];
+  else if ((m = f.match(/^MSPI(\d+)$/i))) to = "read.html?id=SP" + m[1];
+  else if ((m = f.match(/^M(\d{1,2})(Watch|Down|Main)?$/i))) to = "watch.html?id=M" + m[1];
+  else if (/^support$/i.test(f) || f === "gift") to = "Gift.html";
+  else if (f === "vote") to = "Vote.html";
+  else if (/^(home|index)$/i.test(f)) to = "./";
+  if (to) location.replace(root + to + location.hash);
+})();
+</script>
 </head>
-
-<body>
-
-<div class="fog"></div>
-
-<div class="glass-card">
-  <div class="icon">🚫</div>
-  <h1>غير متوفر</h1>
-  <p>
-    عذراً، هذه <strong>الحلقة أو الفيلم غير متوفر حالياً</strong><br>
-    قد يكون الرابط خاطئاً أو تم حذف المحتوى.
-  </p>
-
-  <a href="/Aoibu/" class="neon-btn">العودة إلى الصفحة الرئيسية</a>
-</div>
-
-<footer>
-  © 2025 Aoibu Team
-</footer>
+<body data-page="404">
+<a class="sr-only" href="#main">تخطَّ إلى المحتوى</a>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<div class="container center-card"><div class="panel" style="padding:48px 24px">
+  <div style="font-family:var(--font-display);font-size:88px;line-height:1;background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">404</div>
+  <h1 style="font-size:26px;margin:12px 0 8px">القضية غامضة… الصفحة غير موجودة</h1>
+  <p style="color:var(--text-2)">ربما تغيّر الرابط أو حُذف المحتوى. جرّب البحث عن الحلقة برقمها.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px"><a class="btn btn-primary" href="./">العودة للرئيسية</a><button class="btn" type="button" data-open-search>ابحث عن حلقة</button></div>
+</div></div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/app.js?v=3"></script>
 
 </body>
 </html>

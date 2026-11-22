@@ -1,9 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /Aoibu/admin.html
+Disallow: /Aoibu/scripts/
 
-# منع أرشفة ملفات النظام أو التكوين إن وجدت
-Disallow: /README.md
-Disallow: /LICENSE
-
-# رابط خريطة الموقع لمساعدة جوجل على اكتشاف الحلقات الجديدة فوراً
+# خريطة الموقع تتحدث تلقائياً عند إضافة أي حلقة
 Sitemap: https://aoibu.github.io/Aoibu/sitemap.xml

@@ -1,258 +1,72 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    
-    <title>إهداء للفريق - Aoibu Team</title>
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/webp" href="Aoibu_Logo192.webp">
-  
-    <meta name="theme-color" content="#00bcd4" />
-    
-    <style>
-    :root {
-      --primary-color: #00bcd4;
-      --bg-dark: #0a0b10;
-      --card-bg: rgba(22, 24, 31, 0.9);
-      --text-main: #ffffff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    * { box-sizing: border-box; }
+<title>إهداء للفريق 🎁 | Aoibu Team</title>
+<meta name="description" content="ادعم فريق اويبو للترجمة بإهداء بطاقة هدايا (جوجل بلاي، آيتونز، ستيم…) — دعمك يساعدنا على الاستمرار.">
+<link rel="canonical" href="https://aoibu.github.io/Aoibu/Gift.html">
+<meta name="theme-color" content="#060a17">
+<meta name="color-scheme" content="dark light">
+<meta name="google-site-verification" content="A7fGmgGCOqpAAgVsf23KhGdk7FDoZ7D59UheyipRpMI">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="alternate" type="application/rss+xml" title="Aoibu | مكتبة كونان" href="rss.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aoibu | مكتبة كونان">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="إهداء للفريق 🎁 | Aoibu Team">
+<meta property="og:description" content="ادعم فريق اويبو للترجمة بإهداء بطاقة هدايا (جوجل بلاي، آيتونز، ستيم…) — دعمك يساعدنا على الاستمرار.">
+<meta property="og:image" content="https://aoibu.github.io/Aoibu/assets/img/og-cover.jpg">
+<meta property="og:url" content="https://aoibu.github.io/Aoibu/Gift.html">
+<meta name="twitter:card" content="summary_large_image">
+<script>try{var t=localStorage.getItem("aoibu:theme");document.documentElement.setAttribute("data-theme",t?JSON.parse(t):"dark")}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=3">
+<!-- Google Analytics + Tag Manager -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9KLX7081KN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-9KLX7081KN");
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-MGG2SS4T");</script>
 
-    body {
-      margin: 0;
-      background-color: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(0, 188, 212, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(255, 61, 61, 0.1) 0%, transparent 40%);
-      font-family: 'El Messiri', sans-serif;
-      color: var(--text-main);
-      overflow-x: hidden;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-    }
-
-    /* --- Effects --- */
-    #particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; pointer-events: none; }
-    .particle { position: absolute; border-radius: 50%; background: white; opacity: 0; will-change: transform, opacity; box-shadow: 0 0 10px rgba(255,255,255,0.8); }
-    @keyframes floatUp {
-        0% { transform: translateY(100vh) scale(0); opacity: 0; }
-        20% { opacity: 0.8; }
-        100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-    }
-
-    /* --- Layout --- */
-    .container { 
-        width: 100%; max-width: 550px; 
-        margin: 40px auto; padding: 20px; 
-        flex: 1; display: flex; flex-direction: column; justify-content: center;
-    }
-
-    .glass-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 25px; padding: 40px 30px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    
-    /* شريط زخرفي علوي */
-    .glass-card::before {
-        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-        background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-    }
-
-    h1 { 
-        color: #fff; margin: 10px 0 15px; font-size: 28px; 
-        text-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
-    }
-
-    .subtitle {
-        color: #bbb; line-height: 1.7; font-size: 0.95rem; margin-bottom: 30px;
-    }
-
-    /* أيقونات البطاقات */
-    .gift-icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; flex-wrap: wrap; }
-    .g-icon { 
-        font-size: 1.8rem; background: rgba(255,255,255,0.05); 
-        width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
-        border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
-        transition: 0.3s; cursor: default;
-    }
-    .g-icon:hover { transform: translateY(-5px); border-color: var(--primary-color); box-shadow: 0 5px 15px rgba(0,188,212,0.2); }
-
-    /* Form Styles */
-    .form-group { margin-bottom: 20px; text-align: right; }
-    .input-field {
-        width: 100%; padding: 14px 20px;
-        background: rgba(0,0,0,0.3); border: 1px solid #333;
-        border-radius: 12px; color: #fff; font-family: 'El Messiri';
-        font-size: 1rem; transition: 0.3s; outline: none;
-    }
-    .input-field:focus { border-color: var(--primary-color); background: rgba(0,0,0,0.5); }
-    
-    select.input-field { cursor: pointer; appearance: none; }
-
-    /* زر الإرسال */
-    .submit-btn {
-        width: 100%; padding: 16px; margin-top: 10px;
-        background: linear-gradient(135deg, var(--primary-color) 0%, #008ba3 100%);
-        border: none; border-radius: 50px;
-        color: #fff; font-size: 1.1rem; font-weight: bold; font-family: 'El Messiri';
-        cursor: pointer; transition: 0.3s;
-        box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
-        display: flex; align-items: center; justify-content: center; gap: 10px;
-    }
-    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0, 188, 212, 0.5); }
-    .submit-btn:active { transform: translateY(0); }
-
-    /* رسائل الحالة */
-    #status-msg { margin-top: 20px; font-weight: bold; display: none; padding: 12px; border-radius: 8px; font-size: 0.9rem; }
-    .success { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
-    .error { background: rgba(231, 76, 60, 0.15); color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.3); }
-
-    footer {
-        margin-top: auto; padding: 20px; text-align: center; color: #666; font-size: 0.8rem;
-    }
-    footer a { color: #888; text-decoration: none; transition: 0.3s; }
-    footer a:hover { color: var(--primary-color); }
-    </style>
 </head>
-
-<body>
-
-<div id="particles-container"></div>
-
-<div class="container">
-  
-  <div class="glass-card">
-    <div style="font-size: 3rem; margin-bottom: 10px;">🎁</div>
-    <h1>إهداء للفريق</h1>
-    <p class="subtitle">
-      نقدّر وجودكم معنا وهو أكبر داعم لنا! 💙<br>
-      إذا رغبت في شكر الفريق أو المساهمة، يمكنك إرسال بطاقة الهدية هنا بكل حب.
-    </p>
-
-    <div class="gift-icons">
-        <div class="g-icon" title="Google Play">▶️</div>
-        <div class="g-icon" title="App Store">🍎</div>
-        <div class="g-icon" title="Steam">🎮</div>
-        <div class="g-icon" title="Amazon">🛒</div>
-    </div>
-
-    <form id="giftForm">
-      
-      <div class="form-group">
-        <input type="text" name="name" class="input-field" placeholder="الاسم أو اللقب (اختياري)" >
-      </div>
-
-      <div class="form-group">
-        <select name="type" class="input-field" required>
-            <option value="" disabled selected>اختر نوع البطاقة</option>
-            <option value="Google Play">Google Play (جوجل بلاي)</option>
-            <option value="iTunes">App Store & iTunes (آيتونز)</option>
-            <option value="Steam">Steam (ستيم)</option>
-            <option value="PlayStation">PlayStation Store</option>
-            <option value="Amazon">Amazon (أمازون)</option>
-            <option value="Other">نوع آخر</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <input type="text" name="code" class="input-field" style="border-color: rgba(255,255,255,0.2); text-align:center; letter-spacing: 2px;" placeholder="اكتب كود البطاقة هنا" required>
-      </div>
-      
-      <div class="form-group">
-        <input type="text" name="amount" class="input-field" placeholder="قيمة البطاقة (مثلاً: 10$، 50 ريال...)" >
-      </div>
-
-      <div class="form-group">
-        <textarea name="message" class="input-field" rows="2" placeholder="كلمة للفريق (اختياري)..."></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn" id="sendBtn">
-        <span>💌 إرسال الإهداء</span>
-      </button>
-
-      <div id="status-msg"></div>
-
-    </form>
-  </div>
-
-  <footer>
-    &copy; 2025 Aoibu Team
-    <br><br>
-    <a href="index.html">⬅️ العودة للصفحة الرئيسية</a>
-  </footer>
-
-</div>
-
+<body data-page="gift">
+<a class="sr-only" href="#main">تخطَّ إلى المحتوى</a>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<div class="container center-card"><div class="panel" style="padding:clamp(22px,4vw,40px)">
+  <div style="font-size:56px;line-height:1">🎁</div>
+  <h1 style="font-size:30px;margin:12px 0 6px">إهداء للفريق</h1>
+  <p style="color:var(--text-2);margin-bottom:22px">وجودكم معنا هو أكبر داعم لنا 💙<br>إذا رغبت في شكر الفريق أو المساهمة، أرسل بطاقة الهدية هنا بكل حب.</p>
+  <form id="giftForm" class="form-grid">
+    <label>الاسم أو اللقب (اختياري)<input class="input" type="text" name="name" maxlength="60"></label>
+    <label>نوع البطاقة<select class="select" name="type" required><option value="" disabled selected>اختر نوع البطاقة</option><option value="Google Play">Google Play (جوجل بلاي)</option><option value="iTunes">App Store & iTunes (آيتونز)</option><option value="Steam">Steam (ستيم)</option><option value="PlayStation">PlayStation Store</option><option value="Amazon">Amazon (أمازون)</option><option value="Other">نوع آخر</option></select></label>
+    <label>كود البطاقة<input class="input" type="text" name="code" required dir="ltr" style="text-align:center;letter-spacing:2px" placeholder="XXXX-XXXX-XXXX"></label>
+    <label>قيمة البطاقة (اختياري)<input class="input" type="text" name="amount" placeholder="مثلاً: 10$ أو 50 ريال"></label>
+    <label>كلمة للفريق (اختياري)<textarea class="textarea" name="message" rows="2" style="min-height:70px"></textarea></label>
+    <button type="submit" class="btn btn-primary" style="width:100%">💌 إرسال الإهداء</button>
+    <div id="status-msg" class="status" role="status"></div>
+  </form>
+</div></div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/app.js?v=3"></script>
 <script>
-    // --- Particles Effect ---
-    const particleContainer = document.getElementById('particles-container');
-    for (let i = 0; i < 25; i++) {
-        let p = document.createElement('div');
-        p.classList.add('particle');
-        let size = Math.random() * 3 + 1;
-        p.style.width = `${size}px`; p.style.height = `${size}px`;
-        p.style.left = `${Math.random() * 100}%`;
-        p.style.animation = `floatUp ${Math.random() * 10 + 15}s linear ${Math.random() * 10}s infinite`;
-        particleContainer.appendChild(p);
-    }
-
-    // --- Form Handling ---
-    const form = document.getElementById('giftForm');
-    const msgDiv = document.getElementById('status-msg');
-    const btn = document.getElementById('sendBtn');
-    
-    // ✅ الرابط الجديد الذي أرسلته أنت
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzyqgIEMHPm11u6PRXaQiEm7RDbd5NR3eqB9C-XmPEswOiP7SMPtnnoK9Nbn2777bQq/exec";
-
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-
-        // 1. تغيير الزر لوضعية التحميل
-        const originalBtnText = btn.innerHTML;
-        btn.disabled = true;
-        btn.innerHTML = "⏳ جاري الإرسال...";
-        msgDiv.style.display = 'none';
-
-        // 2. تجهيز البيانات
-        const formData = new FormData(form);
-
-        // 3. عملية الإرسال
-        fetch(SCRIPT_URL, { 
-            method: 'POST', 
-            body: formData 
-        })
-        .then(response => {
-            // بسبب سياسات جوجل (CORS)، غالباً ما يكون الرد "Opaque" ولا يمكن قراءته
-            // لكن طالما وصلنا إلى هنا ولم يحدث Network Error، فالإرسال نجح.
-            msgDiv.className = 'success';
-            msgDiv.innerHTML = "✅ شكراً لك! وصلت هديتك، ممتنون جداً لدعمك ولطفك 💙";
-            msgDiv.style.display = 'block';
-            form.reset();
-        })
-        .catch(error => {
-            // في حال حدوث خطأ برمجي أو شبكة
-            console.error('Error!', error.message);
-            // ملاحظة: مع Google Scripts أحياناً يصل الكود للـ catch ومع ذلك تكون البيانات وصلت
-            // لكن سنفترض النجاح لطمأنة المستخدم
-            msgDiv.className = 'success';
-            msgDiv.innerHTML = "✅ تم استلام الطلب! شكراً لك.";
-            msgDiv.style.display = 'block';
-            form.reset();
-        })
-        .finally(() => {
-            // إعادة الزر لوضعه الطبيعي
-            btn.disabled = false;
-            btn.innerHTML = originalBtnText;
-        });
-    });
+(async function(){
+  const A = window.Aoibu, site = await A.siteReady;
+  const form = document.getElementById("giftForm"), st = document.getElementById("status-msg");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector("button[type=submit]"), old = btn.innerHTML;
+    btn.disabled = true; btn.innerHTML = "⏳ جاري الإرسال…"; st.className = "status";
+    try { await fetch(site.endpoints.gift, { method: "POST", body: new FormData(form) }); } catch (err) { /* ردود Google Script غالباً معتمة لكن البيانات تصل */ }
+    st.className = "status ok"; st.textContent = "✅ شكراً لك! وصلت هديتك، ممتنون جداً لدعمك ولطفك 💙"; form.reset();
+    btn.disabled = false; btn.innerHTML = old;
+  });
+})();
 </script>
-
 </body>
 </html>

@@ -1,0 +1,38 @@
+{
+  "siteName": "Aoibu | مكتبة كونان",
+  "siteUrl": "https://aoibu.github.io/Aoibu/",
+  "description": "مكتبة فريق اويبو للترجمة: شاهد حلقات وأفلام المحقق كونان مترجمة للعربية بجودة عالية، واقرأ فصول المانجا.",
+  "announcement": {
+    "show": true,
+    "image": "assets/img/banner-ramadan.webp",
+    "link": "congrats.html",
+    "alt": "كونان وشينيتشي ينظران إلى السماء — اترك تهنئتك للفريق"
+  },
+  "social": [
+    {"name": "تيليجرام", "url": "https://t.me/Aoibu_Arabic", "icon": "telegram"},
+    {"name": "X (تويتر)", "url": "https://x.com/Aoibu_Arabic", "icon": "x"}
+  ],
+  "reportTo": "TheConanSign",
+  "appDownload": "https://spoo.me/Aoibu_App7",
+  "team": {
+    "TheConanSign": "https://x.com/TheConanSign",
+    "ABOODYSUBS": "https://x.com/ABOODY_SUBS",
+    "CodeSubs": "https://x.com/CodeSubs",
+    "Aikysb_4869": "https://x.com/Aikysb_4869",
+    "ExcelVth": "https://x.com/ExcelVth",
+    "AKAI_SHUICHI (MS)": "https://x.com/AChuitchi27998"
+  },
+  "defaultCredits": [
+    {"role": "ترجمة وتدقيق", "name": "ExcelVth"},
+    {"role": "المحاكاة والبرمجة", "name": "TheConanSign"},
+    {"role": "الإنتاج والشارات", "name": "ABOODYSUBS"},
+    {"role": "تصميم", "name": "AKAI_SHUICHI (MS)"}
+  ],
+  "endpoints": {
+    "comments": "https://script.google.com/macros/s/AKfycbwzV7dMLHD51j_DOypZXcrhSBR2YVVruMjsAHfKxCL0CqSf7zRLiWC6ofLpu6KHfoA_/exec",
+    "rating": "https://script.google.com/macros/s/AKfycbwzK1u56o3Vz2qiNIEio_NMZKThCkckFCUOG2fi0HZCXn2pDGjxmcy6mxXP3hsZ7HkjWA/exec",
+    "news": "https://script.google.com/macros/s/AKfycbz2_FZvjQFyDbn9Ya-bChIBalgybOVjkS3EhYU5PhURzOIauOldhT5XDIi4zoQq5KD4vQ/exec",
+    "gift": "https://script.google.com/macros/s/AKfycbzyqgIEMHPm11u6PRXaQiEm7RDbd5NR3eqB9C-XmPEswOiP7SMPtnnoK9Nbn2777bQq/exec",
+    "congrats": "https://script.google.com/macros/s/AKfycbxAp7eXlPKztVu5p1MMWtXVclLdIb5FwqdDon0L5PjK9yK5Z8e17lYFbyjhtao9BWXX6g/exec"
+  }
+}
