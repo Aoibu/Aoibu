@@ -4,9 +4,9 @@
   "description": "مكتبة فريق اويبو للترجمة: شاهد حلقات وأفلام المحقق كونان مترجمة للعربية بجودة عالية، واقرأ فصول المانجا.",
   "announcement": {
     "show": true,
-    "image": "assets/img/banner-ramadan.webp",
-    "link": "congrats.html",
-    "alt": "كونان وشينيتشي ينظران إلى السماء — اكتب تعليقك للفريق"
+    "image": "assets/posters/banner-mwrtd7rh.webp",
+    "link": "#",
+    "alt": "اعلان تشويقي الفيلم 29 - قريباً..."
   },
   "social": [
     {"name": "تيليجرام", "url": "https://t.me/Aoibu_Arabic", "icon": "telegram"},
