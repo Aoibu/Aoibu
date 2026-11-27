@@ -4,9 +4,9 @@
   "description": "مكتبة فريق اويبو للترجمة: شاهد حلقات وأفلام المحقق كونان مترجمة للعربية بجودة عالية، واقرأ فصول المانجا.",
   "announcement": {
     "show": true,
-    "image": "assets/posters/banner-mwrtd7rh.webp",
-    "link": "#",
-    "alt": "اعلان تشويقي الفيلم 29 - قريباً..."
+    "image": "assets/posters/banner-mwzhux96.webp",
+    "link": "watch.html?id=M29",
+    "alt": "اعلان تشويقي الفيلم 29 - شاهد الأن!"
   },
   "social": [
     {"name": "تيليجرام", "url": "https://t.me/Aoibu_Arabic", "icon": "telegram"},
@@ -32,5 +32,6 @@
     "comments": "https://script.google.com/macros/s/AKfycbwzV7dMLHD51j_DOypZXcrhSBR2YVVruMjsAHfKxCL0CqSf7zRLiWC6ofLpu6KHfoA_/exec",
     "rating": "https://script.google.com/macros/s/AKfycbwzK1u56o3Vz2qiNIEio_NMZKThCkckFCUOG2fi0HZCXn2pDGjxmcy6mxXP3hsZ7HkjWA/exec",
     "congrats": "https://script.google.com/macros/s/AKfycbxAp7eXlPKztVu5p1MMWtXVclLdIb5FwqdDon0L5PjK9yK5Z8e17lYFbyjhtao9BWXX6g/exec"
-  }
+  },
+  "featured": "M29"
 }
